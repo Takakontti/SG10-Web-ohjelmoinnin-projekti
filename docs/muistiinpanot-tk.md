@@ -3,56 +3,56 @@
 
 ### Elokuva harrastus toiminta.
 
-- **Yhteisöllisyys**
-- Keskustellaan elokuvista. 
-- Suositellaan elokuvia.
-- Vaikea muistaa elokuva suosituksia.
-- Whatsappista vaikea hakea suosituksia.
-- Ryhmän jäsenet käyttävät eri ohjelmia suosituksiin.
-- Asiakas haluaa elokuva suositus palvelun.
+- Asiakas haluaa palvelun, jossa voi suositella elokuvia ryhmien sisällä.
 - Asiakas haluaa mahdollisesti kaupata palvelua muille elokuva harrastajille.
-- Palvelun tarkoitus ei ole näyttää elokuvia
+- Palvelun tarkoitus ei ole näyttää elokuvia.
 - Palvelun idea on suositella elokuvia ja näyttää tietoa elokuvista.
 - Palvelussa halutaan nähdä yhteisön arvostelut ei tuntemattomien arvosteluja.
-- Palvelu halutaan kaupata elokuva kerhoille maksullisena.
 - Asiakas haluaa mahdollisesti tehdä yhteistyötä elokuvateattereiden kanssa.
 
 ### Toiminnallisuus
 
 - Käyttäjän pitäisi heti päästä selaaman suosituksia.
-- Ei tyrkytettyä rekisteröintiä
+- Ei tyrkytettyä rekisteröintiä.
 - The movie database (tmdb) tiedonlähteeksi.
-- Palvelusta pitää pystyä hakea elokuvia esim näyttelijöiden perusteella.
-- Mahdolliset samanlaiset elokuva kehdotukset.
-- Elokuvissa näkyy missä teattereissa se pyörii.
-- Tiedoissa pitää näkyä julisteet ja mahdolliset trailerit.
+- Palvelusta pitää pystyä hakea elokuvia esim näyttelijöiden perusteella. (Wildcard haku)
+- Mahdolliset samanlaiset elokuva kehdotukset. (Tag systeemi?)
+- Elokuvissa näkyy missä teattereissa se pyörii ja milloin. (Suomessa)
+- Tiedoissa pitää näkyä julisteet ja ~~mahdolliset trailerit~~. 
 - Sivu halutaan näyttää asialliselta.
 - Palvelu halutaan toimivan puhelimella.
 - Palvelussa on käyttäjiä, jotka voi tehdä ryhmiä, jossa he voivat katsoa ryhmän suositeltuja elokuvia.
-- Ryhmään ei saa päästää ilman lupaa.
-- Julkisten ryhmien hakeminen.
-- Ryhmistä voi poistua ja poistaa jäseniä.
+- Ryhmään ei saa päästää käyttäjiä ilman lupaa. (Kysytään tarkennusta)
+- Julkisten ryhmien hakeminen. (Kysytään tarkennusta)
+- Ryhmistä voi poistua ja ylläpitäjä(t) voi poistaa jäseniä.
 - Ryhmälle oma palsta.
-- Tähtiarvostelu ryhmittäin.
+- Tähtiarvostelu ja kirjalliset arvostelut ryhmittäin. (Pitkä, mutta maksimi pituus)
 - Ilman kirjautumista ei voi kirjoitta arvosteluja.
 - Arvostelujen lukeminen auki kaikille.
-- Käyttäjänimet.
+- Käyttäjänimet erikseen. (Ei sähköposti käyttäjänimenä)
 - Elokuva listoja ryhmille (esim. Katso myöhemmin).
 - Listoja voi jakaa ulkopuolisille.
-- Salasanan vahvuus.
-- Palvelu suomeksi + mahdollisesti Ruotsi ja Englanti.
+- Salasanan vahvuus metriikat.
+- Palvelu Suomeksi + mahdollisesti Ruotsi ja Englanti.
 - Ylläpitäjä käyttäjiä.
-- Törkeiden arvostelujen poisto mahdollisuus ryhmässä.
+- Ylläpitäjille törkeiden arvostelujen poisto mahdollisuus ryhmässä.
 - Arvostelun kirjoittaja päättää onko arvostelu julkinen vai pelkästään ryhmälle.
-- Yhteisten ryhmien näyttäminen.
-- Profiilista voi katsoa henkilön arvostelut.
+- Yhteisten ryhmien näyttäminen. (Kysytään tarkennusta)
+- Profiilista voi katsoa henkilön julkiset arvostelut.
 - Mahdollisuus antaa ylläpito-oikeudet ryhmissä.
 - Mahdollisuus jakaa listoja ryhmässä ilman linkkejä.
 - vain ryhmän ylläpitäjä(t) voi päivittää ryhmän listoja.
+- Elokuvien yhteenveto näkyy elokuvakortissa.
+- Elokuvien lisäys, jos niitä ei löydy palvelusta. (kysy)
+- Arvosanojen siirto, jos elokuvat tulevat palveluun.
+- Julkisten listojen haku.
 
 ### Lisä ominaisuuksia
 
 - Elokuva kehdotukset aiempien valintojen perusteella.
+- Tekoäly suositukset.
 
 ### Oletuksia
-- RECaptcha?
+
+- RECaptcha tai monivaiheinen tunnistus sähköpostilla? (Kysytään tarkennusta)
+- Viestintä ominaisuudet. (Kysytään tarkennusta)
