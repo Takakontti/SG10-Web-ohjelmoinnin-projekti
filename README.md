@@ -4,9 +4,9 @@
 
 
 ## Scrum-tiimi ja työskentelytavat
-- Product Owner: [nimi]
-- Scrum Master: [nimi]
-- Kehittäjät: [nimet]
+- Product Owner: Lasse Haverinen
+- Scrum Master: Ilari Bäckman
+- Kehittäjät: **Ilari Bäckman, Jarkko Huhtala, Daniel Nylander**
 - Sprintin pituus: 1 viikko
 
 ## Dokumentit
