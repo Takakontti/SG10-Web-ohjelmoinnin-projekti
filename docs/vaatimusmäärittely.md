@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
-**Versio:** 0.2  
-**Päivämäärä:** 28.10.2026  
+**Versio:** 0.3  
+**Päivämäärä:** 29.10.2026  
 **Laatija:** Study Group 10  
 **Tila:** Keskeneräinen
 
@@ -120,12 +120,12 @@ Rajaus ja Must-prioriteetit hyväksytetään asiakkaalla. Niitä voidaan muuttaa
 
 | ID | Kysymys asiakkaalle | Tila |
 |---|---|---|
-| Q-01 | Pitääkö palvelussa olla viestintäominaisuuksia? Jos pitää, minkälaisia? | Avoin |
-| Q-02 | Voiko julkisia ryhmiä hakea? | Avoin |
-| Q-03 | Voiko julkisiin ryhmiin liittyä ilman kutsua? | Avoin |
-| Q-04 | Jos elokuvia ei löydy palvelusta, voiko käyttäjä lisätä arvostelun puuttuvaan elokuvaan? | Avoin |
-| Q-05 | Jos kaksi käyttäjää on yhteisessä ryhmässä, pystyykö käyttäjät nähdä toistensa ryhmiä? | Avoin |
-| Q-06 | Onko arvostelulle tarkkaa maksimipituutta? | Avoin |
+| Q-01 | Pitääkö palvelussa olla viestintäominaisuuksia? Jos pitää, minkälaisia? V: WhatsAppin tyyppinen keskustelu palsta ryhmissä. | Suljettu |
+| Q-02 | Voiko julkisia ryhmiä hakea? V: Voi hakea.  | Suljettu |
+| Q-03 | Voiko julkisiin ryhmiin liittyä ilman kutsua? V: Pystyy pyytää liitymislupaa ryhmään.  | Suljettu |
+| Q-04 | Jos elokuvia ei löydy palvelusta, voiko käyttäjä lisätä arvostelun puuttuvaan elokuvaan? V: Ei tarvi. | Suljettu |
+| Q-05 | Jos kaksi käyttäjää on yhteisessä ryhmässä, pystyykö käyttäjät nähdä toistensa ryhmiä? V: Käyttäjät eivät näe yksityisiä ryhmiä, mutta julkiset ryhmät näkyvät. | Suljettu |
+| Q-06 | Onko arvostelulle tarkkaa maksimipituutta? V: Asiakasta ei haittaa pitkät arvostelut. | Suljettu |
 
 **Oletukset, jotka pitää varmistaa:** 
 
@@ -148,3 +148,4 @@ Muutokset kirjataan dokumentin versiohistoriaan ja ~~GitHubin backlogiin.~~ Asia
 |---|---|---|
 | 0.1 | 27.10.2026 | Alustava vaatimusmäärittely. |
 | 0.2 | 28.10.2026 | Vaatimuusmäärittely täydennetty. |
+| 0.3 | 29.10.2026 | Lisätty asiakkaan vastaukset kysymyksiin. |
