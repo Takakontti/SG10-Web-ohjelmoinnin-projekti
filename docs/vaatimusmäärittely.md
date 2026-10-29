@@ -1,9 +1,9 @@
 # Vaatimusmäärittely
 
-**Versio:** 0.3  
+**Versio:** 0.4  
 **Päivämäärä:** 29.10.2026  
 **Laatija:** Study Group 10  
-**Tila:** Keskeneräinen
+**Tila:** Odottaa hyväksyntää
 
 ## 1. Tausta ja tavoite
 
@@ -60,19 +60,23 @@ Jokaisella vaatimuksella on yksilöllinen tunniste. **Must** tarkoittaa ensimmä
 | FR-19 | Ryhmän ylläpitäjänä voin lisätä ryhmälle muita ylläpitäjiä. | should |
 | FR-20 | Ryhmän ylläpitäjänä voin poistaa jäseniä ryhmästä. | should |
 | FR-21 | Ulkopuolisena voin hakea elokuvia tunnisteiden perusteella. | should |
-| FR-22 | Ulkopuolisena voin nähdä ajankohtaisia elokuvia etusivulla. | could |
-| FR-23 | Käyttäjänä voin saada elokuvasuosituksia. | could |
-| FR-24 | Ulkopuolisena voin nähdä missä teattereissa ja milloin elokuvan voi nähdä. | could |
-| FR-25 | Ulkopuolisena voin nähdä käyttäjän julkiset arvostelut käyttäjän profiilista. | could |
-| FR-26 | Ulkopuolisena voin nähdä julkisia ryhmiä. | could |
-| FR-27 | Ryhmän jäsenenä voin jakaa ryhmälle listojani. | could |
-| FR-28 | Käyttäjänä saan elokuvasuosituksia tekoälyltä. | wont now |
-
-
-### 4.1 Tarkemmat hyväksymiskriteerit: 
-
-- **Tilanne:**  **Kun:**  **Niin:** 
-- **Kun:**  **Niin:** 
+| FR-22 | Käyttäjänä voin muokata arvostelujani. | should |
+| FR-23 | Käyttäjänä voin vaihtaa sähköpostini | should |
+| FR-24 | Käyttäjänä voin vaihtaa salasanani | should |
+| FR-25 | Käyttäjänä voin palauttaa unohtuneen salasanani | should |
+| FR-26 | Ryhmän jäsenenä voin lähettää viestejä ryhmän ryhmäkeskusteluun | should |
+| FR-27 | Ryhmän jäsenenä voin nähdä julkiset ryhmät, joihin toinen ryhmän jäsen kuuluu | could |
+| FR-28 | Omistajana voin nähdä tilastoja sovelluksen käytöstä | could |
+| FR-29 | Ulkopuolisena voin nähdä ajankohtaisia elokuvia etusivulla. | could |
+| FR-30 | Käyttäjänä voin saada elokuvasuosituksia. | could |
+| FR-31 | Käyttäjänä voin piilottaa elokuvaehdotukset, jotka eivät kiinnosta | could |
+| FR-32 | Ulkopuolisena voin nähdä, missä teattereissa ja milloin elokuvan voi nähdä. | could |
+| FR-33 | Ulkopuolisena voin nähdä, minkälainen näytös elokuvalla on elokuvateatterissa | could |
+| FR-34 | Ulkopuolisena voin nähdä käyttäjän julkiset arvostelut käyttäjän profiilista. | could |
+| FR-35 | Ulkopuolisena voin hakea julkisia ryhmiä. | could |
+| FR-36 | Käyttäjänä voin pyytää liittymislupaa julkiseen ryhmään | could |
+| FR-37 | Ryhmän jäsenenä voin jakaa ryhmälle listojani. | could |
+| FR-38 | Käyttäjänä saan elokuvasuosituksia tekoälyltä. | wont now |
 
 ## 5. Ei-toiminnalliset vaatimukset
 
@@ -83,6 +87,8 @@ Jokaisella vaatimuksella on yksilöllinen tunniste. **Must** tarkoittaa ensimmä
 | NFR-03 | Salasanat tallennetaan vain turvallisella yksisuuntaisella salasanatiivisteellä | Toteutuksen ja tietokannan tarkistus |
 | NFR-04 | Käyttäjä ei voi hakea tai muuttaa toisen käyttäjän tietoja ilman roolinsa mukaista oikeutta. | API:n käyttöoikeustesti |
 | NFR-05 | Sovelluksen tulee olla suomenkielinen. | Käyttöliittymätesti |
+| NFR-06 | Arvosteluilla tulee olla maksimipituus tietoturvasyistä. | API:n käyttötarkoitus testi |
+| NFR-07 | Salasanan tulee olla tarpeeksi vahva. | Tietoturvatesti |
 
 ## 6. Tiedot ja alustava tietomalli
 
@@ -114,7 +120,7 @@ Rajaus ja Must-prioriteetit hyväksytetään asiakkaalla. Niitä voidaan muuttaa
 
 ## 9. Definition of Done
 
-- [Definition of Done](docs/definition-of-done.md)
+- [Definition of Done](./definition-of-done.md)
 
 ## 10. Avoimet kysymykset ja oletukset
 
@@ -140,8 +146,6 @@ Vaatimusmäärittely käydään asiakkaan kanssa läpi **ennen varsinaisen toteu
 | Hyväksynnän päivämäärä | _________________________ |
 | Mahdolliset ehdot | _________________________ |
 
-Muutokset kirjataan dokumentin versiohistoriaan ja ~~GitHubin backlogiin.~~ Asiakas ja tiimi arvioivat yhdessä niiden vaikutuksen aikatauluun ja prioriteetteihin.
-
 ## 12. Versiohistoria
 
 | Versio | Päivä | Muutos |
@@ -149,3 +153,4 @@ Muutokset kirjataan dokumentin versiohistoriaan ja ~~GitHubin backlogiin.~~ Asia
 | 0.1 | 27.10.2026 | Alustava vaatimusmäärittely. |
 | 0.2 | 28.10.2026 | Vaatimuusmäärittely täydennetty. |
 | 0.3 | 29.10.2026 | Lisätty asiakkaan vastaukset kysymyksiin. |
+| 0.4 | 29.10.2026 | Täydennetty vaatimuksia vastausten perusteella. |
