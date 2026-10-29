@@ -17,6 +17,12 @@ FROM node:24
 # Set the working directory inside the container
 WORKDIR /app
 
+# curl is required by the backend health check
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/*
+
+
 # Copy package.json and package-lock.json (if available)
 COPY package*.json ./
 
@@ -27,6 +33,7 @@ RUN npm ci
 COPY . .
 
 # Expose port 5173 for Vite development server
+EXPOSE 3000
 EXPOSE 5173
 
 # Start the Vite development server
