@@ -34,7 +34,7 @@ Palvelu muodostaa yhteyden The Movie Databasen API-rajapintaan.
 
 ## Laadun tekniset ratkaisut
 
-Käyttäjät tunnistautuvat palveluun <käyttäjänimi ja/tai sähköposti> ja salasanan avulla. (Tarkennetaan kysymisen jälkeen)
+Käyttäjät tunnistautuvat palveluun käyttäjänimen tai sähköpostin ja salasanan avulla.
 
 Käyttöoikeudet tarkistetaan cookiehen tallennetun authtokenin avulla. (Tarkennetaan myöhemmin)
 
