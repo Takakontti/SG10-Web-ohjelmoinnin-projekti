@@ -2,6 +2,7 @@
 
 ## Product Goal
 
+Elokuva-harrastajaryhmillä on keskitetty alusta, jossa he voivat jakaa suosituksiaan ja arvostelujaan toisillensa.
 
 ## Scrum-tiimi ja työskentelytavat
 - Product Owner: Lasse Haverinen

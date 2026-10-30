@@ -1,9 +1,9 @@
 # Vaatimusmäärittely
 
-**Versio:** 0.4  
-**Päivämäärä:** 29.10.2026  
+**Versio:** 1.0  
+**Päivämäärä:** 30.10.2026  
 **Laatija:** Study Group 10  
-**Tila:** Odottaa hyväksyntää
+**Tila:** Hyväksytty
 
 ## 1. Tausta ja tavoite
 
@@ -11,10 +11,10 @@ Elokuva-harrastajilla on hankala seurata toistensa elokuvasuosituksia.
 
 **Tavoite:** Ryhmän jäsenet näkevät toistensa elokuvasuositukset helposti ja voivat keskustella niistä.
 
-**Onnistumisen mittarit:** Sovitaan asiakkaan kanssa
+**Onnistumisen mittarit:**
 
-- Ryhmän jäsen näkee muiden ryhmäjäsenien suositukset.
-- 
+- Ryhmän jäsen näkee muiden ryhmäjäsenien arvostelut.
+- Ryhmän ylläpitäjä voi kutsua jäseniä ryhmään.
 
 ## 2. Käyttäjät ja roolit
 
@@ -87,7 +87,7 @@ Jokaisella vaatimuksella on yksilöllinen tunniste. **Must** tarkoittaa ensimmä
 | NFR-03 | Salasanat tallennetaan vain turvallisella yksisuuntaisella salasanatiivisteellä | Toteutuksen ja tietokannan tarkistus |
 | NFR-04 | Käyttäjä ei voi hakea tai muuttaa toisen käyttäjän tietoja ilman roolinsa mukaista oikeutta. | API:n käyttöoikeustesti |
 | NFR-05 | Sovelluksen tulee olla suomenkielinen. | Käyttöliittymätesti |
-| NFR-06 | Arvosteluilla tulee olla maksimipituus tietoturvasyistä. | API:n käyttötarkoitus testi |
+| NFR-06 | Arvosteluilla tulee olla maksimipituus tietoturvasyistä. | API:n käyttötarkoitustesti |
 | NFR-07 | Salasanan tulee olla tarpeeksi vahva. | Tietoturvatesti |
 
 ## 6. Tiedot ja alustava tietomalli
@@ -101,9 +101,7 @@ Sovellus tallentaa vähintään seuraavat tiedot:
 
 **Ensimmäiseen julkaisuun (MVP) sisältyvät:** FR-01 - FR-07
 
-**Ei toteuteta tässä kahdeksan viikon projektissa:** FR-28
-
-Rajaus ja Must-prioriteetit hyväksytetään asiakkaalla. Niitä voidaan muuttaa, kun toteutuksen työmäärä tarkentuu.
+**Ei toteuteta tässä kahdeksan viikon projektissa:** FR-38
 
 ## 8. Toteutusjärjestys ja alustava viikkosuunnitelma
 
@@ -137,13 +135,11 @@ Rajaus ja Must-prioriteetit hyväksytetään asiakkaalla. Niitä voidaan muuttaa
 
 ## 11. Hyväksyntä ja muutosten hallinta
 
-Vaatimusmäärittely käydään asiakkaan kanssa läpi **ennen varsinaisen toteutuksen etenemistä**. Hyväksynnässä tarkistetaan erityisesti tavoitteet, ensimmäisen version rajaus, Must-vaatimukset ja avoimet kysymykset.
-
 | Kenttä | Arvo |
 |---|---|
-| Asiakkaan edustaja | _________________________ |
-| Hyväksytty versio | _________________________ |
-| Hyväksynnän päivämäärä | _________________________ |
+| Asiakkaan edustaja | <u>Lasse Haverinen</u> |
+| Hyväksytty versio | <u>1.0</u> |
+| Hyväksynnän päivämäärä | <u>30.10.2026</u> |
 | Mahdolliset ehdot | _________________________ |
 
 ## 12. Versiohistoria
@@ -154,3 +150,4 @@ Vaatimusmäärittely käydään asiakkaan kanssa läpi **ennen varsinaisen toteu
 | 0.2 | 28.10.2026 | Vaatimuusmäärittely täydennetty. |
 | 0.3 | 29.10.2026 | Lisätty asiakkaan vastaukset kysymyksiin. |
 | 0.4 | 29.10.2026 | Täydennetty vaatimuksia vastausten perusteella. |
+| 1.0 | 30.10.2026 | Viimeistelty hyväksytetty vaatimusmäärittely. |
