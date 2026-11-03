@@ -3,33 +3,37 @@ import { checkForExistingUser } from "../models/user.js";
 
 const createUser = async (req, res, next) => {
     // Tarkistetaan salasanan pituus ja monimutkaisuus ilman regexiä.
-    if (!req.body.password || req.body.password.length < 8) {
+    const { email, username, password } = req.body;
+
+    if (!password || password.length < 8) {
         return res.status(422).json({ message: "Password must be at least 8 characters" });
     }
-    if (!/[A-Z]/.test(req.body.password)) {
+    if (!/[A-Z]/.test(password)) {
         return res.status(422).json({ message: "Password must contain at least one uppercase letter" });
     }
-    if (!/[a-z]/.test(req.body.password)) {
+    if (!/[a-z]/.test(password)) {
         return res.status(422).json({ message: "Password must contain at least one lowercase letter" });
     }
-    if (!/[0-9]/.test(req.body.password)) {
+    if (!/[0-9]/.test(password)) {
         return res.status(422).json({ message: "Password must contain at least one number" });
     }
-    if (!/[!@#$%&*,.?":]/.test(req.body.password)) {
+    if (!/[!@#$%&*,.?":]/.test(password)) {
         return res.status(422).json({ message: "Password must contain at least one special character" });
     }
 
-    // Tarkistetaan, että sähköposti ja käyttäjänimi ei ole käytössä
-    const existingUser = await checkForExistingUser(req.body.email, req.body.username);
-    if (existingUser.rows.length > 0) {
-        return res.status(409).json({ message: "Email or username already in use" });
-    }
-    
-    const password = req.body.password;
-    
     try {
-        const result = await registerUser(req.body.email, req.body.username, password);
-        res.status(201).json({ message: "User created successfully", user: result.rows[0] });
+        // Tarkistetaan, että sähköposti ja käyttäjänimi ei ole käytössä.
+        const existingUser = await checkForExistingUser(email, username);
+
+        if (existingUser.rows.some((user) => user.username === username)) {
+            return res.status(409).json({ message: "The username is already in use" });
+        }
+        if (existingUser.rows.some((user) => user.email === email)) {
+            return res.status(409).json({ message: "The email is already in use" });
+        }
+
+        const result = await registerUser(email, username, password);
+        return res.status(201).json({ message: "User created successfully", user: result.rows[0] });
     } catch (error) {
         next(error);
     }

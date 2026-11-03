@@ -7,7 +7,7 @@ const registerUser = async (email, user, pwd) => {
     return result
 },
 checkForExistingUser = async (email, user) => {
-    const result = await pool.query('SELECT * FROM users WHERE email = $1 OR username = $2', [email, user])
+    const result = await pool.query('SELECT username, email FROM users WHERE email = $1 OR username = $2', [email, user])
     return result
 }
 
