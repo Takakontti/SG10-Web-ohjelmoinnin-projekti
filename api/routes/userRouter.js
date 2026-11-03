@@ -4,7 +4,7 @@ import { createUser } from '../controllers/userController.js'
 const router = Router()
 
 router.post('/register', createUser)
-// example address and body for testing in bruno/postman
+// esimerkki osoite ja JSON-data käyttäjän rekisteröintiin
 /*
 http://localhost:5173/api/user/register
 {
