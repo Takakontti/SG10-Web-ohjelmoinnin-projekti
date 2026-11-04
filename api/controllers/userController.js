@@ -4,7 +4,8 @@ import validator from 'validator'
 
 const createUser = async (req, res, next) => {
   const { email, username, password } = req.body
-    
+  
+
   // Tarkistetaan salasanan pituus ja monimutkaisuus.
   if (!password || password.length < 8) {
     return res.status(422).json({ message: 'Password must be at least 8 characters' })
@@ -24,6 +25,9 @@ const createUser = async (req, res, next) => {
 
   if (!validator.isEmail(email)) {
     return res.status(422).json({ message: 'The provided email address is not valid' })
+  }
+  if (username.length == 0) {
+    return res.status(422).json({ message: 'Username is required' })
   }
 
   try {
