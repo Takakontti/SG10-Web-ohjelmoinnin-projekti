@@ -34,9 +34,22 @@
 }
 
 .card {
-  padding: 2em;
+  display: flex;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.profile_button {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border: 1px solid red;
+  cursor: pointer;
 }
