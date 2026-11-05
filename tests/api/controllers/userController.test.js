@@ -1,11 +1,12 @@
 import { beforeEach,afterEach,describe,expect,it,vi } from 'vitest'
 
 vi.mock('../../../api/models/user.js', () => ({
-  registerUser: vi.fn()
+  registerUser: vi.fn(),
+  checkForExistingUser: vi.fn()
 }))
 
 import * as userControllerObject from '../../../api/controllers/userController.js'
-import { registerUser } from '../../../api/models/user.js'
+import { checkForExistingUser, registerUser } from '../../../api/models/user.js'
 
 describe('createUser', () => {
   beforeEach(() => {
@@ -42,6 +43,9 @@ describe('createUser', () => {
         email: 'test@tester.fi'
       }]
     })
+    checkForExistingUser.mockResolvedValue({
+      rows:[]
+    })
 
     await userControllerObject.createUser(req,res,vi.fn())
 
@@ -74,6 +78,9 @@ describe('createUser', () => {
         username: 'testuser',
         email: 'test@tester.fi'
       }]
+    })
+    checkForExistingUser.mockResolvedValue({
+      rows:[]
     })
 
     await userControllerObject.createUser(req,res,vi.fn())
@@ -108,6 +115,9 @@ describe('createUser', () => {
         email: 'test@tester.fi'
       }]
     })
+    checkForExistingUser.mockResolvedValue({
+      rows:[]
+    })
 
     await userControllerObject.createUser(req,res,vi.fn())
 
@@ -140,6 +150,9 @@ describe('createUser', () => {
         username: 'testuser',
         email: 'test@tester.fi'
       }]
+    })
+    checkForExistingUser.mockResolvedValue({
+      rows:[]
     })
 
     await userControllerObject.createUser(req,res,vi.fn())
@@ -174,11 +187,70 @@ describe('createUser', () => {
         email: 'test@tester.fi'
       }]
     })
+    checkForExistingUser.mockResolvedValue({
+      rows:[]
+    })
 
     await userControllerObject.createUser(req,res,vi.fn())
 
     expect(createUserSpy).toHaveBeenCalledOnce()
     expect(res.status).toHaveBeenCalledWith(201)
+    expect(res.json).toHaveBeenCalledWith(expectedValue)
+  })
+
+  it('should return status 409 with response, when email is already in use', async () => {
+    const req = {
+      body:{
+        email: 'test@tester.fi',
+        username: 'testuser',
+        password: 'Test123!'
+      }
+    }
+    const res = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    }
+    const expectedValue = {
+      'message': 'The email is already in use'
+    }
+    checkForExistingUser.mockResolvedValue({
+      rows:[{
+        email: 'test@tester.fi'
+      }]
+    })
+    
+    await userControllerObject.createUser(req,res,vi.fn())
+    
+    expect(createUserSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(409)
+    expect(res.json).toHaveBeenCalledWith(expectedValue)
+  })
+
+  it('should return status 409 with response, when username is already in use', async () => {
+    const req = {
+      body:{
+        email: 'test@tester.fi',
+        username: 'testuser',
+        password: 'Test123!'
+      }
+    }
+    const res = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    }
+    const expectedValue = {
+      'message': 'The username is already in use'
+    }
+    checkForExistingUser.mockResolvedValue({
+      rows:[{
+        username: 'testuser'
+      }]
+    })
+    
+    await userControllerObject.createUser(req,res,vi.fn())
+    
+    expect(createUserSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(409)
     expect(res.json).toHaveBeenCalledWith(expectedValue)
   })
 
@@ -320,6 +392,75 @@ describe('createUser', () => {
     expect(res.json).toHaveBeenCalledWith(expectedValue)
   })
 
+  it('should return status 422 with response, when email is not valid', async () => {
+    const req = {
+      body:{
+        email: 'test@tester.a',
+        username: 'testuser',
+        password: 'Test123!'
+      }
+    }
+    const res = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    }
+    const expectedValue = {
+      'message': 'The provided email address is not valid'
+    }
+    
+    await userControllerObject.createUser(req,res,vi.fn())
+    
+    expect(createUserSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(422)
+    expect(res.json).toHaveBeenCalledWith(expectedValue)
+  })
+
+  it('should return status 422 with response, when email is absent', async () => {
+    const req = {
+      body:{
+        email:  '',
+        username: 'testuser',
+        password: 'Test123!'
+      }
+    }
+    const res = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    }
+    const expectedValue = {
+      'message': 'The provided email address is not valid'
+    }
+    
+    await userControllerObject.createUser(req,res,vi.fn())
+    
+    expect(createUserSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(422)
+    expect(res.json).toHaveBeenCalledWith(expectedValue)
+  })
+
+  it('should return status 422 with response, when username is absent', async () => {
+    const req = {
+      body:{
+        email: 'test@tester.fi',
+        username: '',
+        password: 'Test123!'
+      }
+    }
+    const res = {
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    }
+    const expectedValue = {
+      'message': 'Username is required'
+    }
+    
+    await userControllerObject.createUser(req,res,vi.fn())
+    
+    expect(createUserSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(422)
+    expect(res.json).toHaveBeenCalledWith(expectedValue)
+  })
+
   it('should pass error in next when recieveing an error', async () => {
     const req = {
       body:{
@@ -334,7 +475,7 @@ describe('createUser', () => {
     }
     const next = vi.fn()
 
-    registerUser.mockRejectedValue(new Error('databaseError'))
+    checkForExistingUser.mockRejectedValue(new Error('databaseError'))
     await userControllerObject.createUser(req,res,next)
 
     expect(createUserSpy).toHaveBeenCalledOnce()
