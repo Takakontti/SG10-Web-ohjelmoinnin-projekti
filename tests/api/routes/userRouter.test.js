@@ -2,17 +2,7 @@ import { beforeEach,afterEach,describe,expect,it,vi } from 'vitest'
 import express from 'express'
 import request from 'supertest'
 
-vi.mock('../../../api/controllers/userController.js'/*, () => ({
-  createUser: (req,res,next) => {
-    res.status(201).json({
-      message: 'User created successfully',
-      user: {
-        email: 'test@tester.fi',
-        username: 'testuser'
-      }
-    })
-  }
-})*/);
+vi.mock('../../../api/controllers/userController.js');
 
 import userRouter from '../../../api/routes/userRouter';
 import { createUser } from '../../../api/controllers/userController'
