@@ -6,7 +6,6 @@ import cors from 'cors'
 import errorHandler from './middleware/errorHandler.js'
 import testRouter from './routes/testRouter.js'
 import userRouter from './routes/userRouter.js'
-import loginRouter from './routes/loginRouter.js'
 
 const app = express()
 
@@ -19,7 +18,6 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/tests', testRouter)
 app.use('/api/user', userRouter)
-app.use('/api/auth', loginRouter)
 
 // Health check endpoint for database connectivity
 app.get('/api/health', async (req, res) => {
