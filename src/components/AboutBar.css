@@ -1,0 +1,8 @@
+.AboutBar {
+    color: white;
+    display: flex;
+    position: static;
+    min-width: 100%;
+    padding-top: 1rem;
+    background-color: rgb(88, 148, 148);
+}
