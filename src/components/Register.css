@@ -24,8 +24,14 @@
   margin-bottom: 15px;
 }
 
-.login-button {
-  width: 100%;
+.button-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.register-buttons {
+  width: 49%;
 }
 
 .mb-3 {
@@ -33,5 +39,4 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
-
 }
