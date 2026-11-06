@@ -29,7 +29,7 @@ function Login() {
         const newErrors = {};
         if(!username) newErrors.username = 'Username is required';
         if (!password) newErrors.password = 'Password is required';
-        else if (password.length < 6) newErrors.password = 'Password must be at least 6 characters';
+        else if (password.length < 6) newErrors.password = 'Password must be at least 6 characters'; // Pwd len < 8, Errors in finnish if shown to user
         return newErrors;
     };
 
