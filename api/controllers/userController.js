@@ -1,8 +1,43 @@
-import { registerUser } from '../models/user.js'
-import { checkForExistingUser } from '../models/user.js'
+import { registerUser, checkForExistingUser, verifyUser } from '../models/user.js'
 import validator from 'validator'
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
-const createUser = async (req, res, next) => {
+dotenv.config()
+
+const cookieName = 'auth'
+const cookieOptions = {
+  httpOnly: true,
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: 'lax',
+  path: '/',
+}
+
+function issueCookie(res, user) {
+  const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET, { 
+    expiresIn: '30m', algorithm: 'HS256', issuer: 'MovCha'
+  })
+  res.cookie(cookieName, token, { ...cookieOptions, maxAge: 30 * 60 * 1000 })
+}
+
+const login = async (req, res, next) => {
+  const { email, username, password } = req.body
+
+  try {
+    const result = await verifyUser(email, username, password)
+    if (result) {
+      issueCookie(res, result)
+      return res.status(200).json({ message: "Login successful"})
+    }
+    else {
+      return res.status(401).json({ message: "Invalid credentials" })
+    }
+  }
+  catch(err) {
+    next(err)
+  }
+}, 
+createUser = async (req, res, next) => {
   const { email, username, password } = req.body
   
 
@@ -43,12 +78,13 @@ const createUser = async (req, res, next) => {
 
     const result = await registerUser(email, username, password)
     return res.status(201).json({ message: 'User created successfully', user: result.rows[0] })
-  } catch (error) {
+  } 
+  catch (error) {
     next(error)
   }
-
 }
 
 export {
-  createUser
+  createUser,
+  login
 }
