@@ -1,4 +1,4 @@
-.login-wrapper {
+.register-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   padding: 20px;
 }
 
-.login-form-container {
+.register-form-container {
   width: 320px;
   max-width: 400px;
   padding: 30px;
@@ -15,12 +15,12 @@
   background-color: #181414;
 }
 
-.login-title {
+.register-title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.login-form {
+.register-form {
   margin-bottom: 15px;
 }
 

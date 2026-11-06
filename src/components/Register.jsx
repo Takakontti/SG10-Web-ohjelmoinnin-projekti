@@ -52,9 +52,9 @@ function Register() {
   };
 
   return (
-    <div className="login-wrapper">
-      <div className="login-form-container">
-        <h2 className="login-title">Rekisteröidy</h2>
+    <div className="register-wrapper">
+      <div className="register-form-container">
+        <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Sähköposti osoite</Form.Label>
