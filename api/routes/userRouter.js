@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createUser, login } from '../controllers/userController.js'
+import { createUser, login, logout } from '../controllers/userController.js'
 
 const router = Router()
 
@@ -23,5 +23,6 @@ http://localhost:5173/api/user/login
     "password": "Test123!"
 }
 */
+router.post('/logout', logout)
 
 export default router
