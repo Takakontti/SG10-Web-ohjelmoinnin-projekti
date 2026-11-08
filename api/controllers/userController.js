@@ -14,14 +14,19 @@ const cookieOptions = {
 }
 
 function issueCookie(res, user) {
-  const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET, { 
+  const token = jwt.sign({ sub: user.id }, process.env.JWT_SECRET, {
     expiresIn: '30m', algorithm: 'HS256', issuer: 'MovCha'
   })
   res.cookie(cookieName, token, { ...cookieOptions, maxAge: 30 * 60 * 1000 })
 }
 
 const login = async (req, res, next) => {
-  const { email, username, password } = req.body
+  const { email, username, password } = req.body || {}
+
+  // Tarkistetaan että tarvitut kentät ei ole tyhjät
+  if ([email, username, password].some((value) => typeof value !== 'string' || value.trim() === '')) {
+    return res.status(400).json({ message: 'Email, username and password are required' })
+  }
 
   try {
     const result = await verifyUser(email, username, password)
@@ -82,9 +87,13 @@ createUser = async (req, res, next) => {
   catch (error) {
     next(error)
   }
+}, logout = (req, res) => {
+  res.clearCookie(cookieName, cookieOptions)
+  res.status(200).json({ message: 'Logout successful' })
 }
 
 export {
   createUser,
-  login
+  login,
+  logout
 }
