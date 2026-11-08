@@ -2,11 +2,13 @@ import { beforeEach,afterEach,describe,expect,it,vi } from 'vitest'
 
 vi.mock('../../../api/models/user.js', () => ({
   registerUser: vi.fn(),
-  checkForExistingUser: vi.fn()
+  checkForExistingUser: vi.fn(),
+  verifyUser: vi.fn()
 }))
 
 import * as userControllerObject from '../../../api/controllers/userController.js'
-import { checkForExistingUser, registerUser } from '../../../api/models/user.js'
+import { checkForExistingUser, registerUser, verifyUser } from '../../../api/models/user.js'
+import jwt from 'jsonwebtoken'
 
 describe('createUser', () => {
   beforeEach(() => {
@@ -480,5 +482,109 @@ describe('createUser', () => {
 
     expect(createUserSpy).toHaveBeenCalledOnce()
     expect(next).toHaveBeenCalledWith(Error('databaseError'))
+  })
+})
+
+describe('login', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    vi.stubEnv('JWT_SECRET', 'test-secret')
+    vi.stubEnv('NODE_ENV', 'test')
+  })
+
+  afterEach(() => {
+    vi.resetAllMocks()
+    vi.unstubAllEnvs()
+  })
+
+  const loginSpy = vi.spyOn(userControllerObject, 'login')
+  const credentials = {
+    username: 'testuser',
+    password: 'Test123!'
+  }
+  const createResponse = () => ({
+    status: vi.fn().mockReturnThis(),
+    json: vi.fn().mockReturnThis(),
+    cookie: vi.fn()
+  })
+
+  it('should authenticate with only username and password and set a valid cookie', async () => {
+    const res = createResponse()
+    verifyUser.mockResolvedValue({ id: 'user-123' })
+
+    await userControllerObject.login({ body: credentials }, res, vi.fn())
+
+    expect(loginSpy).toHaveBeenCalledOnce()
+    expect(verifyUser).toHaveBeenCalledWith(credentials.username, credentials.password)
+    expect(res.status).toHaveBeenCalledWith(200)
+    expect(res.json).toHaveBeenCalledWith({ message: 'Login successful' })
+    const [cookieName, token, cookieOptions] = res.cookie.mock.calls[0]
+    expect(res.cookie).toHaveBeenCalledOnce()
+    expect(cookieName).toBe('auth')
+    expect(jwt.verify(token, 'test-secret', { issuer: 'MovCha', algorithms: ['HS256'] })).toMatchObject({
+      sub: 'user-123',
+      iss: 'MovCha'
+    })
+    const deToken = jwt.decode(token)
+    expect(deToken.exp - deToken.iat).toBe(30 * 60)
+    expect(cookieOptions).toEqual({
+      httpOnly: true,
+      secure: false,
+      sameSite: 'lax',
+      path: '/',
+      maxAge: 30 * 60 * 1000
+    })
+    //expect(TheUnexpected)
+  })
+
+  it.each([false, null, undefined])('should return 401 and not set a cookie for invalid credentials (%s)', async (result) => {
+    const res = createResponse()
+    verifyUser.mockResolvedValue(result)
+
+    await userControllerObject.login({ body: credentials }, res, vi.fn())
+
+    expect(verifyUser).toHaveBeenCalledWith(credentials.username, credentials.password)
+    expect(res.status).toHaveBeenCalledWith(401)
+    expect(res.json).toHaveBeenCalledWith({ message: 'Invalid credentials' })
+    expect(res.cookie).not.toHaveBeenCalled()
+  })
+
+  it.each([
+    ['an absent request body', undefined],
+    ['a null request body', null],
+    ['an empty request body', {}],
+    ['a missing username', { password: credentials.password }],
+    ['a missing password', { username: credentials.username }],
+    ['an empty username', { ...credentials, username: '' }],
+    ['a whitespace-only username', { ...credentials, username: '   ' }],
+    ['an empty password', { ...credentials, password: '' }],
+    ['a whitespace-only password', { ...credentials, password: '   ' }],
+    ['a non-string username', { ...credentials, username: 123 }],
+    ['a non-string password', { ...credentials, password: ['Test123!'] }]
+  ])('should reject %s without querying the model or setting a cookie', async (_description, body) => {
+    const res = createResponse()
+
+    await userControllerObject.login({ body }, res, vi.fn())
+
+    expect(loginSpy).toHaveBeenCalledOnce()
+    expect(res.status).toHaveBeenCalledWith(400)
+    expect(res.json).toHaveBeenCalledWith({ message: 'Username and password are required' })
+    expect(verifyUser).not.toHaveBeenCalled()
+    expect(res.cookie).not.toHaveBeenCalled()
+  })
+
+  it('should pass model errors to the error middleware', async () => {
+    const error = new Error('databaseError')
+    const next = vi.fn()
+    const res = createResponse()
+    verifyUser.mockRejectedValue(error)
+
+    await userControllerObject.login({ body: credentials }, res, next)
+
+    expect(verifyUser).toHaveBeenCalledWith(credentials.username, credentials.password)
+    expect(next).toHaveBeenCalledWith(error)
+    expect(res.status).not.toHaveBeenCalled()
+    expect(res.json).not.toHaveBeenCalled()
+    expect(res.cookie).not.toHaveBeenCalled()
   })
 })
