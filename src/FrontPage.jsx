@@ -1,6 +1,6 @@
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
-import './Frontpage.css';
+import './FrontPage.css';
 import AboutBar from './components/AboutBar';
 
 
