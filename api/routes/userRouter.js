@@ -18,7 +18,6 @@ router.post('/login', login)
 /*
 http://localhost:5173/api/user/login
 {
-    "email": "test@tester.fi",
     "username": "testuser",
     "password": "Test123!"
 }
