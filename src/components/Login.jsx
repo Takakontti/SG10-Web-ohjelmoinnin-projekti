@@ -6,7 +6,7 @@ import './Login.css';
 
 const API_URL = 'http://localhost:5173/api';
 
-export const RegisterPost = async (username, password) => {
+export const LoginPost = async (username, password) => {
   const response = await axios.post(`${API_URL}/user/login`, { username, password}); // Not sure if route is right
   return response.data;
 }
@@ -41,13 +41,13 @@ function Login() {
         }
 
         try {
-        const userData = await RegisterPost(email, username, password);
-        console.log('Register successful:', userData);
+        const userData = await LoginPost(username, password);
+        console.log('Login successful:', userData);
         // Store the user data here?
         } catch (error){
         //setErrors({ from: 'Käyttäjän luonti epäonnistui.'})
         }
-        console.log('Login attempted with:', { email, username, password });
+        console.log('Login attempted with:', { username, password });
         // Here you would typically send a request to your server
         
     };

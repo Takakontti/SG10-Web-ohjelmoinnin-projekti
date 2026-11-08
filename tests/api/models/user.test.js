@@ -6,8 +6,9 @@ vi.mock('../../../api/models/db.js', () => ({
   }
 }))
 
-import { registerUser,checkForExistingUser } from '../../../api/models/user.js'
+import { registerUser,checkForExistingUser,verifyUser } from '../../../api/models/user.js'
 import { pool } from '../../../api/models/db.js'
+import bcrypt from 'bcrypt'
 
 describe('registerUser', () => {
   beforeEach(() => {
@@ -106,5 +107,52 @@ describe('checkForExistingUser', () => {
     pool.query.mockRejectedValue(new Error('databaseError'))
 
     await expect(checkForExistingUser('test@tester.fi','testuser')).rejects.toThrow('databaseError')
+  })
+})
+
+describe('verifyUser', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
+  const password = 'Test123!'
+  const userId = 'user-123'
+
+  it('should return the user ID when the username and password match', async () => {
+    const passwordHash = await bcrypt.hash(password, 10)
+    pool.query.mockResolvedValue({
+      rows: [{ id: userId, password_hash: passwordHash }]
+    })
+
+    await expect(verifyUser('testuser', password)).resolves.toEqual({ id: userId })
+    expect(pool.query).toHaveBeenCalledWith(
+      'SELECT id, password_hash FROM users WHERE username = $1',
+      ['testuser']
+    )
+  })
+
+  it('should return false when the password does not match', async () => {
+    const passwordHash = await bcrypt.hash(password, 10)
+    pool.query.mockResolvedValue({
+      rows: [{ id: userId, password_hash: passwordHash }]
+    })
+
+    await expect(verifyUser('testuser', 'Wrong123!')).resolves.toBe(false)
+  })
+
+  it('should return false when the username does not match a user', async () => {
+    pool.query.mockResolvedValue({ rows: [] })
+
+    await expect(verifyUser('unknown', password)).resolves.toBe(false)
+  })
+
+  it('should propagate database errors', async () => {
+    pool.query.mockRejectedValue(new Error('databaseError'))
+
+    await expect(verifyUser('testuser', password)).rejects.toThrow('databaseError')
   })
 })

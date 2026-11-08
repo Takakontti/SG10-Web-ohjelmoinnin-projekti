@@ -57,10 +57,10 @@ function Register() {
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Sähköposti osoite</Form.Label>
+              <Form.Label>Sähköpostiosoite</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Sähköposti osoite"
+                placeholder="Sähköpostiosoite"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
