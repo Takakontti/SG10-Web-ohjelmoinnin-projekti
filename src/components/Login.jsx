@@ -4,7 +4,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import './Login.css'
 
-const API_URL = 'http://localhost:5173/api'
+const API_URL = '/api'
 
 export const LoginPost = async (username, password) => {
   const response = await axios.post(`${API_URL}/user/login`, { username, password}) // Not sure if route is right
