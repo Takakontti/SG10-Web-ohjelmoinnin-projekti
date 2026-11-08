@@ -64,6 +64,6 @@ describe('POST /api/user/register (database integration)', () => {
       .expect(500)
       .expect('Content-Type', /json/)
 
-    expect(integrationResponse.body.error.message).toEqual("Cannot read properties of undefined (reading 'length')") //Should probably handle this error
+    expect(integrationResponse.body.error.message).toEqual('Cannot read properties of undefined (reading \'length\')') //Should probably handle this error
   })
 })
