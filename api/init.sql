@@ -1,12 +1,3 @@
-DROP TABLE IF EXISTS test;
-
-CREATE TABLE test (
-    id SERIAL PRIMARY KEY,
-    description TEXT
-);
-
-INSERT INTO test (description) VALUES ('bar'), ('baz'), ('qux');
-
 drop table if exists users, movie_groups, reviews, group_members;
 
 create table users(
