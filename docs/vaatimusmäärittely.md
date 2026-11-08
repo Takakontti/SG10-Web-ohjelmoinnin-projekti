@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 
-**Versio:** 1.0  
-**Päivämäärä:** 30.10.2026  
+**Versio:** 1.1  
+**Päivämäärä:** 2.11.2026  
 **Laatija:** Study Group 10  
 **Tila:** Hyväksytty
 
@@ -39,43 +39,43 @@ Jokaisella vaatimuksella on yksilöllinen tunniste. **Must** tarkoittaa ensimmä
 
 | ID | Vaatimus | Prioriteetti |
 |---|---|---|
-| FR-01 | Käyttäjänä voin arvostella elokuvan. | must |
-| FR-02 | Käyttäjänä voin hakea arvosteltavia elokuvia. | must |
-| FR-03 | Käyttäjänä voin perustaa ryhmän. | must |
-| FR-04 | Ryhmän ylläpitäjänä voin kutsua jäseniä ryhmään. | must |
-| FR-05 | Ryhmän jäsenenä voin nähdä muiden ryhmän jäsenien arvosteluja. | must |
-| FR-06 | Ulkopuolisena voin rekisteröityä käyttäjäksi. | must |
-| FR-07 | Ulkopuolisena voin kirjautua käyttäjätililleni. | must |
-| FR-08 | Ryhmän jäsenenä voin poistua ryhmästä. | should |
-| FR-09 | Käyttäjänä voin poistaa käyttäjätilini. | should |
-| FR-10 | Ryhmän ylläpitäjänä voin poistaa ryhmän. | should |
-| FR-11 | Käyttäjänä voin poistaa arvosteluni. | should |
-| FR-12 | Ulkopuolisena voin hakea elokuvia. | should |
-| FR-13 | Ulkopuolisena voin lukea julkisia arvosteluja. | should |
-| FR-14 | Käyttäjänä voin luoda listan elokuvista. | should |
-| FR-15 | Ulkopuolisena voin nähdä minulle jaettuja listoja. | should |
-| FR-16 | Käyttäjänä voin poistaa luomani listan. | should |
-| FR-17 | Ryhmän ylläpitäjänä voin luoda ryhmälle elokuvalistan. | should |
-| FR-18 | Ryhmän ylläpitäjänä voin poistaa ryhmälle luodun elokuvalistan. | should |
-| FR-19 | Ryhmän ylläpitäjänä voin lisätä ryhmälle muita ylläpitäjiä. | should |
-| FR-20 | Ryhmän ylläpitäjänä voin poistaa jäseniä ryhmästä. | should |
-| FR-21 | Ulkopuolisena voin hakea elokuvia tunnisteiden perusteella. | should |
-| FR-22 | Käyttäjänä voin muokata arvostelujani. | should |
-| FR-23 | Käyttäjänä voin vaihtaa sähköpostini | should |
-| FR-24 | Käyttäjänä voin vaihtaa salasanani | should |
-| FR-25 | Käyttäjänä voin palauttaa unohtuneen salasanani | should |
-| FR-26 | Ryhmän jäsenenä voin lähettää viestejä ryhmän ryhmäkeskusteluun | should |
-| FR-27 | Ryhmän jäsenenä voin nähdä julkiset ryhmät, joihin toinen ryhmän jäsen kuuluu | could |
-| FR-28 | Omistajana voin nähdä tilastoja sovelluksen käytöstä | could |
-| FR-29 | Ulkopuolisena voin nähdä ajankohtaisia elokuvia etusivulla. | could |
-| FR-30 | Käyttäjänä voin saada elokuvasuosituksia. | could |
-| FR-31 | Käyttäjänä voin piilottaa elokuvaehdotukset, jotka eivät kiinnosta | could |
-| FR-32 | Ulkopuolisena voin nähdä, missä teattereissa ja milloin elokuvan voi nähdä. | could |
-| FR-33 | Ulkopuolisena voin nähdä, minkälainen näytös elokuvalla on elokuvateatterissa | could |
-| FR-34 | Ulkopuolisena voin nähdä käyttäjän julkiset arvostelut käyttäjän profiilista. | could |
-| FR-35 | Ulkopuolisena voin hakea julkisia ryhmiä. | could |
-| FR-36 | Käyttäjänä voin pyytää liittymislupaa julkiseen ryhmään | could |
-| FR-37 | Ryhmän jäsenenä voin jakaa ryhmälle listojani. | could |
+| FR-01 | [Käyttäjänä voin arvostella elokuvan.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/5) | must |
+| FR-02 | [Käyttäjänä voin hakea arvosteltavia elokuvia.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/6) | must |
+| FR-03 | [Käyttäjänä voin perustaa ryhmän.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/7) | must |
+| FR-04 | [Ryhmän ylläpitäjänä voin kutsua jäseniä ryhmään.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/8) | must |
+| FR-05 | [Ryhmän jäsenenä voin nähdä muiden ryhmän jäsenien arvosteluja.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/9) | must |
+| FR-06 | [Ulkopuolisena voin rekisteröityä käyttäjäksi.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/10) | must |
+| FR-07 | [Ulkopuolisena voin kirjautua käyttäjätililleni.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/24) | must |
+| FR-08 | [Ryhmän jäsenenä voin poistua ryhmästä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/12) | should |
+| FR-09 | [Käyttäjänä voin poistaa käyttäjätilini.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/13) | should |
+| FR-10 | [Ryhmän ylläpitäjänä voin poistaa ryhmän.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/14) | should |
+| FR-11 | [Käyttäjänä voin poistaa arvosteluni.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/15) | should |
+| FR-12 | [Ulkopuolisena voin hakea elokuvia.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/16) | should |
+| FR-13 | [Ulkopuolisena voin lukea julkisia arvosteluja.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/17) | should |
+| FR-14 | [Käyttäjänä voin luoda listan elokuvista.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/18) | should |
+| FR-15 | [Ulkopuolisena voin nähdä minulle jaettuja listoja.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/19) | should |
+| FR-16 | [Käyttäjänä voin poistaa luomani listan.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/20) | should |
+| FR-17 | [Ryhmän ylläpitäjänä voin luoda ryhmälle elokuvalistan.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/21) | should |
+| FR-18 | [Ryhmän ylläpitäjänä voin poistaa ryhmälle luodun elokuvalistan.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/22) | should |
+| FR-19 | [Ryhmän ylläpitäjänä voin lisätä ryhmälle muita ylläpitäjiä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/23) | should |
+| FR-20 | [Ryhmän ylläpitäjänä voin poistaa jäseniä ryhmästä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/11) | should |
+| FR-21 | [Ulkopuolisena voin hakea elokuvia tunnisteiden perusteella.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/26) | should |
+| FR-22 | [Käyttäjänä voin muokata arvostelujani.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/40) | should |
+| FR-23 | [Käyttäjänä voin vaihtaa sähköpostini.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/41) | should |
+| FR-24 | [Käyttäjänä voin vaihtaa salasanani.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/42) | should |
+| FR-25 | [Käyttäjänä voin palauttaa unohtuneen salasanani.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/43) | should |
+| FR-26 | [Ryhmän jäsenenä voin lähettää viestejä ryhmän ryhmäkeskusteluun.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/44) | should |
+| FR-27 | [Ryhmän jäsenenä voin nähdä julkiset ryhmät, joihin toinen ryhmän jäsen kuuluu.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/48) | could |
+| FR-28 | [Omistajana voin nähdä tilastoja sovelluksen käytöstä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/49) | could |
+| FR-29 | [Ulkopuolisena voin nähdä ajankohtaisia elokuvia etusivulla.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/25) | could |
+| FR-30 | [Käyttäjänä voin saada elokuvasuosituksia.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/27) | could |
+| FR-31 | [Käyttäjänä voin piilottaa elokuvaehdotukset, jotka eivät kiinnosta.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/45) | could |
+| FR-32 | [Ulkopuolisena voin nähdä, missä teattereissa ja milloin elokuvan voi nähdä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/28) | could |
+| FR-33 | [Ulkopuolisena voin nähdä, minkälainen näytös elokuvalla on elokuvateatterissa.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/47) | could |
+| FR-34 | [Ulkopuolisena voin nähdä käyttäjän julkiset arvostelut käyttäjän profiilista.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/29) | could |
+| FR-35 | [Ulkopuolisena voin hakea julkisia ryhmiä.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/30) | could |
+| FR-36 | [Käyttäjänä voin pyytää liittymislupaa julkiseen ryhmään.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/46) | could |
+| FR-37 | [Ryhmän jäsenenä voin jakaa ryhmälle listojani.](https://github.com/Takakontti/SG10-Web-ohjelmoinnin-projekti/issues/31) | could |
 | FR-38 | Käyttäjänä saan elokuvasuosituksia tekoälyltä. | wont now |
 
 ## 5. Ei-toiminnalliset vaatimukset
@@ -84,7 +84,7 @@ Jokaisella vaatimuksella on yksilöllinen tunniste. **Must** tarkoittaa ensimmä
 |---|---|---|
 | NFR-01 | Sovelluksen tulee näyttää asialliselta. | Hyväksymistesti |
 | NFR-02 | Sovelluksen tulee toimia mobiililaitteella. | Käyttöliittymätesti |
-| NFR-03 | Salasanat tallennetaan vain turvallisella yksisuuntaisella salasanatiivisteellä | Toteutuksen ja tietokannan tarkistus |
+| NFR-03 | Salasanat tallennetaan vain turvallisella yksisuuntaisella salasanatiivisteellä. | Toteutuksen ja tietokannan tarkistus |
 | NFR-04 | Käyttäjä ei voi hakea tai muuttaa toisen käyttäjän tietoja ilman roolinsa mukaista oikeutta. | API:n käyttöoikeustesti |
 | NFR-05 | Sovelluksen tulee olla suomenkielinen. | Käyttöliittymätesti |
 | NFR-06 | Arvosteluilla tulee olla maksimipituus tietoturvasyistä. | API:n käyttötarkoitustesti |
@@ -137,9 +137,9 @@ Sovellus tallentaa vähintään seuraavat tiedot:
 
 | Kenttä | Arvo |
 |---|---|
-| Asiakkaan edustaja | <u>Lasse Haverinen</u> |
-| Hyväksytty versio | <u>1.0</u> |
-| Hyväksynnän päivämäärä | <u>30.10.2026</u> |
+| Asiakkaan edustaja | Lasse Haverinen |
+| Hyväksytty versio | 1.0 |
+| Hyväksynnän päivämäärä | 30.10.2026 |
 | Mahdolliset ehdot | _________________________ |
 
 ## 12. Versiohistoria
@@ -151,3 +151,4 @@ Sovellus tallentaa vähintään seuraavat tiedot:
 | 0.3 | 29.10.2026 | Lisätty asiakkaan vastaukset kysymyksiin. |
 | 0.4 | 29.10.2026 | Täydennetty vaatimuksia vastausten perusteella. |
 | 1.0 | 30.10.2026 | Viimeistelty hyväksytetty vaatimusmäärittely. |
+| 1.1 | 2.11.2026 | Poistettu alleviivaukset, koska ne eivät näy GitHubissa. Lisätty vaatimuksille linkit niitä koskeviin issueihin. |

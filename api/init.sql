@@ -1,12 +1,3 @@
-DROP TABLE IF EXISTS test;
-
-CREATE TABLE test (
-    id SERIAL PRIMARY KEY,
-    description TEXT
-);
-
-INSERT INTO test (description) VALUES ('bar'), ('baz'), ('qux');
-
 drop table if exists users, movie_groups, reviews, group_members;
 
 create table users(
@@ -37,7 +28,7 @@ create table group_members(
 	group_id UUID references movie_groups(id) on delete cascade
 );
 
-insert into users(id,username,email,password_hash) values ('a000bc999c0b4ef8bb6d6bb9bd380a11','testuser1','testuser1@test.fi','1'), ('b000bc999c0b4ef8bb6d6bb9bd380a11','testuser2','testuser2@test.us.gov','2'), ('c000bc999c0b4ef8bb6d6bb9bd380a11','testuser3','testuser3@test.eu','3');
-insert into movie_groups (id,group_name,admin_id) values ('a0eebc999c0b4ef8bb6d6bb9bd380a01','Testgroup1','a000bc999c0b4ef8bb6d6bb9bd380a11'), ('a0eebc999c0b4ef8bb6d6bb9bd380a02','Testgroup2','b000bc999c0b4ef8bb6d6bb9bd380a11');
-insert into reviews (user_id,stars,review,movie_id) values ('a000bc999c0b4ef8bb6d6bb9bd380a11',10,'Lorem ipsum dolor sit amet',1);
-insert into group_members (user_id,group_id) values ('a000bc999c0b4ef8bb6d6bb9bd380a11','a0eebc999c0b4ef8bb6d6bb9bd380a01'), ('b000bc999c0b4ef8bb6d6bb9bd380a11','a0eebc999c0b4ef8bb6d6bb9bd380a01'), ('b000bc999c0b4ef8bb6d6bb9bd380a11','a0eebc999c0b4ef8bb6d6bb9bd380a02'), ('c000bc999c0b4ef8bb6d6bb9bd380a11','a0eebc999c0b4ef8bb6d6bb9bd380a01'), ('c000bc999c0b4ef8bb6d6bb9bd380a11','a0eebc999c0b4ef8bb6d6bb9bd380a02');
+insert into users(id,username,email,password_hash) values ('10000000000000000000000000000000','testuser1','testuser1@test.fi','1'), ('20000000000000000000000000000000','testuser2','testuser2@test.us.gov','2'), ('30000000000000000000000000000000','testuser3','testuser3@test.eu','3');
+insert into movie_groups (id,group_name,admin_id) values ('00000000000000000000000000000001','Testgroup1','10000000000000000000000000000000'), ('00000000000000000000000000000002','Testgroup2','20000000000000000000000000000000');
+insert into reviews (user_id,stars,review,movie_id) values ('10000000000000000000000000000000',10,'Lorem ipsum dolor sit amet',1);
+insert into group_members (user_id,group_id) values ('10000000000000000000000000000000','00000000000000000000000000000001'), ('20000000000000000000000000000000','00000000000000000000000000000001'), ('20000000000000000000000000000000','00000000000000000000000000000002'), ('30000000000000000000000000000000','00000000000000000000000000000001'), ('30000000000000000000000000000000','00000000000000000000000000000002');

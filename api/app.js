@@ -4,7 +4,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import cors from 'cors'
 import errorHandler from './middleware/errorHandler.js'
-import testRouter from './routes/testRouter.js'
+import userRouter from './routes/userRouter.js'
 
 const app = express()
 
@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/tests', testRouter)
+app.use('/api/user', userRouter)
 
 // Health check endpoint for database connectivity
 app.get('/api/health', async (req, res) => {
