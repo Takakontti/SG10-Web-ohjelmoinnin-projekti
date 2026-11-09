@@ -1,9 +1,9 @@
-import { Routes, Route, NavLink, useNavigate } from 'react-router';
+import { Routes, Route, NavLink, useNavigate } from 'react-router'
 import './App.css'
-import FrontPage from './FrontPage';
-import AboutBar from './components/AboutBar';
-import Register from './components/Register';
-import Login from './components/Login';
+import FrontPage from './FrontPage'
+import AboutBar from './components/AboutBar'
+import Register from './components/Register'
+import Login from './components/Login'
 
 function App() {
 
