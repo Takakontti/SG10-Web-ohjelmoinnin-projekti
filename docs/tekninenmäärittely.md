@@ -83,14 +83,16 @@ flowchart LR
     PalvelimenResurssit <-->|"Verkkoyhteys"| UlkoinenAPI
 ```
 
-Tietokohteet, -suhteet ja rajapinnat lisätään tähän myöhemmin.  
+Elokuvapalvelu tarjoaa selaimeen API-rajapinnan, jolla voi kutsua backendiä. Nykyisessä API-rajapinnassa on login ja register POST reitit. Niitä kutsutaan lähettämällä JSON, jonka esimerkit on jokaiselle reitille määritelty tarkemmin [userRoutes](../api/routes/userRouter.js) tiedostossa.
+
+Tietokohteet, -suhteet lisätään tähän myöhemmin.  
 Palvelu muodostaa yhteyden The Movie Databasen API-rajapintaan.
 
 ## Laadun tekniset ratkaisut
 
 Käyttäjät tunnistautuvat palveluun käyttäjänimen tai sähköpostin ja salasanan avulla. Salasanasta muodostetaan yksisuuntainen tunniste bcrypt kirjaston avulla.  
-Käyttöoikeudet tarkistetaan cookiehen tallennetun JWT-authtokenin avulla. (Tarkennetaan myöhemmin)  
-Tietojen validointi suoritetaan backendissä. (Tarkennetaan myöhemmin)  
+Käyttöoikeudet tarkistetaan cookiehen tallennetun JWT-authtokenin avulla.  
+Tietojen validointi suoritetaan backendissä controllereissa. Niissä tarkistetaan, että tieto on oikeassa muodossa ja kaikki tarvittava tieto on syötetty.  
 Virheenkäsittely suoritetaan backendissä middlewarella ja frontendissä tarvittaessa.  
 Suorituskyky testaan testityökaluilla ja selaimen devtoolseilla. (Tarkennetaan myöhemmin)
 
