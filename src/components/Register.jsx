@@ -8,8 +8,7 @@ const API_URL = '/api'
 
 const RegisterPost = async (email, username, password) => {
   const response = await axios.post(`${API_URL}/user/register`, { email, username, password })
-  .then((resp) => {return resp.response.data})
-  .catch((resp) => {console.log(resp.response.data); return resp.response.data})
+  return response.data
 }
 
 function Register() {
@@ -44,13 +43,12 @@ function Register() {
     }
 
     setIsSubmitting(true)
-    const RegisterResponse = {}
     try {
-      RegisterResponse = await RegisterPost(email, username, password)
+      await RegisterPost(email, username, password)
       navigate('/Authentication/Login', { state: { RegisterSuccess: true }, replace: true })
-    } catch {
-      setErrors(RegisterResponse)
-      console.log(RegisterResponse)
+    } catch(error) {
+      const errmesg = error.response.data.message
+      setErrors({ form: errmesg})
     } finally {
       setIsSubmitting(false)
     }
@@ -61,7 +59,7 @@ function Register() {
       <div className="register-form-container">
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
-          {errors.form && <Alert variant="danger" role="alert">{errors.form}</Alert>}
+          {errors.form && <Alert className='register-alert' variant="danger" role="alert">{errors.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Sähköpostiosoite:</Form.Label>
             <Form.Control

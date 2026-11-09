@@ -7,6 +7,8 @@ Sprint planning 17:35 - 18:15
 
 Register error handling 18:15 - 21:45 (Tried to get JSON messages to appear on error form, did not succeed)
 
+Fixed register error handling 23:50 - 0:10
+
 ~7h
 
 -----------------------------------------------------------------------------------------------------------------
