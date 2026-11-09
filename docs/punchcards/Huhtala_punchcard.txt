@@ -1,0 +1,14 @@
+Huhtala Timecard 09/11
+
+
+GroupView creation 14:50 - 17:35 (useless)
+
+Sprint planning 17:35 - 18:15
+
+Register error handling 18:15 - 21:45 (Tried to get JSON messages to appear on error form, did not succeed)
+
+~7h
+
+-----------------------------------------------------------------------------------------------------------------
+
+10/11

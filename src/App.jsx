@@ -1,4 +1,4 @@
-import { Routes, Route, NavLink, useNavigate } from 'react-router'
+import { Routes, Route } from 'react-router'
 import './App.css'
 import FrontPage from './FrontPage'
 import AboutBar from './components/AboutBar'

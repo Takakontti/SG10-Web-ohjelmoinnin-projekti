@@ -1,4 +1,4 @@
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import { useState } from 'react'
 import axios from 'axios'
@@ -6,15 +6,18 @@ import './Register.css'
 
 const API_URL = '/api'
 
-export const RegisterPost = async (email, username, password) => {
-  const response = await axios.post(`${API_URL}/user/register`, { email, username, password})
-  return response.data
+const RegisterPost = async (email, username, password) => {
+  const response = await axios.post(`${API_URL}/user/register`, { email, username, password })
+  .then((resp) => {return resp.response.data})
+  .catch((resp) => {console.log(resp.response.data); return resp.response.data})
 }
 
 function Register() {
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [errors, setErrors] = useState({})
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const navigate = useNavigate()
 
@@ -24,31 +27,33 @@ function Register() {
 
   const validateForm = () => {
     const newErrors = {}
-    if (!email) newErrors.email = 'Email is required'
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Email is invalid'
-    if(!username) newErrors.username = 'Username is required'
-    if (!password) newErrors.password = 'Password is required'
-    else if (password.length < 6) newErrors.password = 'Password must be at least 6 characters'
+    if (!email.trim()) newErrors.email = 'Sähköpostiosoite vaaditaan.'
+    if (!username.trim()) newErrors.username = 'Käyttäjätunnus vaaditaan.'
+    if (!password.trim()) newErrors.password = 'Salasana vaaditaan.'
+    if (password.length >= 1 && password.length <= 8) newErrors.password = 'Salasanan pitää olla vähintään 8 merkkiä pitkä.'
     return newErrors
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (!email || !password || !username) {
-      //setErrors('Please enter inputs in all fields.');
+    const formErrors = validateForm()
+    setErrors(formErrors)
+    // Jos löytyy erroreja kutsutaan return heti ja ei lähetetä kirjautumis kutsua.
+    if (Object.keys(formErrors).length > 0) {
       return
     }
 
+    setIsSubmitting(true)
+    const RegisterResponse = {}
     try {
-      const userData = await RegisterPost(email, username, password)
-      console.log('Register successful:', userData)
-      // Store the user data here?
-    } catch (error){
-      //setErrors({ from: 'Käyttäjän luonti epäonnistui.'})
+      RegisterResponse = await RegisterPost(email, username, password)
+      navigate('/Authentication/Login', { state: { RegisterSuccess: true }, replace: true })
+    } catch {
+      setErrors(RegisterResponse)
+      console.log(RegisterResponse)
+    } finally {
+      setIsSubmitting(false)
     }
-    console.log('Register attempted with:', { email, username, password })
-    // Here you would typically send a request to your server
-    
   }
 
   return (
@@ -56,39 +61,57 @@ function Register() {
       <div className="register-form-container">
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
+          {errors.form && <Alert variant="danger" role="alert">{errors.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Sähköpostiosoite</Form.Label>
+            <Form.Label>Sähköpostiosoite:</Form.Label>
             <Form.Control
               type="email"
               placeholder="Sähköpostiosoite"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setErrors((currentErrors) => ({ ...currentErrors, email: undefined, form: undefined}))
+              }}
+              isInvalid={Boolean(errors.email)}
             />
+            <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Käyttäjätunnus</Form.Label>
+            <Form.Label>Käyttäjätunnus:</Form.Label>
             <Form.Control
               type="username"
               placeholder="Käyttäjätunnus"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setUsername(e.target.value)
+                setErrors((currentErrors) => ({ ...currentErrors, username: undefined, form: undefined}))
+              }}
+              isInvalid={Boolean(errors.username)}
             />
+            <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Salasana</Form.Label>
+            <Form.Label>Salasana:</Form.Label>
             <Form.Control
               type="password"
               placeholder="Salasana"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value)
+                setErrors((currentErrors) => ({ ...currentErrors, password: undefined, form: undefined}))
+              }}
+              isInvalid={Boolean(errors.password)}
             />
+            <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
           </Form.Group>
 
           <div className='button-box'>
             <Button className='register-buttons' onClick={mainPage}>Takaisin</Button>
-            <Button variant="primary" type="submit" className="register-buttons">Rekisteröidy</Button>
+            <Button variant="primary" type="submit" className="register-buttons" disabled={isSubmitting}>
+              {isSubmitting ? 'Rekisteröidytään...' : 'Rekisteröidy'}
+            </Button>
           </div>
 
         </Form>
