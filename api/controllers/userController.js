@@ -43,8 +43,12 @@ const login = async (req, res, next) => {
     }
   }, 
   createUser = async (req, res, next) => {
-    const { email, username, password } = req.body
-  
+    const { email, username, password } = req.body || {}
+
+    if ([email, username, password].some((value) => typeof value !== 'string' || value.trim() === '')) {
+      return res.status(400).json({ message: 'Email, Username and password are required' })
+    }
+    
 
     // Tarkistetaan salasanan pituus ja monimutkaisuus.
     if (!password || password.length < 8) {
