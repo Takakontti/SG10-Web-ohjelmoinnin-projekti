@@ -4,6 +4,7 @@ import FrontPage from './FrontPage'
 import AboutBar from './components/AboutBar'
 import Register from './components/Register'
 import Login from './components/Login'
+import SearchResults from './components/SearchResults'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path='/components/AboutBar' element={<AboutBar />} />
         <Route path='/Authentication/Register' element={<Register />} />
         <Route path='/Authentication/Login' element={<Login />} />
+        <Route path='/search' element={<SearchResults />} />
       </Routes>
     </div>
   )

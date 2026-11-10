@@ -11,3 +11,9 @@
 * Hakufunktion tekoa 18:45-22:50
 
 Yht 8h.
+
+## 10.11.2026
+
+* Hakufunktion tekoa 18:00-00:55
+
+Yht 6h 55min
