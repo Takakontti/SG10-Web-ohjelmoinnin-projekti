@@ -15,6 +15,7 @@ Elokuva-harrastajaryhmillä on keskitetty alusta, jossa he voivat jakaa suosituk
 - [Tekninen määrittely](docs/tekninenmäärittely.md)
 - [Definition of Done](docs/definition-of-done.md)
 - [Sprint 1:n tavoite ja muistiot](docs/sprints/sprint-1.md)
+- [Sprint 2:n tavoite ja muistiot](docs/sprints/sprint-2.md)
 
 ## Työn seuranta
 - [Web-ohjelmoinnin-projekti – Scrum](https://github.com/users/Takakontti/projects/1/views/1)

@@ -6,6 +6,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import errorHandler from './middleware/errorHandler.js'
 import userRouter from './routes/userRouter.js'
+import movieRouter from './routes/movieRouter.js'
 import reviewRouter from './routes/reviewRouter.js'
 
 const app = express()
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/user', userRouter)
+app.use('/api/movie', movieRouter)
 app.use('/api/reviews', reviewRouter)
 
 // Health check endpoint for database connectivity
