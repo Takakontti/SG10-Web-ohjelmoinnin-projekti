@@ -19,163 +19,29 @@ describe('createUser', () => {
   })
 
   const createUserSpy = vi.spyOn(userControllerObject,'createUser')
-
-  it('should return status 201, success message and rows from the model when password is 8 characters and has 1 special character, uppercase character and number', async () => {
-    const req = {
-      body:{
-        email: 'test@tester.fi',
-        username: 'testuser',
-        password: 'Tester1!'
-      }
-    }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
-    const expectedValue = {
-      'message': 'User created successfully',
-      'user': {
-        'username': 'testuser',
-        'email': 'test@tester.fi'
-      }
-    }
-    registerUser.mockResolvedValue({
-      rows:[{
-        username: 'testuser',
-        email: 'test@tester.fi'
-      }]
-    })
-    checkForExistingUser.mockResolvedValue({
-      rows:[]
-    })
-
-    await userControllerObject.createUser(req,res,vi.fn())
-
-    expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(201)
-    expect(res.json).toHaveBeenCalledWith(expectedValue)
-  })
   
-  it('should return status 201, success message and rows from the model when password is 9 characters and has 2 special characters, uppercase characters and numbers', async () => {
+  function createRes() {
+    return ({
+      status: vi.fn().mockReturnThis(),
+      json: vi.fn().mockReturnThis()
+    })
+  }
+
+  it.each([
+    ['is 8 characters and has 1 special character, uppercase character and number','Tester1!'],
+    ['is 9 characters and has 2 special characters, uppercase characters and numbers','TTest12?!'],
+    ['is 12 characters and has 4 uppercase characters and numbers and 2 lowercase characters','TESTer1234?!'],
+    ['has 4 lowercase characters','Ttest12!'],
+    ['has 4 special characters and 1 lowercase character','Te12!?@#']
+  ])('should return status 201, success message and rows from the model when password %s', async (_description,inputPassw) => {
     const req = {
       body:{
         email: 'test@tester.fi',
         username: 'testuser',
-        password: 'TTest12?!'
+        password: inputPassw
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
-    const expectedValue = {
-      'message': 'User created successfully',
-      'user': {
-        'username': 'testuser',
-        'email': 'test@tester.fi'
-      }
-    }
-    registerUser.mockResolvedValue({
-      rows:[{
-        username: 'testuser',
-        email: 'test@tester.fi'
-      }]
-    })
-    checkForExistingUser.mockResolvedValue({
-      rows:[]
-    })
-
-    await userControllerObject.createUser(req,res,vi.fn())
-
-    expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(201)
-    expect(res.json).toHaveBeenCalledWith(expectedValue)
-  })
-
-  it('should return status 201, success message and rows from the model when password is 12 characters and has 4 uppercase characters and numbers and 2 lowercase characters', async () => {
-    const req = {
-      body:{
-        email: 'test@tester.fi',
-        username: 'testuser',
-        password: 'TESTer1234?!'
-      }
-    }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
-    const expectedValue = {
-      'message': 'User created successfully',
-      'user': {
-        'username': 'testuser',
-        'email': 'test@tester.fi'
-      }
-    }
-    registerUser.mockResolvedValue({
-      rows:[{
-        username: 'testuser',
-        email: 'test@tester.fi'
-      }]
-    })
-    checkForExistingUser.mockResolvedValue({
-      rows:[]
-    })
-
-    await userControllerObject.createUser(req,res,vi.fn())
-
-    expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(201)
-    expect(res.json).toHaveBeenCalledWith(expectedValue)
-  })
-
-  it('should return status 201, success message and rows from the model when password has 4 lowercase characters', async () => {
-    const req = {
-      body:{
-        email: 'test@tester.fi',
-        username: 'testuser',
-        password: 'Ttest12!'
-      }
-    }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
-    const expectedValue = {
-      'message': 'User created successfully',
-      'user': {
-        'username': 'testuser',
-        'email': 'test@tester.fi'
-      }
-    }
-    registerUser.mockResolvedValue({
-      rows:[{
-        username: 'testuser',
-        email: 'test@tester.fi'
-      }]
-    })
-    checkForExistingUser.mockResolvedValue({
-      rows:[]
-    })
-
-    await userControllerObject.createUser(req,res,vi.fn())
-
-    expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(201)
-    expect(res.json).toHaveBeenCalledWith(expectedValue)
-  })
-  
-  it('should return status 201, success message and rows from the model when password has 4 special characters and 1 lowercase character', async () => {
-    const req = {
-      body:{
-        email: 'test@tester.fi',
-        username: 'testuser',
-        password: 'Te12!?@#'
-      }
-    }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()    
     const expectedValue = {
       'message': 'User created successfully',
       'user': {
@@ -208,10 +74,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'The email is already in use'
     }
@@ -236,10 +99,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'The username is already in use'
     }
@@ -264,10 +124,7 @@ describe('createUser', () => {
         password: 'Te1!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must be at least 8 characters'
     }
@@ -287,10 +144,7 @@ describe('createUser', () => {
         password: 'Test12!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must be at least 8 characters'
     }
@@ -310,10 +164,7 @@ describe('createUser', () => {
         password: 'test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must contain at least one uppercase letter'
     }
@@ -333,10 +184,7 @@ describe('createUser', () => {
         password: 'TEST123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must contain at least one lowercase letter'
     }
@@ -356,10 +204,7 @@ describe('createUser', () => {
         password: 'Testpas!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must contain at least one number'
     }
@@ -379,10 +224,7 @@ describe('createUser', () => {
         password: 'Test1234'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Password must contain at least one special character'
     }
@@ -402,10 +244,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'The provided email address is not valid'
     }
@@ -425,10 +264,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'The provided email address is not valid'
     }
@@ -448,10 +284,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const expectedValue = {
       'message': 'Username is required'
     }
@@ -471,10 +304,7 @@ describe('createUser', () => {
         password: 'Test123!'
       }
     }
-    const res = {
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis()
-    }
+    const res = createRes()
     const next = vi.fn()
 
     checkForExistingUser.mockRejectedValue(new Error('databaseError'))
