@@ -38,19 +38,20 @@ export default function FrontPage() {
         <div className='main-page-foundation'>
           <div className='main-base'>
             <div className='main-wrapper'>
-              <div className='main-group-container'>
-                <div className='group-chat-section'>
-                    <div className="group-btn" /*onClick={movieReview}*/>Settings</div>
-
-                    <div className='group-chat-section-main'>
-                        <h1>GroupView</h1>
+              <div className='main-group-container'>               
+                <div className='group-chat-section-main'>
+                  <div className='group-chat-button-container'>
+                    <div className="group-settings-btn" /*onClick={movieReview}*/>Settings</div>
+                    <div className="new-group-btn" /*onClick={movieReview}*/>Create new group</div>
+                  </div>
+                    
+                    <div className='group-chat'>
+                      <h1>GroupView</h1>
                     </div>
-
-                    <div className='group-chat-section-right'>
-                      <div className='group-chat-participants'>
-                          <h1>Participants list</h1>
-                      </div>
-                    </div>
+                    
+                    <div className='group-chat-participants'>
+                      <h1>Participants list</h1>
+                    </div>              
                 </div>
               </div>
             </div>
@@ -61,7 +62,6 @@ export default function FrontPage() {
                     
         </div>
 
-                
       </div>
     </>
   )

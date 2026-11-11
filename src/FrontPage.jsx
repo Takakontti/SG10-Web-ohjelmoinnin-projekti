@@ -1,10 +1,8 @@
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import './FrontPage.css'
 import AboutBar from './components/AboutBar'
 import { useState } from 'react'
-
-
 
 export default function FrontPage() {
 
