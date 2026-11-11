@@ -61,14 +61,11 @@ nav {
   padding: 1.88rem;
   display: inline-flex;
   flex-direction: column;
+  height: max-content;
 }
 
-.movieCardContainer {
-  margin: 0;
-  padding: 1.88rem;
-  list-style: none;
+.reviews {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.88rem;
+  align-items: flex-start;
 }

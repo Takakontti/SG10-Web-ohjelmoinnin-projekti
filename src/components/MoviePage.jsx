@@ -3,6 +3,7 @@ import axios from "axios"
 import { useSearchParams,useNavigate } from "react-router"
 import './MoviePage.css'
 import AboutBar from "./AboutBar"
+import Review from "./Review"
 
 export default function MoviePage() {
   const [searchParams] = useSearchParams()
@@ -27,7 +28,7 @@ export default function MoviePage() {
         const response = await axios.get(`/api/movie/id`,{ params: {
           query: searchPhrase
         }})
-        const data = await response.data
+        const data = response.data
         setMovieData(data.movieDetails)
       }finally{
         setLoading(false)
@@ -36,12 +37,11 @@ export default function MoviePage() {
     loadMovies()
   },[])
   if(loading===true){
-    return(<p>Haetaan elokuvia...</p>)
+    return(<p>Haetaan elokuvan tietoja...</p>)
   }
   return(
     <>
      <p>
-      {console.log(movieData)}
      </p>
      <section className='pageContainer'>
         <nav>
@@ -59,6 +59,9 @@ export default function MoviePage() {
               <h1>{movieData.title}</h1>
               <p>{movieData.overview}</p>
             </section>
+          </section>
+          <section className="reviews">
+            <Review />
           </section>
         </section>
       </section>

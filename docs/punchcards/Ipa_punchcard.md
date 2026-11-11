@@ -23,5 +23,6 @@ Yht 6h 55min
 * Testien korjausta 10:45-11:15
 * Elokuvan ID-hakureitin tekemistä 11:15-12:20
 * Elokuvasivun tekoa 13:30-15:05
+* Elokuvasivun ja elokuvan hakufunktion parantamista 15:30-1:00
 
-Yht 3h 10min
+Yht 12h 40min
