@@ -4,8 +4,6 @@ import { pool } from '../models/db.js'
 
 dotenv.config()
 
-// Tätä käytetään myöhemmin kun sovelluksessa on kirjautumisen vaativia reittejä.
-
 const requireAuth = async (req, res, next) => {
   const token = req.cookies?.auth
 

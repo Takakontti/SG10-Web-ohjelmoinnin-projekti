@@ -6,6 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import SearchResults from './components/SearchResults'
 import GroupView from './components/GroupView'
+import Review from './components/Review'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Authentication/Login' element={<Login />} />
         <Route path='/search' element={<SearchResults />} />
         <Route path='/GroupView' element={<GroupView />} />
+        <Route path='/MovieReviews' element={<Review />} />
       </Routes>
     </div>
   )
