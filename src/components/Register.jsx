@@ -28,8 +28,8 @@ function Register() {
     const newErrors = {}
     if (!email.trim()) newErrors.email = 'Sähköpostiosoite vaaditaan.'
     if (!username.trim()) newErrors.username = 'Käyttäjätunnus vaaditaan.'
+    if (password.length < 8) newErrors.password = 'Salasanan pitää olla vähintään 8 merkkiä pitkä.'
     if (!password.trim()) newErrors.password = 'Salasana vaaditaan.'
-    if (password.length >= 1 && password.length <= 8) newErrors.password = 'Salasanan pitää olla vähintään 8 merkkiä pitkä.'
     return newErrors
   }
 
