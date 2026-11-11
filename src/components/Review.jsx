@@ -37,7 +37,7 @@ function Review() {
     try {
       // The API stores half-star ratings as integers from 1 to 10.
       const userData = await reviewPost(rating * 2, comment, movieID)
-      console.log('Register successful:', userData)
+      console.log('Review posted successfully:', userData)
 
     } catch (error) {
       console.error('Failed to submit review:', error)
