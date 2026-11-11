@@ -5,6 +5,7 @@ import AboutBar from './components/AboutBar'
 import Register from './components/Register'
 import Login from './components/Login'
 import GroupView from './components/GroupView'
+import Review from './components/Review'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Route path='/Authentication/Register' element={<Register />} />
         <Route path='/Authentication/Login' element={<Login />} />
         <Route path='/GroupView' element={<GroupView />} />
+        <Route path='/MovieReviews' element={<Review />} />
       </Routes>
     </div>
   )

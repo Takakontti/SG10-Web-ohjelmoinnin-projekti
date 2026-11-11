@@ -49,7 +49,6 @@ const login = async (req, res, next) => {
       return res.status(400).json({ message: 'Email, Username and password are required' })
     }
     
-    
     // Tarkistetaan salasanan pituus ja monimutkaisuus.
     if (!password || password.length < 8) {
       return res.status(422).json({ message: 'Password must be at least 8 characters' })
