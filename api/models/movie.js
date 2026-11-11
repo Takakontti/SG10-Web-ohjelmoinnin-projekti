@@ -3,6 +3,7 @@ import axios from "axios"
 export const searchMovie = async (param) => {
   const searchTerm = {...param}
   //We're currently missing the functionality to search page 2, 3... High priority to implement
+  //Searching for multiple languages requires multiple queries... probably an if(searchResults.some) check in controller
   const HTTPOptions = {
     'method': 'GET',
     'url': `https://api.themoviedb.org/3/search/movie?query=${searchTerm.query}&include_adult=true&language=en-US&page=1`,
