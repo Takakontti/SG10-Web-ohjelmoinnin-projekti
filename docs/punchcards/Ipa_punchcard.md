@@ -21,4 +21,7 @@ Yht 6h 55min
 ## 11.11.2026
 
 * Testien korjausta 10:45-11:15
-* Elokuvan ID-hakureitin tekemistä 11:15-
+* Elokuvan ID-hakureitin tekemistä 11:15-12:20
+* Elokuvasivun tekoa 13:30-15:05
+
+Yht 3h 10min

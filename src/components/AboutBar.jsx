@@ -4,12 +4,12 @@ import './AboutBar.css'
 const AboutBar = () => {
   return(
     <div className='AboutBar'>
-      <img src="" alt="" />
+      {/*<img src="" alt="" />*/}
       <ul>
         <li>home</li>
         <li>about</li>
         <li>group</li>
-        <li>tmbd</li>
+        <li>This product uses the TMDB API but is not endorsed or certified by TMDB.</li>
       </ul>
     </div>
   )

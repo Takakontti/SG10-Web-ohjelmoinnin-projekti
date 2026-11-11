@@ -7,6 +7,7 @@ import Login from './components/Login'
 import SearchResults from './components/SearchResults'
 import GroupView from './components/GroupView'
 import Review from './components/Review'
+import MoviePage from './components/MoviePage'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/search' element={<SearchResults />} />
         <Route path='/GroupView' element={<GroupView />} />
         <Route path='/MovieReviews' element={<Review />} />
+        <Route path='/movie' element={<MoviePage />} />
       </Routes>
     </div>
   )

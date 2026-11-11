@@ -19,6 +19,10 @@ export default function SearchResults() {
   const movieReview = () => {
     navigate('/MovieReviews')
   }
+  const moviePage = (event,id) => {
+    event.preventDefault()
+    navigate(`/movie?id=${id}`)
+  }
 
   useEffect(() =>{
     async function loadMovies() {
@@ -41,19 +45,20 @@ export default function SearchResults() {
   return (
     <>
       <section class='pageContainer'>
-        <nav class='navigation-btn'>
+        <nav>
           <button class="nav-btn" onClick={mainPage}>H</button>
           <button class="nav-btn" onClick={groupPage}>G</button>
           <button class="nav-btn" onClick={movieReview}>MR</button>
         </nav>
         <section class='searchResults'>
+          <img src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" alt="TMDB-logo" className="tmdbLogoSearch" />
           <h1>Hakutulokset:</h1>
           <ul class='movieCardContainer'>
             {searchData[0].map(
               (movie) => {
                 return(
                   <li class='movieCard' key={movie.id}>
-                    <h2>{movie.title}</h2>
+                    <h2 onClick={event => moviePage(event,movie.movieId)}>{movie.title}</h2>
                     <p>{movie.overview}</p>
                   </li> 
                 )

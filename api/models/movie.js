@@ -14,3 +14,17 @@ export const searchMovie = async (param) => {
   const result = await axios(HTTPOptions)
   return result.data.results
 }
+
+export const getMovie = async (param) => {
+  const id = {...param}
+  console.log(id)
+  const HTTPOptions = {
+    'method': 'GET',
+    'url': `https://api.themoviedb.org/3/movie/${id.query}`,
+    'headers': {
+      'Authorization': `Bearer ${process.env.TMDB_API_READ_ACCESS}`
+    }
+  }
+  const result = await axios(HTTPOptions)
+  return result.data
+}
