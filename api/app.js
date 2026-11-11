@@ -3,8 +3,11 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import cors from 'cors'
+import cookieParser from 'cookie-parser'
 import errorHandler from './middleware/errorHandler.js'
 import userRouter from './routes/userRouter.js'
+import movieRouter from './routes/movieRouter.js'
+import reviewRouter from './routes/reviewRouter.js'
 
 const app = express()
 
@@ -12,10 +15,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const frontendDist = path.join(__dirname, '..', 'dist')
 
 app.use(cors())
+app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/user', userRouter)
+app.use('/api/movie', movieRouter)
+app.use('/api/reviews', reviewRouter)
 
 // Health check endpoint for database connectivity
 app.get('/api/health', async (req, res) => {

@@ -2,11 +2,13 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import './FrontPage.css'
 import AboutBar from './components/AboutBar'
+import { useState } from 'react'
 
 
 
 export default function FrontPage() {
 
+  const [query,setQuery] = useState('')
   const navigate = useNavigate()
 
   const authPage = () => {
@@ -23,6 +25,11 @@ export default function FrontPage() {
 
   const movieReview = () => {
     navigate('/MovieReviews')
+  }
+
+  const searchPage = (event) => {
+    event.preventDefault()
+    navigate(`/search?query=${query.replaceAll(' ','_')}`)
   }
 
   return(
@@ -50,10 +57,12 @@ export default function FrontPage() {
               <div className='main-container'>
                 <h1>MovCha</h1>
 
-                <div className="search-bar"> {/*Placeholder className, probably not needed*/}
-                  <input size="40" type="text" placeholder="Search movies..." />
-                  <button style={{ margin: '10px'}}>Search</button>
-                </div>
+                <Form className="search-bar" onSubmit={event => searchPage(event)}> {/*Placeholder className, probably not needed*/}
+                  <div>
+                    <input size="40" type="text" placeholder="Search movies..." onChange={event => setQuery(event.target.value)} />
+                    <button style={{ margin: '10px'}} type="submit">Search</button>
+                  </div>
+                </Form>
 
               </div>
             </div>
