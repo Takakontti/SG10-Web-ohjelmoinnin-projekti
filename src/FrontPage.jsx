@@ -34,10 +34,6 @@ export default function FrontPage() {
 
       <div className='main-foundation'>
                 
-      </div>
-
-      <div className='main-foundation'>
-                
         <div className='main-foundation'>
           <div className='navigation-btn'>
             <div className="main-btn" onClick={mainPage}>H</div>
@@ -67,7 +63,6 @@ export default function FrontPage() {
         <div className='main-foundation'>
                     
         </div>
-
                 
       </div>
       <AboutBar />

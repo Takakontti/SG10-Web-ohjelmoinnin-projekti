@@ -27,10 +27,6 @@ export default function FrontPage() {
 
       <div className='main-foundation'>
                 
-      </div>
-
-      <div className='main-foundation'>
-                
         <div className='main-foundation'>
           <div className='navigation-btn'>
             <div className="main-btn" onClick={mainPage}>H</div>
@@ -44,14 +40,16 @@ export default function FrontPage() {
             <div className='main-wrapper'>
               <div className='main-group-container'>
                 <div className='group-chat-section'>
-                    <h1>Something?</h1>
+                    <div className="group-btn" /*onClick={movieReview}*/>Settings</div>
 
                     <div className='group-chat-section-main'>
                         <h1>GroupView</h1>
                     </div>
-                    
-                    <div className='group-chat-section'>
-                        <h1>Participants list</h1>
+
+                    <div className='group-chat-section-right'>
+                      <div className='group-chat-participants'>
+                          <h1>Participants list</h1>
+                      </div>
                     </div>
                 </div>
               </div>
