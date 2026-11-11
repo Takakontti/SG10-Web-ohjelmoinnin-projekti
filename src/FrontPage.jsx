@@ -1,10 +1,8 @@
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import './FrontPage.css'
 import AboutBar from './components/AboutBar'
 import { useState } from 'react'
-
-
 
 export default function FrontPage() {
 
@@ -41,10 +39,6 @@ export default function FrontPage() {
 
       <div className='main-foundation'>
                 
-      </div>
-
-      <div className='main-foundation'>
-                
         <div className='main-foundation'>
           <div className='navigation-btn'>
             <div className="main-btn" onClick={mainPage}>H</div>
@@ -76,7 +70,6 @@ export default function FrontPage() {
         <div className='main-foundation'>
                     
         </div>
-
                 
       </div>
       <AboutBar />

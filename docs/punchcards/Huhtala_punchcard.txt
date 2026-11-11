@@ -1,0 +1,28 @@
+Huhtala Timecard 09/11
+
+
+GroupView creation 14:50 - 17:35 (useless)
+
+Sprint planning 17:35 - 18:15
+
+Register error handling 18:15 - 21:45 (Tried to get JSON messages to appear on error form, did not succeed)
+
+Fixed register error handling 23:50 - 0:10
+
+~7h
+
+-----------------------------------------------------------------------------------------------------------------
+
+10/11
+
+Group stuff 15:00 - 19:30
+
+Daily scummy 19:30 - 19:45
+
+GroupView continuation 2:10 - 3:20 (Not finished)
+
+~7h
+
+-----------------------------------------------------------------------------------------------------------------
+
+11/11
