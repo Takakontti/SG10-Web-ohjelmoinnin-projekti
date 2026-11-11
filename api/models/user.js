@@ -28,13 +28,19 @@ const registerUser = async (email, user, pwd) => {
     if (!valid) {
       return false
     }
-
     return { id: result.rows[0].id }
-
+  },
+  getUserByID = async (id) => {
+    const result = await pool.query(
+      'SELECT username FROM users WHERE id = $1',
+      [id]
+    )
+    return result.rows
   }
-
+  
 export { 
   registerUser,
   checkForExistingUser,
-  verifyUser
+  verifyUser,
+  getUserByID
 }
