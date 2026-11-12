@@ -38,41 +38,25 @@ export default function FrontPage() {
       </div>
 
       <div className='main-foundation'>
-                
-        <div className='main-foundation'>
-          <div className='navigation-btn'>
-            <div className="main-btn" onClick={mainPage}>H</div>
-            <div className="main-btn" onClick={groupPage}>G</div>
-            <div className="main-btn" onClick={movieReview}>MR</div>
-          </div>
+        <div className='navigation-btn'>
+          <div className="main-btn" onClick={mainPage}>H</div>
+          <div className="main-btn" onClick={groupPage}>G</div>
+          <div className="main-btn" onClick={movieReview}>MR</div>
         </div>
-
-        <div className='main-page-foundation'>
-          <div className='main-base'>
-
-                        
-            <div className='main-wrapper'>
-              <div className='main-container'>
-                <h1>MovCha</h1>
-
-                <Form className="search-bar" onSubmit={event => searchPage(event)}> {/*Placeholder className, probably not needed*/}
-                  <div>
-                    <input size="40" type="text" placeholder="Search movies..." onChange={event => setQuery(event.target.value)} />
-                    <button style={{ margin: '10px'}} type="submit">Search</button>
-                  </div>
-                </Form>
-
-              </div>
+        <div className='main-container'>
+          <h1>MovCha</h1>
+          
+          <Form className="search-bar" onSubmit={event => searchPage(event)}> {/*Placeholder className, probably not needed*/}
+            <div>
+              <input size="40" type="text" placeholder="Search movies..." onChange={event => setQuery(event.target.value)} />
+              <button style={{ margin: '10px'}} type="submit">Search</button>
             </div>
-          </div>
+          </Form>
         </div>
-
-        <div className='main-foundation'>
-                    
-        </div>
-                
       </div>
-      <AboutBar />
+      <div className='main-bottom-bar'>
+        <AboutBar />
+      </div>
     </>
   )
 }

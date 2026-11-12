@@ -1,7 +1,7 @@
 .AboutBar {
     color: white;
     display: flex;
-    position: static;
+    position: static; /* This should stay as static if we want to make the website scrollable, if not then fixed is a good alternative*/
     min-width: 100%;
     padding-top: 1rem;
     background-color: rgb(88, 148, 148);

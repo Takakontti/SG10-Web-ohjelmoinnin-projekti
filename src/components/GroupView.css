@@ -1,16 +1,9 @@
 .main-group-container {
-  width: 100%;
-  height: 71rem;
-  padding: 10px;
-  background-color: #181414;
-}
-
-.main-group-foundation {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  max-width: 60%;
-  flex-grow: 1.3;
+  height: 71rem;
+  width: 100%;
+  padding: 30px;
+  background-color: #181414;
 }
 
 .group-chat-button-container {
@@ -19,16 +12,11 @@
   justify-content: space-between;
 }
 
-.group-chat-section-main {
-  display: flex;
-  justify-content: center;
-  height: 71rem;
-}
-
 .group-chat {
   display: flex;
-  justify-content: center;
-  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 2;
 }
 
 .group-settings-btn {
@@ -55,7 +43,7 @@
 
 .group-chat-participants {
   display: flex;
-  display: flex;
+  flex-direction: column;
   padding: 10px;
   border: 3px solid rgb(169, 146, 75);
   font-size: x-small;
