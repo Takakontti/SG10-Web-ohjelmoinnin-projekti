@@ -11,7 +11,8 @@ const postReview = async (req, res, next) => {
     catch(err) {
       next(err)
     }
-  }, getReview = async (req, res, next) => {
+  }, 
+  getReview = async (req, res, next) => {
     const reviewID = req.params.id
     try {
       const reviewData = await showReview(reviewID)
