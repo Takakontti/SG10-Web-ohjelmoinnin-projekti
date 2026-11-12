@@ -2,25 +2,14 @@ import { useEffect,useState } from "react"
 import axios from "axios"
 import { useSearchParams,useNavigate } from "react-router"
 import './MoviePage.css'
-import AboutBar from "./AboutBar"
 import Review from "./Review"
+import NavBar from "./NavBar.jsx"
 
 export default function MoviePage() {
   const [searchParams] = useSearchParams()
   const [movieData,setMovieData] = useState([])
   const [loading,setLoading] = useState(true)
-  const navigate = useNavigate()
-
-  const mainPage = () => {
-    navigate('/')
-  }
-  const groupPage = () => {
-    navigate('/GroupView')
-  }
-  const movieReview = () => {
-    navigate('/MovieReviews')
-  }
-
+  
   useEffect(() =>{
     async function loadMovies() {
       try{
@@ -41,14 +30,8 @@ export default function MoviePage() {
   }
   return(
     <>
-     <p>
-     </p>
      <section className='pageContainer'>
-        <nav>
-          <button className="nav-btn" onClick={mainPage}>H</button>
-          <button className="nav-btn" onClick={groupPage}>G</button>
-          <button className="nav-btn" onClick={movieReview}>MR</button>
-        </nav>
+        <NavBar />
         <section className='mainContainer'>
           <section className='movieInfo'>
             <section className="imageWrapper">
@@ -65,7 +48,6 @@ export default function MoviePage() {
           </section>
         </section>
       </section>
-      <AboutBar />
     </>
   )
 }
