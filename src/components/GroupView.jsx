@@ -35,17 +35,20 @@ export default function FrontPage() {
 
         <div className='main-group-container'>               
           <div className='group-chat-button-container'>
-            <div className="group-settings-btn" /*onClick={movieReview}*/>Settings</div>
-            <div className="new-group-btn" /*onClick={movieReview}*/>Create new group</div>
+            <button className="group-settings-btn" /*onClick={movieReview}*/>Asetukset</button>
+            <button className="new-group-btn" /*onClick={movieReview}*/>Uusi ryhmä</button>
           </div>
 
-          <div className='group-chat'>
-            <h1>GroupView</h1>
-            <h1>GroupView</h1>
+          <div className='group-chat-section'>
+            <h1>Ryhmänäkymä</h1>
+            <ul className='group-chat'>
+              <li className='item'>Arvostelu Kortti</li>
+              <li className='item'>Arvostelu Kortti</li>
+            </ul>
           </div> 
 
           <div className='group-chat-participants'>
-            <h1>Participants</h1>
+            <h1>Osallistujat</h1>
           </div>            
         </div>
       </div>

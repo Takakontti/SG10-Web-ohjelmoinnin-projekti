@@ -77,13 +77,13 @@ function Review() {
                   <span className='star-rating-item' key={star}>
                     <i className={`bi ${icon} star-rating-icon`} aria-hidden='true' />
                     <button
-                      className='star-rating-choice star-rating-half-left'
+                      className='star-rating-choice star-rating-half-left no-hover'
                       type='button'
                       onMouseEnter={() => setTemporaryRating(star - 0.5)}
                       onClick={() => setRating(star - 0.5)}
                     />
                     <button
-                      className='star-rating-choice star-rating-half-right'
+                      className='star-rating-choice star-rating-half-right no-hover'
                       type='button'
                       onMouseEnter={() => setTemporaryRating(star)}
                       onClick={() => setRating(star)}

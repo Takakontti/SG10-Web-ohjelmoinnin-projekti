@@ -1,9 +1,11 @@
 .main-group-container {
   display: flex;
   height: 71rem;
-  width: 100%;
+  width: 80rem;
   padding: 30px;
   background-color: #181414;
+  border-radius: 5px;
+  box-shadow: 0 0 10px;
 }
 
 .group-chat-button-container {
@@ -12,39 +14,65 @@
   justify-content: space-between;
 }
 
-.group-chat {
+.group-chat-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 2;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.group-chat-section h1 {
+  margin: 0;
+}
+
+.group-chat {
+  display: flex;
+  flex-direction: column;
+  place-content: center center;
+  flex-grow: 2;
+  padding: 10px;
+  padding-top: 0;
+  padding-bottom: 0;
+  list-style: none;
+}
+
+.group-chat .item {
+  margin: 10px;
 }
 
 .group-settings-btn {
-  border-radius: 5%;
+  display: flex;
+  place-content: center center;
   width: 80px;
   height: 40px;
   color: white;
-  border: 1px solid rgb(169, 146, 75);
-  background-color: #3b3837;
-  cursor: pointer;
   margin-bottom: 8px;
 }
 
 .new-group-btn {
-  border-radius: 5%;
+  display: flex;
+  place-content: center center;
   width: 85px;
   height: 50px;
   color: white;
-  border: 1px solid rgb(169, 146, 75);
-  background-color: #3b3837;
-  cursor: pointer;
   margin-bottom: 8px;
 }
 
 .group-chat-participants {
   display: flex;
   flex-direction: column;
+  width: 7rem;
   padding: 10px;
-  border: 3px solid rgb(169, 146, 75);
+  border: 1px solid rgb(169, 146, 75);
+  box-shadow: 0 0 20px;
   font-size: x-small;
+}
+
+@media only screen and (max-width: 414px) {
+  .main-group-container{
+    width: 100%;
+  }
 }
