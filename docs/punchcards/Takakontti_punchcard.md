@@ -28,3 +28,13 @@ Yht 9h 40m
 - 19:00-00:00 arvostelujen näyttämisen front ja backend koodaus
 
 Yht 9h
+
+## 12.11.2026
+
+- 05:30-06:20 arvostelu komponenttien pilkkomista.
+- 08:40-09:15 arvostelu komponenttien pilkkomista.
+- 23:40-00:00 arvostelu komponenttien pilkkomista.
+
+## 13.11.2026
+
+- 00:00-01:15 arvostelu komponenttien pilkkomista.

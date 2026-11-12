@@ -6,7 +6,8 @@ const createReview = async (user, stars, review, movie) => {
       [user, stars, review, movie]
     )
     return result
-  }, showReview = async (movieID) => {
+  }, 
+  showReview = async (movieID) => {
     const result = await pool.query(
       'SELECT reviews.user_id, users.username, reviews.stars, reviews.review, reviews.posted_date FROM reviews LEFT JOIN users ON reviews.user_id = users.id WHERE reviews.movie_id = $1',
       [movieID]
