@@ -17,3 +17,12 @@ Yht 8h.
 * Hakufunktion tekoa 18:00-00:55
 
 Yht 6h 55min
+
+## 11.11.2026
+
+* Testien korjausta 10:45-11:15
+* Elokuvan ID-hakureitin tekemistä 11:15-12:20
+* Elokuvasivun tekoa 13:30-15:05
+* Elokuvasivun ja elokuvan hakufunktion parantamista 15:30-1:00
+
+Yht 12h 40min

@@ -6,3 +6,8 @@
     padding-top: 1rem;
     background-color: rgb(88, 148, 148);
 }
+
+ul {
+    list-style: none;
+    text-align: left;
+}
