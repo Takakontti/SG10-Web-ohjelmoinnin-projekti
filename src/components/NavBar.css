@@ -1,0 +1,18 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  color: var(--small-text-color);
+  margin-top: 12.5rem;
+}
+
+.nav-btn {
+  border-radius: 10%;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: var(--border-3);
+  background-color: var(--nav-button-color);
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  display: flex;
+  place-content: center center;
+}

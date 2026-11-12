@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './SearchResults.css'
 import axios from 'axios'
 import { useNavigate, useSearchParams } from 'react-router'
-import AboutBar from './AboutBar.jsx'
+import NavBar from './NavBar'
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams()
@@ -12,15 +12,6 @@ export default function SearchResults() {
   const [getPage,setGetPage] = useState(1)
   const navigate = useNavigate()
 
-  const mainPage = () => {
-    navigate('/')
-  }
-  const groupPage = () => {
-    navigate('/GroupView')
-  }
-  const movieReview = () => {
-    navigate('/MovieReviews')
-  }
   const moviePage = (event,id) => {
     event.preventDefault()
     navigate(`/movie?id=${id}`)
@@ -30,14 +21,17 @@ export default function SearchResults() {
     async function loadMovies() {
       try{
         const searchPhrase = searchParams.get('query')
+        
         const response = await axios.get(`/api/movie/search`,{ params: {
           query: searchPhrase,
           page: getPage,
           index: searchData.length || 0
         }})
+        
         const data = await response.data.data
         const movieListFlat = await data.movieList.flat()
         setLastPage(data.lastPage)
+        
         if(movieListFlat!==undefined){
           if(getPage===1){
             setSearchData(movieListFlat)
@@ -56,10 +50,14 @@ export default function SearchResults() {
     if(lastPage===getPage){
       return
     }else{
-      return(<button className='loadMore' onClick={()=>{
-        setLoading(true)
-        setGetPage(getPage + 1)
-      }}>Hae lisää elokuvia</button>)
+      return(
+        <button className='loadMore' onClick={()=>{
+          setLoading(true)
+          setGetPage(getPage + 1)
+        }}>
+          Hae lisää elokuvia
+        </button>
+      )
     }
   }
 
@@ -69,11 +67,7 @@ export default function SearchResults() {
   return (
     <>
       <section className='pageContainer'>
-        <nav>
-          <button className="nav-btn" onClick={mainPage}>H</button>
-          <button className="nav-btn" onClick={groupPage}>G</button>
-          <button className="nav-btn" onClick={movieReview}>MR</button>
-        </nav>
+        <NavBar />
         <section className='searchResults'>
           <img src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" alt="TMDB-logo" className="tmdbLogoSearch" />
           <h1>Hakutulokset:</h1>
@@ -95,7 +89,6 @@ export default function SearchResults() {
           {nextPage()}
         </section>
       </section>
-      <AboutBar />
     </>
   )
 }

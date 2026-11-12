@@ -26,3 +26,7 @@ Yht 6h 55min
 * Elokuvasivun ja elokuvan hakufunktion parantamista 15:30-1:00
 
 Yht 12h 40min
+
+## 12.11.2026
+
+* Frontendin parantamista 21:10-

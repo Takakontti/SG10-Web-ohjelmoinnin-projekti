@@ -1,38 +1,16 @@
 import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import './GroupView.css'
+import NavBar from './NavBar'
 
 export default function FrontPage() {
-
   const navigate = useNavigate()
-
-  const mainPage = () => {
-    navigate('/')
-  }
-
-  const groupPage = () => {
-    navigate('/GroupView')
-  }
-
-  const movieReview = () => {
-    navigate('/MovieReviews')
-  }
 
   return(
     <>
-      <div className='main-top-bar'>
-        <img src="" alt="" />
-        <div className="profile_button" >Profile</div>
-      </div>
-
-      <div className='main-foundation'>
-                
+      <div className='main-foundation'>          
         <div className='main-foundation'>
-          <div className='navigation-btn'>
-            <div className="main-btn" onClick={mainPage}>H</div>
-            <div className="main-btn" onClick={groupPage}>G</div>
-            <div className="main-btn" onClick={movieReview}>MR</div>
-          </div>
+          <NavBar />
         </div>
 
         <div className='main-page-foundation'>
