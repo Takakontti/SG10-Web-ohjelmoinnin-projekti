@@ -1,4 +1,4 @@
-import { registerUser, checkForExistingUser, verifyUser } from '../models/user.js'
+import { registerUser, checkForExistingUser, verifyUser, getUserByID} from '../models/user.js'
 import validator from 'validator'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
@@ -90,13 +90,25 @@ const login = async (req, res, next) => {
     catch (error) {
       next(error)
     }
-  }, logout = (req, res) => {
+  }, 
+  logout = (req, res) => {
     res.clearCookie(cookieName, cookieOptions)
     res.status(200).json({ message: 'Logout successful' })
+  }, 
+  getUser = async (req, res, next) => {
+    try {
+      const userData = await getUserByID(req.body.id)
+      const username = userData[0].username
+      return res.status(200).json({ message: 'User found succesfully', username })
+    }
+    catch (error) {
+      next(error)
+    }
   }
 
 export {
   createUser,
   login,
-  logout
+  logout,
+  getUser
 }
