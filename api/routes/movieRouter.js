@@ -1,12 +1,18 @@
 import { Router } from "express";
-import { search } from "../controllers/movieController.js";
+import { getMovieById, search } from "../controllers/movieController.js";
 
 const router = Router()
 
 router.get('/search',search)
-// esimerkki osoite elokuvien hakemiseen
+// esimerkkiosoite elokuvien hakemiseen
 /*
 http://localhost:5173/api/movie/search?query=testihaku
 */
+router.get('/id',getMovieById)
+// esimerkkiosoite elokuvan tietojen hakemiseen
+/*
+http://localhost:5173/api/movie/id?query=testihaku
+*/
+
 
 export default router

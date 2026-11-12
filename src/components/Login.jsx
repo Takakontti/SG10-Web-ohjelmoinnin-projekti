@@ -6,7 +6,7 @@ import './Login.css'
 
 const API_URL = '/api'
 
-export const LoginPost = async (username, password) => {
+const LoginPost = async (username, password) => {
   const response = await axios.post(`${API_URL}/user/login`, { username, password })
   return response.data
 }

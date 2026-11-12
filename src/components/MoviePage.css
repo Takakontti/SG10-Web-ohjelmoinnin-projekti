@@ -1,0 +1,54 @@
+.pageContainer {
+  display: inline-flex;
+}
+
+.mainContainer {
+  padding: 0;
+  margin-top: 6.25rem;
+  margin-bottom: 6.25rem;
+  background-color: var(--search-bg-color);
+  max-width: 57.5rem;
+  display: inline-flex;
+  border-radius: 5px;
+  flex-direction: column;
+}
+
+.movieInfo {
+  display: inline-flex;
+  flex-direction: row;
+  padding: 1.88rem;
+  justify-content: space-between;
+}
+
+.imageWrapper{
+  position: relative;
+}
+
+.poster {
+  height: max-content;
+  border-radius: 8px;
+}
+
+.tmdbLogo{
+  position: absolute;
+  bottom: -1rem;
+  left: 0.5rem;
+  height: 6rem;
+  width: 6rem;
+}
+
+.movieText {
+  background-color: var(--search-card-bg-color);
+  border-radius: 8px;
+  flex-basis: 48%;
+  padding: 1.88rem;
+  display: inline-flex;
+  flex-direction: column;
+  height: max-content;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}

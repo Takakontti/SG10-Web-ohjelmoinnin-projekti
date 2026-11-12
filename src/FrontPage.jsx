@@ -1,31 +1,12 @@
-import { Form, Button, Container, Row, Col } from 'react-bootstrap'
+import { Form } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import './FrontPage.css'
-import AboutBar from './components/AboutBar'
 import { useState } from 'react'
-
-
+import NavBar from './components/NavBar'
 
 export default function FrontPage() {
-
   const [query,setQuery] = useState('')
   const navigate = useNavigate()
-
-  const authPage = () => {
-    navigate('/Authentication/Login')
-  }
-
-  const mainPage = () => {
-    navigate('/')
-  }
-
-  const groupPage = () => {
-    navigate('/GroupView')
-  }
-
-  const movieReview = () => {
-    navigate('/MovieReviews')
-  }
 
   const searchPage = (event) => {
     event.preventDefault()
@@ -34,23 +15,9 @@ export default function FrontPage() {
 
   return(
     <>
-      <div className='main-top-bar'>
-        <img src="" alt="" />
-        <div className="profile_button" onClick={authPage}>Profile</div>
-      </div>
-
-      <div className='main-foundation'>
-                
-      </div>
-
-      <div className='main-foundation'>
-                
+      <div className='main-foundation'>          
         <div className='main-foundation'>
-          <div className='navigation-btn'>
-            <div className="main-btn" onClick={mainPage}>H</div>
-            <div className="main-btn" onClick={groupPage}>G</div>
-            <div className="main-btn" onClick={movieReview}>MR</div>
-          </div>
+          <NavBar />
         </div>
 
         <div className='main-page-foundation'>
@@ -61,11 +28,9 @@ export default function FrontPage() {
               <div className='main-container'>
                 <h1>MovCha</h1>
 
-                <Form className="search-bar" onSubmit={event => searchPage(event)}> {/*Placeholder className, probably not needed*/}
-                  <div>
-                    <input size="40" type="text" placeholder="Search movies..." onChange={event => setQuery(event.target.value)} />
-                    <button style={{ margin: '10px'}} type="submit">Search</button>
-                  </div>
+                <Form role='search' onSubmit={event => searchPage(event)}>
+                  <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
+                  <button style={{ margin: '10px'}} type="submit">Hae</button>
                 </Form>
 
               </div>
@@ -76,10 +41,8 @@ export default function FrontPage() {
         <div className='main-foundation'>
                     
         </div>
-
                 
       </div>
-      <AboutBar />
     </>
   )
 }

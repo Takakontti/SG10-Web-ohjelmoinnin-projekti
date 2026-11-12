@@ -13,7 +13,7 @@
   zoom: 1.2;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #181414;
+  background-color: var(--main-bg-color);
 }
 
 .register-title {
@@ -44,22 +44,26 @@
 }
 
 .register-form-container .mb-3 .form-label {
-    flex: 0 0 8rem;
-    margin-bottom: 0;
-    text-align: left;
+  flex: 0 0 8rem;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .register-form-container .mb-3 .form-control {
-    flex: 1;
-    min-width: 0;
-    box-sizing: border-box;
-    border: 2px solid rgba(183, 126, 18, 0.7);
-    border-radius: 8px;
-    background-color: #181414;
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  border: var(--border-2);
+  border-radius: 8px;
+  background-color: var(--main-bg-color);
 }
 
 .register-form-container .mb-3 .invalid-feedback {
-    flex: 0 0 calc(100% - 8rem);
-    margin-left: 8rem;
-    color: #960000;
+  flex: 0 0 calc(100% - 8rem);
+  margin-left: 8rem;
+  color: var(--error-color);
+}
+
+.register-alert {
+  margin-bottom: 15px;
 }
