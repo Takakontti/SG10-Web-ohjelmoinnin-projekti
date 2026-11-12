@@ -1,8 +1,21 @@
-.AboutBar {
-    color: white;
+footer {
+    color: var(--small-text-color);
     display: flex;
     position: static; /* This should stay as static if we want to make the website scrollable, if not then fixed is a good alternative*/
     min-width: 100%;
     padding-top: 1rem;
-    background-color: rgb(88, 148, 148);
+    background-color: var(--footer-bg-color);
+    gap: 1rem;
+    align-items: center;
 }
+
+.footerTmdbLogo{
+    padding-left: 1rem;
+    height: 6rem;
+    width: 6rem;
+}
+
+/*.footerList {
+    list-style: none;
+    text-align: left;
+}*/

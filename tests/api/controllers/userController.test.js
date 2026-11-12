@@ -256,43 +256,27 @@ describe('createUser', () => {
     expect(res.json).toHaveBeenCalledWith(expectedValue)
   })
 
-  it('should return status 422 with response, when email is absent', async () => {
+  it.each([
+    ['email','','testuser','Test123!'],
+    ['username','test@tester.fi','','Test123!'],
+    ['password','test@tester.fi','testuser','']
+  ])('should return status 400 with response, when %s is absent', async (_description,inputEmail,inputUser,inputPassw) => {
     const req = {
       body:{
-        email:  '',
-        username: 'testuser',
-        password: 'Test123!'
+        email: inputEmail,
+        username: inputUser,
+        password: inputPassw
       }
     }
     const res = createRes()
     const expectedValue = {
-      'message': 'The provided email address is not valid'
+      'message': 'Email, Username and password are required'
     }
     
     await userControllerObject.createUser(req,res,vi.fn())
     
     expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(422)
-    expect(res.json).toHaveBeenCalledWith(expectedValue)
-  })
-
-  it('should return status 422 with response, when username is absent', async () => {
-    const req = {
-      body:{
-        email: 'test@tester.fi',
-        username: '',
-        password: 'Test123!'
-      }
-    }
-    const res = createRes()
-    const expectedValue = {
-      'message': 'Username is required'
-    }
-    
-    await userControllerObject.createUser(req,res,vi.fn())
-    
-    expect(createUserSpy).toHaveBeenCalledOnce()
-    expect(res.status).toHaveBeenCalledWith(422)
+    expect(res.status).toHaveBeenCalledWith(400)
     expect(res.json).toHaveBeenCalledWith(expectedValue)
   })
 
