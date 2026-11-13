@@ -20,46 +20,6 @@
   flex: 1;
 }
 
-.main-top-bar {
-  display: flex;
-  align-items: end;
-  flex-direction: column;
-  max-height: 100px;
-  width: 100%;
-}
-
-.main-bottom-bar {
-  position: relative;
-  bottom: -8.2rem;
-}
-
-.profile_button {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: 10px;
-  border: 1px solid #e1ae8e;
-  cursor: pointer;
-}
-
-.main-btn {
-  border-radius: 10%;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgb(169, 146, 75);
-  background-color: #e1ae8e;
-  cursor: pointer;
-  margin-bottom: 8px;
-}
-
-.navigation-btn {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  color: #ffffff;
-  left: 1.3rem;
-}
-
 @media only screen and (max-width: 414px) {
   .main-container{
     width: 100%;
