@@ -9,14 +9,8 @@ export default function GroupView() {
   const [movieId, setMovieId] = useState('')
   const [refreshProp, setRefreshProp] = useState(0)
 
-  function handleSubmit() {
-    let src = document.getElementById("review")
-    let val = src.value
-    getReview(val)
-  }
-
-  const getReview = (val) => {  // Dont know if this seperate function is needed, made it to be safe and didnt test other implimentations.
-    setMovieId(val)
+  function updateReviews() {  // The changes made to this were completely useless, the function works WAY weirder than before. Also these changes will be reverted soon~
+    console.log("here")
     setRefreshProp((val) => val + 1)
   }
 
@@ -43,8 +37,8 @@ export default function GroupView() {
               <ReviewList movieId={movieId} refreshProp={refreshProp} />
 
               <div className='search-bar'>
-                <input id='review' type='value' size="40" placeholder="Hae elokuva arvosteluja..." />
-                <button style={{ margin: '10px'}} onClick={handleSubmit}>Hae</button>
+                <input id='review' type='value' size="40" placeholder="Hae elokuva arvosteluja..." onChange={event => setMovieId(event.target.value)}/>
+                <button style={{ margin: '10px'}} onClick={updateReviews}>Päivitä</button>
               </div>
             </ul>
           </div>
