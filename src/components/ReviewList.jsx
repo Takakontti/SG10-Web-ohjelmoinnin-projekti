@@ -3,7 +3,7 @@ import axios from 'axios'
 import { getStarIcon, STARS } from './reviewUtils'
 import './ReviewList.css'
 
-function ReviewList({ movieId, refreshProp }) {
+export function ReviewList({ movieId, refreshProp }) {
   const [reviews, setReviews] = useState([])
 
   useEffect(() => {

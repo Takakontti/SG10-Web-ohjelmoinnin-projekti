@@ -30,15 +30,24 @@
 .group-chat {
   display: flex;
   flex-direction: column;
-  place-content: center center;
+  align-items: center;
+  justify-content: space-between;
   flex-grow: 2;
   padding: 10px;
   padding-top: 0;
   padding-bottom: 0;
+  margin-top: 30px;
   list-style: none;
 }
 
 .group-chat .item {
+  margin: 10px;
+}
+
+.group-chat .item .search-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
   margin: 10px;
 }
 
