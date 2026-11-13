@@ -7,6 +7,8 @@ footer {
     background-color: var(--footer-bg-color);
     gap: 1rem;
     align-items: center;
+    /*margin-top: auto;*/
+    
 }
 
 .footerTmdbLogo{

@@ -13,7 +13,7 @@ import TopBar from './components/TopBar'
 function App() {
 
   return (
-    <div>
+    <div className='fix'>
       <TopBar />
       <Routes>
         <Route path='/' element={<FrontPage />} />

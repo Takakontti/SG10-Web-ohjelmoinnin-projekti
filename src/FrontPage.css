@@ -1,4 +1,6 @@
 .main-container {
+  display: flex;
+  flex-direction: column;
   width: 80rem;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
@@ -7,12 +9,15 @@
   background-color: var(--main-bg-color);
 }
 
+.main-container h1 {
+  margin: 0;
+}
+
 .main-foundation {
   position: relative;
   display: inline-flex;
-  align-items: baseline;
-  max-width: 100rem;
-  height: 60.5rem; /* This is here just about purely for the about bar, makes the aboutbar stick to the bottom of the page */
+  justify-content: center;
+  flex: 1;
 }
 
 .main-top-bar {

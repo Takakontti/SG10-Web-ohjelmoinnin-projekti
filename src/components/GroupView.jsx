@@ -9,9 +9,8 @@ export default function FrontPage() {
   return(
     <>
       <div className='main-foundation'>          
-        <div className='main-foundation'>
+        
           <NavBar />
-        </div>
 
         <div className='main-group-container'>               
           <div className='group-chat-button-container'>
