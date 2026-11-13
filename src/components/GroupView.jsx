@@ -9,37 +9,27 @@ export default function FrontPage() {
   return(
     <>
       <div className='main-foundation'>          
-        <div className='main-foundation'>
+        
           <NavBar />
-        </div>
 
-        <div className='main-page-foundation'>
-          <div className='main-base'>
-            <div className='main-wrapper'>
-              <div className='main-group-container'>               
-                <div className='group-chat-section-main'>
-                  <div className='group-chat-button-container'>
-                    <div className="group-settings-btn" /*onClick={movieReview}*/>Settings</div>
-                    <div className="new-group-btn" /*onClick={movieReview}*/>Create new group</div>
-                  </div>
-                    
-                    <div className='group-chat'>
-                      <h1>GroupView</h1>
-                    </div>
-                    
-                    <div className='group-chat-participants'>
-                      <h1>Participants list</h1>
-                    </div>              
-                </div>
-              </div>
-            </div>
+        <div className='main-group-container'>               
+          <div className='group-chat-button-container'>
+            <button className="group-settings-btn" /*onClick={movieReview}*/>Asetukset</button>
+            <button className="new-group-btn" /*onClick={movieReview}*/>Uusi ryhmä</button>
           </div>
-        </div>
 
-        <div className='main-foundation'>
-                    
-        </div>
+          <div className='group-chat-section'>
+            <h1>Ryhmänäkymä</h1>
+            <ul className='group-chat'>
+              <li className='item'>Arvostelu Kortti</li>
+              <li className='item'>Arvostelu Kortti</li>
+            </ul>
+          </div> 
 
+          <div className='group-chat-participants'>
+            <h1>Osallistujat</h1>
+          </div>            
+        </div>
       </div>
     </>
   )

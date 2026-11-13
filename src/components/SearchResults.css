@@ -1,5 +1,7 @@
 .pageContainer {
   display: inline-flex;
+  flex: 1;
+  justify-content: center;
 }
 
 .searchResults {

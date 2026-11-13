@@ -14,35 +14,18 @@ export default function FrontPage() {
   }
 
   return(
-    <>
-      <div className='main-foundation'>          
-        <div className='main-foundation'>
-          <NavBar />
-        </div>
+    <div className='main-foundation'>
+    
+    <NavBar />
+  
+    <div className='main-container'>
+      <h1>MovCha</h1>
 
-        <div className='main-page-foundation'>
-          <div className='main-base'>
-
-                        
-            <div className='main-wrapper'>
-              <div className='main-container'>
-                <h1>MovCha</h1>
-
-                <Form role='search' onSubmit={event => searchPage(event)}>
-                  <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
-                  <button style={{ margin: '10px'}} type="submit">Hae</button>
-                </Form>
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='main-foundation'>
-                    
-        </div>
-                
-      </div>
-    </>
+      <Form role='search' onSubmit={event => searchPage(event)}>
+        <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
+        <button style={{ margin: '10px'}} type="submit">Hae</button>
+      </Form>     
+    </div>
+    </div>
   )
 }
