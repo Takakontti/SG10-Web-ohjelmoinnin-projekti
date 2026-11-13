@@ -15,7 +15,7 @@ export default function GroupView() {
     getReview(val)
   }
 
-  const getReview = (val) => {
+  const getReview = (val) => {  // Dont know if this seperate function is needed, made it to be safe and didnt test other implimentations.
     setMovieId(val)
     setRefreshProp((val) => val + 1)
   }
