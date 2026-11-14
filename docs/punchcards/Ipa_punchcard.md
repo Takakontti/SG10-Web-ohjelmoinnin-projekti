@@ -39,4 +39,10 @@ Yht 5h 15min
 * ReviewForm funktion integraatio yms. muutokset 16:50-17:20
 * Elokuvasivun muutokset 00:25-2:15
 
-Yht 30min
+Yht 2h 20min
+
+## 14.11.2026
+
+* Tietokannan päivitystä 19:45-21:25
+
+Yht 1h 40min

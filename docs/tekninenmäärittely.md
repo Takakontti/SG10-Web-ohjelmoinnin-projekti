@@ -37,7 +37,13 @@ erDiagram
     movie_groups {
         UUID id PK
         VARCHAR(40) group_name UK
-        UUID admin_id FK
+    }
+
+    group_members {
+        UUID id PK
+        UUID user_id FK
+        UUID group_id FK
+        BOOLEAN is_admin
     }
 
     reviews {
@@ -47,18 +53,13 @@ erDiagram
         TEXT review
         TIMESTAMPTZ posted_date
         INT movie_id
-    }
-
-    group_members {
-        UUID id PK
-        UUID user_id FK
         UUID group_id FK
     }
 
-    users ||--o{ movie_groups : ""
-    users ||--o{ group_members : ""
     users ||--o{ reviews : ""
-    movie_groups ||--o{ group_members : ""
+    users ||--o{ group_members : ""
+    movie_groups ||--|{ group_members : ""
+    movie_groups ||--o{ reviews : ""
 ```
 
 ### Käyttöönottokaavio
