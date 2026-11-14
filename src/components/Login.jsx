@@ -52,7 +52,7 @@ function Login() {
         navigate('/', { state: { loginSuccess: true }, replace: true })
       }
 
-      setSuccess({form: 'Rekisteröinti onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
+      setSuccess({form: 'Kirjautuminen onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
       setTimeout(redirect,5000)
     } catch {
       setErrors({ form: 'Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.' })
