@@ -44,5 +44,6 @@ Yht 2h 20min
 ## 14.11.2026
 
 * Tietokannan päivitystä 19:45-21:25
+* Rekisteröitymisfunktion virheentarkistuksen parantamista 21:50-22:55
 
-Yht 1h 40min
+Yht 2h 45min

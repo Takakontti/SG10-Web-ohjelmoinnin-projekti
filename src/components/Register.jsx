@@ -17,6 +17,7 @@ function Register() {
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [success, setSuccess] = useState ({})
 
   const navigate = useNavigate()
 
@@ -45,10 +46,35 @@ function Register() {
     setIsSubmitting(true)
     try {
       await RegisterPost(email, username, password)
-      navigate('/Authentication/Login', { state: { RegisterSuccess: true }, replace: true })
+      function redirect(){
+        navigate('/Authentication/Login', { state: { RegisterSuccess: true }, replace: true })
+      }
+      setSuccess({form: 'Rekisteröinti onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
+      setTimeout(redirect,5000)
     } catch(error) {
       const errmesg = error.response.data.message
-      setErrors({ form: errmesg})
+
+      function translateErr() {
+        switch (errmesg) {
+          case 'Password must contain at least one uppercase letter':
+            return ('Salasanan täytyy sisältää vähintään yksi iso kirjain')
+          case 'Password must contain at least one lowercase letter':
+            return ('Salasanan täytyy sisältää vähintään yksi pieni kirjain')
+          case 'Password must contain at least one number':
+            return ('Salasanan täytyy sisältää vähintään yksi numero')
+          case 'Password must contain at least one special character':
+            return ('Salasanan täytyy sisältää vähintään yksi erikoismerkki')
+          case 'The email is already in use':
+            return ('Sähköpostiosoite on jo käytössä')
+          case 'The username is already in use':
+            return ('Käyttäjänimi on jo käytössä')
+          default:
+            return errmesg
+        }
+      }
+
+      const errMsgFI = translateErr()
+      setErrors({ form: errMsgFI})
     } finally {
       setIsSubmitting(false)
     }
@@ -59,7 +85,8 @@ function Register() {
       <div className="register-form-container">
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
-          {errors.form && <Alert className='register-alert' variant="danger" role="alert">{errors.form}</Alert>}
+          {errors.form && <Alert className='register-error' variant="danger" role="alert">{errors.form}</Alert>}
+          {success.form && <Alert className='register-success' variant="success" role="alert">{success.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Sähköpostiosoite:</Form.Label>
             <Form.Control
