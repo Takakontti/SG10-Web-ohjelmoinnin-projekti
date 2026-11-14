@@ -51,7 +51,7 @@ export default function SearchResults() {
       return
     }else{
       return(
-        <button className='loadMore' onClick={()=>{
+        <button className='load-more-movie-cards' onClick={()=>{
           setLoading(true)
           setGetPage(getPage + 1)
         }}>
@@ -66,17 +66,17 @@ export default function SearchResults() {
   }
   return (
     <>
-      <section className='pageContainer'>
+      <section className='search-foundation'>
         <NavBar />
-        <section className='searchResults'>
-          <img src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" alt="TMDB-logo" className="tmdbLogoSearch" />
+        <section className='search-container'>
+          <img src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" alt="TMDB-logo" className="search-tmdb-logo" />
           <h1>Hakutulokset:</h1>
-          <ul className='movieCardContainer'>
+          <ul className='movie-card-container'>
             {searchData.map(
               (movie) => {
                 return(
-                  <li className='movieCard' key={movie.id}>
-                    <div className='titleBox' onClick={(event) => {moviePage(event,movie.movieId)}}>
+                  <li className='movie-card' key={movie.id}>
+                    <div className='movie-card-title-box' onClick={(event) => {moviePage(event,movie.movieId)}}>
                       <h2>{movie.title}</h2>
                       <h3>{movie.original_title}</h3>
                     </div>

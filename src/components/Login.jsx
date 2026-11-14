@@ -16,6 +16,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [success, setSuccess] = useState ({})
 
   const navigate = useNavigate()
 
@@ -46,7 +47,13 @@ function Login() {
     setIsSubmitting(true)
     try {
       await LoginPost(username, password)
-      navigate('/', { state: { loginSuccess: true }, replace: true })
+      
+      function redirect(){
+        navigate('/', { state: { loginSuccess: true }, replace: true })
+      }
+
+      setSuccess({form: 'Kirjautuminen onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
+      setTimeout(redirect,5000)
     } catch {
       setErrors({ form: 'Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.' })
     } finally {
@@ -59,7 +66,8 @@ function Login() {
       <div className="login-form-container">
         <h2 className="login-title">Kirjaudu sisään</h2>
         <Form onSubmit={handleSubmit}>
-          {errors.form && <Alert variant="danger" role="alert">{errors.form}</Alert>}
+          {errors.form && <Alert className='login-error' variant="danger" role="alert">{errors.form}</Alert>}
+          {success.form && <Alert className='login-success' variant="success" role="alert">{success.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicUsername">
             <Form.Label>Käyttäjätunnus:</Form.Label>
             <Form.Control

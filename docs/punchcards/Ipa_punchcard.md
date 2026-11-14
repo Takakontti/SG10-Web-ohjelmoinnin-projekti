@@ -29,4 +29,21 @@ Yht 12h 40min
 
 ## 12.11.2026
 
-* Frontendin parantamista 21:10-
+* Frontendin parantamista 21:10-23:50
+* Jarkon auttamista 23:50-02:25
+
+Yht 5h 15min
+
+## 13.11.2026
+
+* ReviewForm funktion integraatio yms. muutokset 16:50-17:20
+* Elokuvasivun muutokset 00:25-2:15
+
+Yht 2h 20min
+
+## 14.11.2026
+
+* Tietokannan päivitystä 19:45-21:25
+* Rekisteröitymisfunktion virheentarkistuksen parantamista 21:50-22:55
+
+Yht 2h 45min

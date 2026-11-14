@@ -1,22 +1,26 @@
-.pageContainer {
+.search-foundation {
+  position: relative;
   display: inline-flex;
-  flex: 1;
   justify-content: center;
+  flex: 1;
 }
 
-.searchResults {
+.search-container {
   position: relative;
-  padding: 0;
-  margin-top: 6.25rem;
   margin-bottom: 6.25rem;
-  background-color: var(--search-bg-color);
-  max-width: 57.5rem;
-  display: inline-flex;
   border-radius: 5px;
   flex-direction: column;
+  display: flex;
+  width: 84rem; /*I have no clue why but this is the same size as 80rem on other pages*/
+  box-shadow: 0 0 10px;
+  background-color: var(--main-bg-color);
 }
 
-.movieCardContainer {
+.search-container h1 {
+  margin-bottom: 0;
+}
+
+.movie-card-container {
   margin: 0;
   padding: 1.88rem;
   list-style: none;
@@ -24,19 +28,19 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.88rem;
+  row-gap: 1.88rem;
 }
 
-.movieCard {
+.movie-card {
   background-color: var(--search-card-bg-color);
   border-radius: 8px;
-  flex-basis: 41%;
+  flex-basis: 44%;
   padding: 1.88rem;
   display: inline-flex;
   flex-direction: column;
 }
 
-.titleBox {
+.movie-card-title-box {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin: 0;
@@ -45,11 +49,11 @@
   cursor: pointer;
 }
 
-.titleBox h2,h3{
+.movie-card-title-box h2,h3{
   margin: 0;
 }
 
-.movieCard p {
+.movie-card p {
   padding: 0.63rem;
   margin: 0;
   background-color: var(--search-card-desc-bg-color);
@@ -57,16 +61,33 @@
   border-bottom-right-radius: 8px;
 }
 
-.tmdbLogoSearch {
+.search-tmdb-logo {
   position: absolute;
   padding: 1rem;
   height: 3rem;
   width: 6rem;
 }
 
-.loadMore {
+.load-more-movie-cards {
   font-size: 1.5rem;
   align-self: center;
   max-width: max-content;
   margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 414px) {
+  .search-container{
+    width: 100%;
+  }
+
+  .movie-card{
+    flex-basis: 100%;
+  }
+
+  .search-tmdb-logo {
+    padding: 0;
+    left: 1rem;
+    top: 1rem;
+    zoom: 0.6;
+  }
 }

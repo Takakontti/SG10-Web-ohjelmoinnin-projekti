@@ -2,7 +2,7 @@ header {
   display: flex;
   align-items: end;
   flex-direction: column;
-  max-height: 100px;
+  max-height: 6.25rem;
   width: 100%;
 }
 
