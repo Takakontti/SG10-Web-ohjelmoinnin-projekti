@@ -11,13 +11,8 @@ export default function GroupView() {
 
   function updateReviews() {  // The changes made to this were completely useless, the function works WAY weirder than before. Also these changes will be reverted soon~
     console.log("here")
-    setRefreshProp((val) => val + 1)
+    setRefreshProp(movieId)
   }
-
-  useEffect(() => {
-    setMovieId()
-    setRefreshProp()
-  })
 
   return(
     <>
@@ -34,7 +29,7 @@ export default function GroupView() {
           <div className='group-chat-section'>
             <h1>Ryhmänäkymä</h1>
             <ul className='group-chat'>
-              <ReviewList movieId={movieId} refreshProp={refreshProp} />
+              <ReviewList movieId={refreshProp} />
 
               <div className='search-bar'>
                 <input id='review' type='value' size="40" placeholder="Hae elokuva arvosteluja..." onChange={event => setMovieId(event.target.value)}/>
