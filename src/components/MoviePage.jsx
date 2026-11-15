@@ -2,7 +2,7 @@ import { useEffect,useState } from "react"
 import axios from "axios"
 import { useSearchParams,useNavigate } from "react-router"
 import './MoviePage.css'
-import ReviewForm from "./ReviewForm.jsx"
+import ReviewForm from "./review/ReviewForm.jsx"
 import NavBar from "./NavBar.jsx"
 
 export default function MoviePage() {

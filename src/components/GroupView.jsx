@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import './GroupView.css'
 import NavBar from './NavBar'
-import ReviewList from './ReviewList'
+import ReviewList from './review/ReviewList'
+import GroupMembers from './GroupMembers'
 
 export default function GroupView() {
   const [movieId, setMovieId] = useState('')
@@ -22,7 +23,9 @@ export default function GroupView() {
 
         <div className='main-group-container'>
           <div className='group-chat-button-container'>
-            <button className="group-settings-btn">Asetukset</button>
+            <button className="group-settings-btn">
+              <i className="bi bi-gear-fill" aria-hidden="true" />
+            </button>
             <button className="new-group-btn">Uusi ryhmä</button>
           </div>
 
@@ -39,8 +42,9 @@ export default function GroupView() {
           </div>
 
           <div className='group-chat-participants'>
-            <h1>Osallistujat</h1>
-          </div>            
+            <h1>Jäsenet</h1>
+            <GroupMembers groupName='Testgroup1' />
+          </div>
         </div>
       </div>
     </>

@@ -6,7 +6,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import SearchResults from './components/SearchResults'
 import GroupView from './components/GroupView'
-import Review from './components/Review'
+import Review from './components/review/Review'
 import MoviePage from './components/MoviePage'
 import TopBar from './components/TopBar'
 

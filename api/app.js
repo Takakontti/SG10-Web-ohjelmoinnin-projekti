@@ -8,6 +8,7 @@ import errorHandler from './middleware/errorHandler.js'
 import userRouter from './routes/userRouter.js'
 import movieRouter from './routes/movieRouter.js'
 import reviewRouter from './routes/reviewRouter.js'
+import groupRouter from './routes/groupRouter.js'
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api/user', userRouter)
 app.use('/api/movie', movieRouter)
 app.use('/api/reviews', reviewRouter)
+app.use('/api/groups', groupRouter)
 
 // Health check endpoint for database connectivity
 app.get('/api/health', async (req, res) => {

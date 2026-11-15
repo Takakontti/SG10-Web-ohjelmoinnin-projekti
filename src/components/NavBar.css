@@ -16,3 +16,9 @@ nav {
   display: flex;
   place-content: center center;
 }
+
+.nav-btn .bi {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--nav-button-icon-color);
+}

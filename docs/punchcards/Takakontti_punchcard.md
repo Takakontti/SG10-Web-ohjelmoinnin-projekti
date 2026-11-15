@@ -31,10 +31,22 @@ Yht 9h
 
 ## 12.11.2026
 
-- 05:30-06:20 arvostelu komponenttien pilkkomista.
+- 05:30-07:20 arvostelu komponenttien pilkkomista.
 - 08:40-09:15 arvostelu komponenttien pilkkomista.
 - 23:40-00:00 arvostelu komponenttien pilkkomista.
+
+Yht 2h 45m
 
 ## 13.11.2026
 
 - 00:00-01:15 arvostelu komponenttien pilkkomista.
+- 01:15-02:45 koodaus apu jarkolle
+- 05:00-06:15 koodaus apu jarkolle
+
+Yht 4h
+
+## 15.11.2026
+- 00:30-02:15 group view backend koodaus
+- 03:30-06:00 group view frontend koodaus
+- 09:30-10:00 group view frontend koodaus
+Yht 4h 45m
