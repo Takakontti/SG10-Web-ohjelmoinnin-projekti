@@ -9,7 +9,7 @@ export default function GroupMembers({ groupName }) {
 
     const fetchGroupUsers = async () => {
       try {
-        const response = await axios.get(`/api/groups/${encodeURIComponent(groupName)}/users`)
+        const response = await axios.get(`/api/groups/${groupName}/users`)
         setUsernames(response.data.usernames)
       } catch {
         setError('Ryhmän jäsenien lataaminen epäonnistui.')
