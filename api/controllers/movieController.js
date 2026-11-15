@@ -1,4 +1,4 @@
-import { searchMovie,getMovie } from "../models/movie.js"
+import { searchMovie,getMovie } from '../models/movie.js'
 
 export const search = async (req, res, next) => {  
   const searchResultsEN = await searchMovie(req.query,'en-US')

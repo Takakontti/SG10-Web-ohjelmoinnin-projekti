@@ -16,16 +16,16 @@ export default function FrontPage() {
   return(
     <div className='main-foundation'>
     
-    <NavBar />
+      <NavBar />
   
-    <div className='main-container'>
-      <h1>MovCha</h1>
+      <div className='main-container'>
+        <h1>MovCha</h1>
 
-      <Form role='search' onSubmit={event => searchPage(event)}>
-        <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
-        <button style={{ margin: '10px'}} type="submit">Hae</button>
-      </Form>     
-    </div>
+        <Form role='search' onSubmit={event => searchPage(event)}>
+          <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
+          <button style={{ margin: '10px'}} type="submit">Hae</button>
+        </Form>     
+      </div>
     </div>
   )
 }
