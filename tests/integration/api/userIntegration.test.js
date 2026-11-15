@@ -61,9 +61,9 @@ describe('POST /api/user/register (database integration)', () => {
         email: testEmail,
         password: testPassword
       })
-      .expect(500)
+      .expect(400)
       .expect('Content-Type', /json/)
 
-    expect(integrationResponse.body.error.message).toEqual('Cannot read properties of undefined (reading \'length\')') //Should probably handle this error
+    expect(integrationResponse.body.message).toEqual('Email, Username and password are required')
   })
 })

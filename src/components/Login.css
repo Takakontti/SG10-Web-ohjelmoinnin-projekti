@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    flex: 1;
     padding: 20px;
 }
 
@@ -10,9 +10,10 @@
     width: 320px;
     max-width: 400px;
     padding: 30px;
+    zoom: 1.2;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: #181414;
+    box-shadow: 0 0 10px;
+    background-color: var(--main-bg-color);
 }
 
 .login-title {
@@ -41,7 +42,40 @@
 
 .mb-3 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
+    zoom: 1.1;
+}
+
+.login-form-container .mb-3 .form-label {
+    flex: 0 0 8rem;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.login-form-container .mb-3 .form-control {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+    border: var(--border-2);
+    border-radius: 8px;
+    background-color: var(--main-bg-color);
+}
+
+.login-form-container .mb-3 .invalid-feedback {
+    flex: 0 0 calc(100% - 8rem);
+    margin-left: 8rem;
+    color: var(--error-color);
+}
+
+.login-error {
+  margin-bottom: 15px;
+  color: var(--error-color);
+}
+
+.login-success {
+  margin-bottom: 15px;
+  color: var(--success-color);
 }

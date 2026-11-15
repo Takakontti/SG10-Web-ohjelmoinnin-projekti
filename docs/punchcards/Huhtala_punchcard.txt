@@ -1,0 +1,48 @@
+Huhtala Timecard 09/11
+
+
+GroupView creation 14:50 - 17:35 (useless)
+
+Sprint planning 17:35 - 18:15
+
+Register error handling 18:15 - 21:45 (Tried to get JSON messages to appear on error form, did not succeed)
+
+Fixed register error handling 23:50 - 0:10
+
+~7h
+
+-----------------------------------------------------------------------------------------------------------------
+
+10/11
+
+Group stuff 15:00 - 19:30
+
+Daily scummy 19:30 - 19:45
+
+GroupView continuation 2:10 - 3:20 (Not finished)
+
+~6h
+
+-----------------------------------------------------------------------------------------------------------------
+
+11/11
+
+Reformatting the whole site AGAIN 20:00 - 1:30
+
+~5.5h
+
+-----------------------------------------------------------------------------------------------------------------
+
+12/11
+
+Finishing the GroupView and FIXING ALL THE PROBLEMS 21:00 - 3:00
+
+Adding functionality to GroupView 5:00 - 8:30
+
+~9.5h
+
+-----------------------------------------------------------------------------------------------------------------
+
+13/11
+
+Fixing "mistakes" according to ipa 20:30 - 20:50 (Completely useless)
