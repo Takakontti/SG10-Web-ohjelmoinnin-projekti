@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 export const searchMovie = async (param,lang) => {
   const searchTerm = {...param}

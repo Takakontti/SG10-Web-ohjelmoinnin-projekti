@@ -1,6 +1,5 @@
 import { Form } from 'react-bootstrap'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { useState } from 'react'
 import './GroupView.css'
 import NavBar from './NavBar'
 import ReviewList from './review/ReviewList'
@@ -11,7 +10,7 @@ export default function GroupView() {
   const [refreshProp, setRefreshProp] = useState(0)
 
   function updateReviews() {  // The changes made to this were completely useless, the function works WAY weirder than before. Also these changes will be reverted soon~
-    console.log("here")
+    console.log('here')
     setRefreshProp(movieId)
   }
 
@@ -19,7 +18,7 @@ export default function GroupView() {
     <>
       <div className='main-foundation'>          
         
-          <NavBar />
+        <NavBar />
 
         <div className='main-group-container'>
           <div className='group-chat-button-container'>

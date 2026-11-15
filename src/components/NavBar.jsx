@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router"
+import { useNavigate } from 'react-router'
 import './NavBar.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
