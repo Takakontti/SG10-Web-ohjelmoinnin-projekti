@@ -1,5 +1,6 @@
-import { useNavigate } from "react-router"
+import { useNavigate } from 'react-router'
 import './NavBar.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
 export default function NavBar(){
   const navigate = useNavigate()
@@ -18,9 +19,15 @@ export default function NavBar(){
 
   return(
     <nav>
-      <button className="nav-btn" onClick={mainPage}>H</button>
-      <button className="nav-btn" onClick={groupPage}>G</button>
-      <button className="nav-btn" onClick={movieReview}>MR</button>
+      <button className="nav-btn" onClick={mainPage}>
+        <i className="bi bi-house-fill" aria-hidden="true" />
+      </button>
+      <button className="nav-btn" onClick={groupPage}>
+        <i className="bi bi-people-fill" aria-hidden="true" />
+      </button>
+      <button className="nav-btn" onClick={movieReview}>
+        <i className="bi bi-star-fill" aria-hidden="true" />
+      </button>
     </nav>
   )
 }

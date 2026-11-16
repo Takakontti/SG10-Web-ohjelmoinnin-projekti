@@ -14,6 +14,8 @@
   --error-color: #960000;
   --success-color: #009600;
   --small-text-color: #ffffff;
+  --nav-button-icon-color: #875e13;
+  --group-member-list-bg: #141111
 }
 
 #root {
