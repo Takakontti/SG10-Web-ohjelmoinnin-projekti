@@ -26,4 +26,24 @@ Tämän sprintin jälkeen ulkopuolinen voi vähintään rekisteröityä sovelluk
 
 ## Sprint review
 
+Tämän sprintin aikana saatiin MVP valmiiksi, mutta yksikään vaatimus ei täyttynyt. Sovelluksessa voi nyt hakea elokuvia ja kirjautuneena arvostella niitä. Ryhmissä näkyy muut ryhmän jäsenet.  
+Uusia testejä ei tehty tällä viikolla ja virheidenhallinta jäi toissijaiseksi.  
+Tietokantaa päivitettiin ja dokumentaatiota muutettiin vastaamaan uutta tietokantaa.  
+
+Pyritään pysymään vaatimusmäärittelyn mukaisessa aikataulussa.
+
 ## Retrospective
+
+9-15.11.2026 Välillä tilastot olivat seuraavat.
+
+Daniel Nylander: 13 Committia, 1530 Lisäystä, 820 Poistoa, 0 Valmista taskia.
+
+Ilari Bäckman: 15 Committia, 1059 Lisäystä, 633 Poistoa, 2 Valmista taskia.
+
+Jarkko Huhtala: 15 Committia, 562 Lisäystä, 390 Poistoa, 1 Valmista taskia.
+
+Onnistunutta: Punchcardit ja vaatimuskeskeinen kehittäminen toimi hyvin.
+
+Parannettavaa: Voisi koodata vähän säännöllisemmin.
+
+Jatkossa: Koodataan kovempaa.

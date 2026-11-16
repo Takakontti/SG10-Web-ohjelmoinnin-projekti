@@ -84,7 +84,7 @@ flowchart LR
     PalvelimenResurssit <-->|"Verkkoyhteys"| UlkoinenAPI
 ```
 
-Elokuvapalvelu tarjoaa selaimeen API-rajapinnan, jolla voi kutsua backendiä. Nykyisessä API-rajapinnassa on login ja register POST reitit. Niitä kutsutaan lähettämällä JSON, jonka esimerkit on jokaiselle reitille määritelty tarkemmin [userRoutes](../api/routes/userRouter.js) tiedostossa.
+Elokuvapalvelu tarjoaa selaimeen API-rajapinnan, jolla voi kutsua backendiä. API-rajapinnan kutsuesimerkit on jokaiselle reitille määritelty tarkemmin [reitit-kansion](../api/routes/) tiedostoissa.
 
 Tietokohteet, -suhteet lisätään tähän myöhemmin.  
 Palvelu muodostaa yhteyden The Movie Databasen API-rajapintaan.
