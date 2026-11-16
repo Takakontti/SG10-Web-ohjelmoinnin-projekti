@@ -25,7 +25,7 @@ const login = async (req, res, next) => {
 
     // Tarkistetaan että tarvitut kentät ei ole tyhjät tai niissä ei ole pelkkiä välilyöntejä.
     if ([username, password].some((value) => typeof value !== 'string' || value.trim() === '')) {
-      return res.status(400).json({ message: 'Username and password are required' })
+      return res.status(400).json({ message: 'Username/email and password are required' })
     }
 
     try {
