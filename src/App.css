@@ -1,16 +1,15 @@
 * {
   --main-bg-color: #181414;
-  --search-bg-color: #191515;
   --search-card-bg-color: #1a1a1a;
   --search-card-title-bg-color: #3D3333;
   --search-card-desc-bg-color: #2B2424;
-  --footer-bg-color: rgb(88, 148, 148);
+  --footer-bg-color: #589494;
   --button-color: #3b3837;
   --nav-button-color: #e1ae8e;
   --border-1: 1px solid #e1ae8e;
-  --border-2: 2px solid rgba(183, 126, 18, 0.7);
-  --border-3: 1px solid rgb(169, 146, 75);
-  --border-4: 3px solid rgb(169, 146, 75);
+  --border-2: 2px solid #b77e12b3;
+  --border-3: 1px solid #a9924b;
+  --border-4: 3px solid #a9924b;
   --star-color: #f0b429;
   --error-color: #960000;
   --success-color: #009600;
