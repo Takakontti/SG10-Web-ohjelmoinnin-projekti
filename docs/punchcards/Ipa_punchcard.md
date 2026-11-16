@@ -61,7 +61,7 @@ Yht 1h 50min
 
 # Viikko 47
 
-Yht
+Yht 5h 45min
 
 ## 16.11.2026
 
@@ -72,5 +72,6 @@ Yht
 * Scrum-taulun päivitystä 11:20-11:45
 * Sprint-planning 12:25-12:45
 * Scrum-taulun päivitystä 18:05-20:30
+* Rekisteröitymisen E2E-testin viimeistely 23:10-00:20
 
-Yht 4h 35min
+Yht 5h 45min
