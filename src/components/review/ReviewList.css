@@ -9,7 +9,7 @@
 }
 
 .review {
-  background-color: #1a1a1a;
+  background-color: var(--search-card-bg-color);
   border-radius: 8px;
   padding: 2rem;
 }
@@ -18,13 +18,13 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin: 0;
-  background-color: #3D3333;
+  background-color: var(--search-card-title-bg-color);
   padding: 1rem;
   padding-bottom: 0;
 }
 
 .review div {
-  background-color: #3D3333;
+  background-color: var(--search-card-title-bg-color);
   padding-bottom: 0.63rem;
 }
 
@@ -44,7 +44,7 @@
 .review p {
   padding: 1rem;
   margin: 0;
-  background-color: #2B2424;
+  background-color: var(--search-card-desc-bg-color);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
