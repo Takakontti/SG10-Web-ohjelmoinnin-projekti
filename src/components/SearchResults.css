@@ -61,13 +61,6 @@
   border-bottom-right-radius: 8px;
 }
 
-.search-tmdb-logo {
-  position: absolute;
-  padding: 1rem;
-  height: 3rem;
-  width: 6rem;
-}
-
 .load-more-movie-cards {
   font-size: 1.5rem;
   align-self: center;
