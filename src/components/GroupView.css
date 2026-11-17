@@ -1,5 +1,6 @@
 .main-group-container {
   display: flex;
+  position: relative;
   width: 80rem;
   padding: 30px;
   border-radius: 5px;

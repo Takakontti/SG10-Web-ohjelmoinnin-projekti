@@ -1,12 +1,14 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  width: 80rem;
+  position: none;
+  width: 100%;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px;
   background-color: var(--main-bg-color);
+  transform: translateX(-17px);
 }
 
 .main-container h1 {
@@ -20,8 +22,10 @@
   flex: 1;
 }
 
-@media only screen and (max-width: 414px) {
+@media (min-width: 850px) {
   .main-container{
-    width: 100%;
+    width: 80rem;
+    position: relative;
+    transform: none;
   }
 }
