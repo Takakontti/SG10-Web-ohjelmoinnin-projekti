@@ -34,14 +34,6 @@
   border-radius: 8px;
 }
 
-.movie-page-tmdb-logo{
-  position: absolute;
-  bottom: -1rem;
-  left: 0.5rem;
-  height: 6rem;
-  width: 6rem;
-}
-
 .movie-text-container {
   background-color: var(--search-card-bg-color);
   border-radius: 8px;
