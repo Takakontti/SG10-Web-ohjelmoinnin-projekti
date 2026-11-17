@@ -60,4 +60,5 @@ Yht 20m
 ## 17.11.2026 
 
 - 00:00-00:30 API-route kirjautumiseen viimeistely.
-
+- 00:30-06:00 ryhmän arvostelujen haun backend koodaus.
+- 07:00-07:30 API-route ryhmän arvostelujen hakemiseen viimeistely.
