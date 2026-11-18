@@ -5,11 +5,12 @@ import axios from 'axios'
 import { getStarIcon, STARS } from './reviewUtils'
 import './ReviewForm.css'
 
-function ReviewForm({ movieId, setMovieId, onSubmitted }) {
+function ReviewForm({ movieId, onSubmitted }) {
   const [comment, setComment] = useState('')
   const [rating, setRating] = useState(0)
   const [temporaryRating, setTemporaryRating] = useState(0)
   const [submitError, setSubmitError] = useState('')
+  const [submitSuccess, setSubmitSuccess] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const visualRating = temporaryRating || rating
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ function ReviewForm({ movieId, setMovieId, onSubmitted }) {
   const handleSubmit = async (event) => {
     event.preventDefault()
     setSubmitError('')
+    setSubmitSuccess('')
 
     if (!movieId || rating === 0) return
 
@@ -28,6 +30,7 @@ function ReviewForm({ movieId, setMovieId, onSubmitted }) {
         reviewText: comment,
         movieID: movieId,
       })
+      setSubmitSuccess('Arvostelu lähetettiin onnistuneesti.')
       onSubmitted()
     } catch (error) {
       console.error('Failed to submit review:', error)
@@ -41,15 +44,6 @@ function ReviewForm({ movieId, setMovieId, onSubmitted }) {
     <div className='review-form-container'>
       <h2 className='review-title'>Arvostele elokuva</h2>
       <form onSubmit={handleSubmit}>
-        <Form.Group className='mb-3' controlId='formBasicMovieID'>
-          <Form.Label>Elokuvan ID:</Form.Label>
-          <Form.Control
-            type='number'
-            placeholder='Elokuva'
-            value={movieId}
-            onChange={(event) => setMovieId(event.target.value)}
-          />
-        </Form.Group>
         <Form.Group className='mb-3' controlId='formBasicRating'>
           <Form.Label>Tähdet:</Form.Label>
           <div
@@ -89,11 +83,13 @@ function ReviewForm({ movieId, setMovieId, onSubmitted }) {
         </Form.Group>
         <div className='button-box'>
           <Button className='review-buttons' onClick={() => navigate('/')}>Takaisin</Button>
-          <Button className='review-buttons' type='submit' disabled={isSubmitting}>
+          <Button className='review-buttons' type='submit' disabled={isSubmitting || !movieId}>
             {isSubmitting ? 'Lähetetään...' : 'Lähetä'}
           </Button>
         </div>
+        {!movieId && <p role='status'>Elokuvaa ei ole valittu. Avaa arvostelu elokuvan sivulta.</p>}
         {submitError && <p className='submit-alert' role='alert'>{submitError}</p>}
+        {submitSuccess && <p className='submit-success' role='status'>{submitSuccess}</p>}
       </form>
     </div>
   )

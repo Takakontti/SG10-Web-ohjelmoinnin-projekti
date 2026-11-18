@@ -62,3 +62,4 @@ Yht 20m
 - 00:00-00:30 API-route kirjautumiseen viimeistely.
 - 00:30-06:00 ryhmän arvostelujen haun backend koodaus.
 - 07:00-07:30 API-route ryhmän arvostelujen hakemiseen viimeistely.
+- 02:20-04:40 review form päivittämistä

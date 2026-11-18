@@ -98,3 +98,7 @@
 .submit-alert {
   color: var(--error-color);
 }
+
+.submit-success {
+  color: var(--success-color);
+}
