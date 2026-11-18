@@ -63,6 +63,11 @@ Yht 20m
 - 00:30-06:00 ryhmän arvostelujen haun backend koodaus.
 - 07:00-07:30 API-route ryhmän arvostelujen hakemiseen viimeistely.
 
+Yht 6h 30m
+
 ## 18.11.2026
 
-- 02:20-04:40 review form päivittämistä
+- 02:20-04:40 review form päivittämistä.
+- 08:00-12:50 review form päivittämistä.
+
+Yht 7h 10m
