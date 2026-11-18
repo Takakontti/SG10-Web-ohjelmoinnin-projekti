@@ -18,7 +18,7 @@ const registerUser = async (email, user, pwd) => {
   },
   verifyUser = async (user, pwd) => {
     const result = await pool.query(
-      'SELECT id, password_hash FROM users WHERE username = $1',
+      'SELECT id, password_hash FROM users WHERE username = $1 OR email = $1',
       [user]
     )
     if (result.rows.length === 0) {

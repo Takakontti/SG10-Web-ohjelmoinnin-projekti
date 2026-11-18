@@ -1,11 +1,11 @@
-import { createReview, showReview } from '../models/review.js'
+import { createReview, showReview, showGroupReviews } from '../models/review.js'
 
 const postReview = async (req, res, next) => {
-    const { stars, reviewText, movieID } = req.body
+    const { stars, reviewText, movieID, groupID } = req.body
 
     try {
       const userId = req.user.id
-      await createReview(userId, stars, reviewText, movieID)
+      await createReview(userId, stars, reviewText, movieID, groupID || undefined)
       return res.status(201).json({ message: 'Review created successfully' })
     }
     catch(err) {
@@ -21,9 +21,20 @@ const postReview = async (req, res, next) => {
     catch(err) {
       next(err)
     }
+  },
+  getGroupReviews = async (req, res, next) => {
+    const { groupID } = req.params
+
+    try {
+      const reviewData = await showGroupReviews(groupID)
+      return res.status(200).json({ message: 'Group review search successful', review: reviewData })
+    } catch (err) {
+      next(err)
+    }
   }
 
 export { 
   postReview,
-  getReview
+  getReview,
+  getGroupReviews
 }
