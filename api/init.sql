@@ -9,7 +9,7 @@ create table users(
 
 create table movie_groups(
 	id UUID primary key default gen_random_uuid(), 
-	group_name VARCHAR(40) not null unique
+	group_name VARCHAR(30) not null unique
 );
 
 create table group_members(

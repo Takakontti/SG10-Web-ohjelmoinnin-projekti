@@ -32,6 +32,13 @@
   background-color: var(--main-bg-color);
 }
 
+.review-form-container .group-select {
+  border: var(--border-2);
+  border-radius: 8px;
+  background-color: var(--main-bg-color);
+  width: 100%;
+}
+
 .review-form-container .rating-text {
   min-height: 120px;
   resize: vertical;
@@ -85,6 +92,10 @@
   padding: 0;
   border: 0;
   background: transparent;
+}
+
+.star-rating-choice:hover {
+  box-shadow: none;
 }
 
 .star-rating-half-left {
