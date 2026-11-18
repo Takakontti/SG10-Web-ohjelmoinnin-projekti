@@ -53,7 +53,7 @@ function ReviewForm({ movieId, onSubmitted }) {
         groupID: selectedGroupId,
       })
       const selectedGroup = groups.find((group) => group.id === selectedGroupId)
-      setSubmitSuccess(`Arvostelu lähetettiin onnistuneesti ${selectedGroup?.name || 'valittuun'} ryhmään.`)
+      setSubmitSuccess(`Arvostelu lähetettiin onnistuneesti ${selectedGroup.name || 'valittuun'} ryhmään.`)
       onSubmitted()
     } catch (error) {
       console.error('Failed to submit review:', error)
