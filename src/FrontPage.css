@@ -1,7 +1,8 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  width: 80rem;
+  position: none;
+  width: 80%;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
   border-radius: 5px;
@@ -20,8 +21,10 @@
   flex: 1;
 }
 
-@media only screen and (max-width: 414px) {
+@media (min-width: 850px) {
   .main-container{
-    width: 100%;
+    width: 80rem;
+    position: relative;
+    transform: none;
   }
 }
