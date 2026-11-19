@@ -24,6 +24,16 @@
   padding-bottom: 0;
 }
 
+.group-chat .items {
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: center center;
+  width: 100%;
+  height: 55rem;
+  padding: 0;
+  overflow-y: scroll;
+}
+
 .group-chat-section h1 {
   margin: 0;
 }

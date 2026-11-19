@@ -83,3 +83,7 @@ School commute 8:30 - 12:00
 
 Reading up on how to properly move objects 00:00 - 2:00
 
+Fixing nav buttons 05:00 - 07:00
+
+Making groupchat scrollable 07:00 - 09:00
+
