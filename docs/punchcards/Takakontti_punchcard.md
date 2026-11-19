@@ -50,3 +50,24 @@ Yht 4h
 - 03:30-06:00 group view frontend koodaus
 - 09:30-10:00 group view frontend koodaus
 Yht 4h 45m
+
+## 16.11.2026
+
+- 12:25-12:45 sprint planning
+
+Yht 20m
+
+## 17.11.2026 
+
+- 00:00-00:30 API-route kirjautumiseen viimeistely.
+- 00:30-06:00 ryhmän arvostelujen haun backend koodaus.
+- 07:00-07:30 API-route ryhmän arvostelujen hakemiseen viimeistely.
+
+Yht 6h 30m
+
+## 18.11.2026
+
+- 02:20-04:40 review form päivittämistä.
+- 08:00-12:50 review form päivittämistä.
+
+Yht 7h 10m

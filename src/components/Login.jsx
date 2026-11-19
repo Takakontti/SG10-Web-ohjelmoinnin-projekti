@@ -30,7 +30,7 @@ function Login() {
 
   const validateForm = () => {
     const newErrors = {}
-    if (!username.trim()) newErrors.username = 'Käyttäjätunnus vaaditaan.'
+    if (!username.trim()) newErrors.username = 'Käyttäjätunnus tai sähköposti vaaditaan.'
     if (!password.trim()) newErrors.password = 'Salasana vaaditaan.'
     return newErrors
   }
@@ -69,10 +69,10 @@ function Login() {
           {errors.form && <Alert className='login-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='login-success' variant="success" role="alert">{success.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Käyttäjätunnus:</Form.Label>
+            <Form.Label>Käyttäjätunnus tai sähköposti:</Form.Label>
             <Form.Control
-              type="username"
-              placeholder="Käyttäjätunnus"
+              type="text"
+              placeholder="Käyttäjätunnus tai sähköposti"
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value)
