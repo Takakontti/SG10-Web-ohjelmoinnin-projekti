@@ -25,7 +25,7 @@ nav {
 }
 
 .nav-btn:hover {  
-  transform: translateX(-12px); /* -17px to the left on hover */
+  transform: translateX(-12px); /* -12px to the left on hover */
 }
 
 @media (min-width: 850px) {
