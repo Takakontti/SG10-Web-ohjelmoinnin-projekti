@@ -2,13 +2,12 @@
   display: flex;
   flex-direction: column;
   position: none;
-  width: 100%;
+  width: 80%;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 10px;
   background-color: var(--main-bg-color);
-  transform: translateX(-17px);
 }
 
 .main-container h1 {

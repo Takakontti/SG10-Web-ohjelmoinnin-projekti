@@ -1,6 +1,6 @@
 nav {
-  position: relative;
-  left: 1.3rem;
+  position: absolute;
+  left: 0.4rem;
   color: var(--small-text-color);
   margin-top: 12.5rem;
 }
@@ -25,12 +25,12 @@ nav {
 }
 
 .nav-btn:hover {  
-  transform: translateX(-17px); /* -17px to the left on hover */
+  transform: translateX(-12px); /* -17px to the left on hover */
 }
 
 @media (min-width: 850px) {
   nav {
-    position: absolute;
-    left: 35.5rem;
+    position: relative;
+    left: 15px;
   }
 }
