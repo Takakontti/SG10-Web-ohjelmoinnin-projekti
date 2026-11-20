@@ -13,22 +13,23 @@ export default function GroupView() {
   const [selectedGroupId, setSelectedGroupId] = useState('')
   const [groupsLoading, setGroupsLoading] = useState(true)
   const [groupsError, setGroupsError] = useState('')
-
-  let groupName
+  const [groupName, setGroupName] = useState('')
 
   function updateReviews() {  // The changes made to this were completely useless, the function works WAY weirder than before. Also these changes will be reverted soon~
-    console.log(selectedGroupId)
     setRefreshProp(movieId)
   }
 
   function groupNames(value){
     console.log('value: ', value)
+    setSelectedGroupId(value)
+    console.log('New: ',selectedGroupId)
     groups.map(getGroupNameById)
 
-    function getGroupNameById(test){
+    function getGroupNameById(test){  // This doesnt work properly atm, for some reason it is lagging behind. test.name = 1 while groupName = 2 after setting it to 1
       if(test.id === value){
-        groupName = test.name
-        console.log(name)
+        console.log('Test.name: ', test.name)
+        setGroupName(test.name)
+        console.log(groupName)
         console.log('worked')
       }
     }
@@ -40,6 +41,8 @@ export default function GroupView() {
         const response = await axios.get('/api/groups/user-groups')
         setGroups(response.data.groups)
         setSelectedGroupId(response.data.groups[0].id)
+        setGroupName(response.data.groups[0].name)
+        console.log(response.data.groups[0])
       } catch (error) {
         console.error('Failed to load review groups:', error)
         setGroupsError('Ryhmiä ei voitu hakea. Kirjaudu sisään ja yritä uudelleen.')
