@@ -9,7 +9,7 @@ export default function GroupMembers({ groupId }) {
 
     const fetchGroupUsers = async () => {
       try {
-        const response = await axios.get(`/api/groups/${groupId}/users`)
+        const response = await axios.get(`/api/groups/${groupId}/users`) // 99% sure that this is throwing errors, /api/groups/undefined/users is what we get in GroupView when this is called
         setUsernames(response.data.usernames)
       } catch {
         setError('Ryhmän jäsenien lataaminen epäonnistui.')
