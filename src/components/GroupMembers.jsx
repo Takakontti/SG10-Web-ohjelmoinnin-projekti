@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function GroupMembers({ groupName }) {
+export default function GroupMembers({ groupId }) {
   const [usernames, setUsernames] = useState([])
   const [error, setError] = useState('')
 
@@ -9,7 +9,7 @@ export default function GroupMembers({ groupName }) {
 
     const fetchGroupUsers = async () => {
       try {
-        const response = await axios.get(`/api/groups/${groupName}/users`)
+        const response = await axios.get(`/api/groups/${groupId}/users`)
         setUsernames(response.data.usernames)
       } catch {
         setError('Ryhmän jäsenien lataaminen epäonnistui.')
@@ -17,7 +17,7 @@ export default function GroupMembers({ groupName }) {
     }
 
     fetchGroupUsers()
-  }, [groupName])
+  }, [groupId])
 
   return (
     <ul className='group-participant-list'>
