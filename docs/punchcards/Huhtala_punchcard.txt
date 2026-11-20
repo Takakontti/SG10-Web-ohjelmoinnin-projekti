@@ -95,4 +95,4 @@ Making groupchat scrollable 07:00 - 09:30
 
 Fixing the movie page nav buttons 06:00 - 07:00
 
-Starting to make different groups 07:00 - 
+Trying to make group changing possible 07:00 - 

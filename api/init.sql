@@ -23,14 +23,14 @@ create table movie_lists(
 	id UUID primary key default gen_random_uuid(),
 	group_id UUID references movie_groups(id) on delete cascade,
 	list_name VARCHAR(30) not null,
-	created_at TIMESTAMPTZ not null default current_timestamp,
+	created_at TIMESTAMPTZ not null default current_timestamp
 );
 
 create table movie_list_items(
 	list_id UUID not null unique references movie_lists(id) on delete cascade,
 	movie_id INTEGER not null,
 	position INTEGER not null unique check (position >= 0),
-	primary key (list_id, movie_id),
+	primary key (list_id, movie_id)
 );
 
 create table reviews(
