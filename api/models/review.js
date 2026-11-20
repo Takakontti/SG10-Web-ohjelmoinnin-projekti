@@ -14,7 +14,9 @@ const createReview = async (user, stars, review, movie, groupID = '10000000-0000
       FROM reviews 
       LEFT JOIN users 
       ON reviews.user_id = users.id 
-      WHERE reviews.movie_id = $1`,
+      WHERE reviews.movie_id = $1
+      AND reviews.group_id = '10000000-0000-0000-0000-000000000000'
+      ORDER BY reviews.posted_date ASC`,
       [movieID]
     )
     return result.rows
@@ -26,7 +28,7 @@ const createReview = async (user, stars, review, movie, groupID = '10000000-0000
       LEFT JOIN users
       ON reviews.user_id = users.id
       WHERE reviews.group_id = $1
-      ORDER BY reviews.posted_date DESC`,
+      ORDER BY reviews.posted_date ASC`,
       [groupID]
     )
     return result.rows
