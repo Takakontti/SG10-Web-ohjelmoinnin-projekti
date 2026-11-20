@@ -1,11 +1,14 @@
 import { Router } from 'express'
-import { getGroupUsers, getAvailableGroups } from '../controllers/groupController.js'
+import { getGroupUsers, getAvailableGroups, createMovieList } from '../controllers/groupController.js'
 import { requireAuth } from '../middleware/auth.js'
+import { requireGroupAdmin } from '../middleware/requireGroupAdmin.js'
 
 const router = Router()
 
-router.get('/:groupName/users', getGroupUsers)
+router.get('/:groupId/users', getGroupUsers)
 
-router.get('/review-options', requireAuth, getAvailableGroups)
+router.get('/user-groups', requireAuth, getAvailableGroups)
+
+router.post('/:groupId/lists', requireAuth, requireGroupAdmin, createMovieList)
 
 export default router
