@@ -70,6 +70,7 @@ Yht 6h 30m
 - 02:20-04:40 review form päivittämistä.
 - 08:00-12:50 review form päivittämistä.
 - 13:00-13:30 suunnittelu/pull request katselmointi
+
 Yht 7h 10m
 
 ## 19.11.2026
@@ -78,3 +79,10 @@ Yht 7h 10m
 - 06:15-08:45 Login redirect korjaus.
 - 09:00-11:00 ReviewList päivitys.
 - 13:15-13:30 ReviewList päivitys.
+
+Yht 5h 15m
+
+## 20.11.2026
+
+- 04:45-09:00 ryhmä listojen lisäys tietokantaan.
+- 09:00-13:00 ryhmä listojen API route koodaus.
