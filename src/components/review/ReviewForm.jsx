@@ -22,7 +22,7 @@ function ReviewForm({ movieId, onSubmitted }) {
   useEffect(() => {
     const loadGroups = async () => {
       try {
-        const response = await axios.get('/api/groups/review-options')
+        const response = await axios.get('/api/groups/user-groups')
         setGroups(response.data.groups)
         setSelectedGroupId(response.data.groups[0].id)
       } catch (error) {

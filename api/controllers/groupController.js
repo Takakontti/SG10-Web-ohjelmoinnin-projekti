@@ -2,27 +2,27 @@ import { getGroupUsernames, getUserGroups, createGroupMovieList } from '../model
 import * as uuid from 'uuid'
 
 const getGroupUsers = async (req, res, next) => {
-  const { groupId } = req.params
+    const { groupId } = req.params
   
-  if (!uuid.validate(groupId)) {
+    /*if (!uuid.validate(groupId)) {
     return res.status(400).json({ message: 'A valid group ID is required' })
-  }
+  }*/
   
-  try {
-    const usernames = await getGroupUsernames(groupId)
-    return res.status(200).json({ usernames })
-  } catch (error) {
-    return next(error)
+    try {
+      const usernames = await getGroupUsernames(groupId)
+      return res.status(200).json({ usernames })
+    } catch (error) {
+      return next(error)
+    }
+  },
+  getAvailableGroups = async (req, res, next) => {
+    try {
+      const groups = await getUserGroups(req.user.id)
+      return res.status(200).json({ groups })
+    } catch (error) {
+      return next(error)
+    }
   }
-},
-getAvailableGroups = async (req, res, next) => {
-  try {
-    const groups = await getUserGroups(req.user.id)
-    return res.status(200).json({ groups })
-  } catch (error) {
-    return next(error)
-  }
-}
 
 const createMovieList = async (req, res, next) => {
   const { groupId } = req.params

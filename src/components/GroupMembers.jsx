@@ -7,16 +7,21 @@ export default function GroupMembers({ groupId }) {
 
   useEffect(() => {
 
+    let isCurrentReq = true
+
     const fetchGroupUsers = async () => {
       try {
-        const response = await axios.get(`/api/groups/${groupId}/users`)
-        setUsernames(response.data.usernames)
+        const response = await axios.get(`/api/groups/${encodeURIComponent(groupId)}/users`)
+        if(isCurrentReq) setUsernames(response.data.usernames)
       } catch {
-        setError('Ryhmän jäsenien lataaminen epäonnistui.')
+        if(isCurrentReq) setError('Ryhmän jäsenien lataaminen epäonnistui.')
       }
     }
 
     fetchGroupUsers()
+    return () => {
+      isCurrentReq = false
+    } 
   }, [groupId])
 
   return (
