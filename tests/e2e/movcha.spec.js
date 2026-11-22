@@ -2,43 +2,57 @@ import { test, expect } from '@playwright/test'
 
 //Tietokanta pitää nollata sen jälkeen, kun nämä testit ajetaan tai testiarvoja pitää muuttaa.
 
-test('Registration', async ({ page }) => {
+test('Registration', async ({ page },workerInfo) => {
   await page.goto('http://localhost:5173/')
-  await page.getByText('Profile').click()
+
+  
+
+  await page.getByRole(
+    'img', {
+      name: 'Profiili'
+    }
+  ).click()
 
   await expect(page).toHaveURL('http://localhost:5173/Authentication/Login')
 
   await page.getByRole(
     'button', {
-      name: /Rekisteröidy/i
+      name: 'Rekisteröidy'
     }
   ).click()
 
   await expect(page).toHaveURL('http://localhost:5173/Authentication/Register')
 
-  await page.getByPlaceholder('Sähköpostiosoite').fill('playwright@test.fi')
-  await page.getByPlaceholder('Käyttäjätunnus').fill('playwright')
-  await page.getByPlaceholder('Salasana').fill('Test123!')
+  await page.getByRole(
+    'textbox', {
+      name: 'Sähköpostiosoite:'
+    }
+  ).fill(`playwright.${workerInfo.project.name}@test.fi`)
+
+  await page.getByRole(
+    'textbox', {
+      name: 'Käyttäjätunnus:'
+    }
+  ).fill(`playwright.${workerInfo.project.name}`)
+
+  await page.getByRole(
+    'textbox', {
+      name: 'Salasana:'
+    }
+  ).fill('Test123!')
   
   await page.getByRole(
     'button', {
-      name: /Rekisteröidy/i
+      name: 'Rekisteröidy'
     }
   ).click()
 
-  //await expect(page.getByRole(successbox)).toContainText(success)
+  await expect(page.getByText('Rekisteröinti onnistui! Sinut uudelleenohjataan 5 sekunnin päästä')).toBeVisible()
+  await expect(page).toHaveURL('http://localhost:5173/Authentication/Login', {timeout: 6000})
 
   await page.getByRole(
     'button', {
-      name: /Takaisin/i
-    }
-  ).click()
-
-  await expect(page).toHaveURL('http://localhost:5173/Authentication/Login')
-
-  await page.getByRole(
-    'button', {
-      name: /Takaisin/i
+      name: 'Takaisin'
     }
   ).click()
 

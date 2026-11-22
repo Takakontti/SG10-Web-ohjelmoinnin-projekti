@@ -36,14 +36,13 @@ export default function MoviePage() {
           <section className='movie-info-container'>
             <section className="movie-image-container">
               <img src={`https://image.tmdb.org/t/p/w342${movieData.poster_path}`} alt="" className='movie-page-poster' />
-              <img src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg" alt="TMDB-logo" className="movie-page-tmdb-logo" />
             </section>
             <section className="movie-text-container">
               <h1>{movieData.title}</h1>
               <p>{movieData.overview}</p>
             </section>
           </section>
-          <ReviewForm movieId={movieData.id} />
+          <ReviewForm movieId={movieData.id} onSubmitted={()=>{1}} />
         </section>
       </section>
     </>

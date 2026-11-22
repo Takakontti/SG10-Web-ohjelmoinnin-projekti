@@ -1,17 +1,57 @@
 import { pool } from './db.js'
 
-const getGroupUsernames = async (groupName) => {
+const getGroupUsernames = async (groupId) => {
   const result = await pool.query(
     `SELECT DISTINCT users.username
 		 FROM movie_groups AS groups
 		 JOIN group_members AS member ON member.group_id = groups.id
 		 JOIN users ON users.id = member.user_id
-		 WHERE groups.group_name = $1
+     WHERE groups.id = $1
 		 ORDER BY users.username`,
-    [groupName]
+    [groupId]
   )
 
   return result.rows.map((row) => row.username)
 }
 
-export { getGroupUsernames }
+const getUserGroups = async (userId) => {
+  const result = await pool.query(
+    `SELECT id, group_name AS name
+		 FROM movie_groups
+		 WHERE group_name = 'public'
+			 OR id IN (
+				 SELECT group_id
+				 FROM group_members
+				 WHERE user_id = $1
+			 )
+		 ORDER BY group_name = 'public' DESC, group_name`,
+    // ^ Tää järjestää ryhmät niin että public on aina ensinmäinen ja loput aakkosjärjestykseen.
+    [userId]
+  )
+
+  return result.rows
+}
+
+const isGroupAdmin = async (groupId, userId) => {
+  const result = await pool.query(
+    `SELECT 1
+		 FROM group_members
+		 WHERE group_id = $1 AND user_id = $2 AND is_admin = TRUE`,
+    [groupId, userId]
+  )
+
+  return result.rowCount > 0
+}
+
+const createGroupMovieList = async (groupId, listName) => {
+  const result = await pool.query(
+    `INSERT INTO movie_lists (group_id, list_name)
+		 VALUES ($1, $2)
+		 RETURNING id, group_id, list_name, created_at`,
+    [groupId, listName]
+  )
+
+  return result.rows[0]
+}
+
+export { getGroupUsernames, getUserGroups, isGroupAdmin, createGroupMovieList }

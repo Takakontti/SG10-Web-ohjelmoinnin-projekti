@@ -6,6 +6,7 @@
 }
 
 .movie-container {
+  position: relative;
   padding: 1.88rem;
   background-color: var(--main-bg-color);
   width: 80rem;
@@ -34,14 +35,6 @@
   border-radius: 8px;
 }
 
-.movie-page-tmdb-logo{
-  position: absolute;
-  bottom: -1rem;
-  left: 0.5rem;
-  height: 6rem;
-  width: 6rem;
-}
-
 .movie-text-container {
   background-color: var(--search-card-bg-color);
   border-radius: 8px;
@@ -53,8 +46,9 @@
 
 @media only screen and (max-width: 414px) {
   .movie-container{
-    width: 100%;
+    width: 80%;
     zoom: 0.9;
+    position: initial;
   }
 
   .movie-info-container {

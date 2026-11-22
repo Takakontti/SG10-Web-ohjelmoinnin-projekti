@@ -1,3 +1,7 @@
+# Viikko 46
+
+Yht 40h 15min
+
 ## 9.11.2026
 
 * Scrum-boardin täyttöä 10:00-10:35
@@ -45,5 +49,29 @@ Yht 2h 20min
 
 * Tietokannan päivitystä 19:45-21:25
 * Rekisteröitymisfunktion virheentarkistuksen parantamista 21:50-22:55
+* Testien tekemistä 23:20-00:50
 
-Yht 2h 45min
+Yht 4h 15min
+
+## 15.11.2026
+
+* Luentojen kuuntelua 15:45-17:35
+
+Yht 1h 50min
+
+# Viikko 47
+
+Yht 5h 45min
+
+## 16.11.2026
+
+* Dokumentaation päivitystä 08:30-08:45
+* Scrum-taulun päivitystä 09:05-09:15
+* Katselmointi 09:15-10:00
+* Dokumentaation päivitystä 11:05-11:20
+* Scrum-taulun päivitystä 11:20-11:45
+* Sprint-planning 12:25-12:45
+* Scrum-taulun päivitystä 18:05-20:30
+* Rekisteröitymisen E2E-testin viimeistely 23:10-00:20
+
+Yht 5h 45min

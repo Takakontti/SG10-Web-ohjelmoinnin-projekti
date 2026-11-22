@@ -56,10 +56,25 @@ erDiagram
         UUID group_id FK
     }
 
+    movie_lists {
+        UUID id PK
+        UUID group_id FK
+        VARCHAR(30) list_name
+        TIMESTAMPTZ created_at
+    }
+
+    movie_list_items {
+        UUID list_id PK, FK
+        INT movie_id PK
+        INT position
+    }
+
     users ||--o{ reviews : ""
     users ||--o{ group_members : ""
     movie_groups ||--|{ group_members : ""
     movie_groups ||--o{ reviews : ""
+    movie_groups ||--o{ movie_lists : ""
+    movie_lists ||--o{ movie_list_items : ""
 ```
 
 ### Käyttöönottokaavio
@@ -84,7 +99,7 @@ flowchart LR
     PalvelimenResurssit <-->|"Verkkoyhteys"| UlkoinenAPI
 ```
 
-Elokuvapalvelu tarjoaa selaimeen API-rajapinnan, jolla voi kutsua backendiä. Nykyisessä API-rajapinnassa on login ja register POST reitit. Niitä kutsutaan lähettämällä JSON, jonka esimerkit on jokaiselle reitille määritelty tarkemmin [userRoutes](../api/routes/userRouter.js) tiedostossa.
+Elokuvapalvelu tarjoaa selaimeen API-rajapinnan, jolla voi kutsua backendiä. API-rajapinnan kutsuesimerkit on jokaiselle reitille määritelty tarkemmin [reitit-kansion](../api/routes/) tiedostoissa.
 
 Tietokohteet, -suhteet lisätään tähän myöhemmin.  
 Palvelu muodostaa yhteyden The Movie Databasen API-rajapintaan.

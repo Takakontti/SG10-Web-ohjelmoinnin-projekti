@@ -37,7 +37,7 @@ Daniel Nylander: 28 Committia, 3339 Lisäystä, 546 Poistoa, 4 Valmista taskia.
 
 Ilari Bäckman: 19 Committia, 8777 Lisäystä, 3359 Poistoa, 0 Valmista taskia.
 
-Jarkko Huhtala: 7 Committia, 1090 Lisäystä, 217 Poisto, 0 Valmista taskia.
+Jarkko Huhtala: 7 Committia, 1090 Lisäystä, 217 Poistoa, 0 Valmista taskia.
 
 Onnisunutta: Playwright oli helppokäyttöinen ja hyvä työkalu. Token-evästeen luominen oli yllättävän helppoa. React-Router toimi hyvin.
 
