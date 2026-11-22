@@ -98,3 +98,17 @@ Fixing the movie page nav buttons 06:00 - 07:00
 Trying to make group changing possible 07:00 - 14:00
 
 ~8h
+
+-----------------------------------------------------------------------------------------------------------------
+
+21/11
+
+Fixing group things 10:30 - 14:00
+
+-----------------------------------------------------------------------------------------------------------------
+
+22/11
+
+Trying to fix the same bugs as yesterday 11:00 - 13:30 (Nothing was achieved)
+
+Finally "Fixed" the groupview bugs 15:00 - 16:00

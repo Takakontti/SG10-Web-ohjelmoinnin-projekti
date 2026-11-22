@@ -3,8 +3,8 @@ import { pool } from './db.js'
 // Tää näyttää tyhmältä mutta javascript ottaa tässä annetun arvon vain jos groupID on undefined.
 const createReview = async (user, stars, review, movie, groupID = '10000000-0000-0000-0000-000000000000') => { 
     const result = await pool.query(
-  'INSERT INTO reviews(user_id, stars, review, movie_id, group_id) VALUES ($1, $2, $3, $4, $5)',
-  [user, stars, review, movie, groupID]
+      'INSERT INTO reviews(user_id, stars, review, movie_id, group_id) VALUES ($1, $2, $3, $4, $5)',
+      [user, stars, review, movie, groupID]
     )
     return result
   }, 

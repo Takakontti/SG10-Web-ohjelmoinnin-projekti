@@ -8,29 +8,23 @@ import GroupMembers from './GroupMembers'
 
 export default function GroupView() {
   const [movieId, setMovieId] = useState('')
-  const [refreshProp, setRefreshProp] = useState(0)
+  const [getReview, setGetReview] = useState('')
   const [groups, setGroups] = useState([])
   const [selectedGroupId, setSelectedGroupId] = useState('')
   const [groupsLoading, setGroupsLoading] = useState(true)
   const [groupsError, setGroupsError] = useState('')
   const [groupName, setGroupName] = useState('')
 
-  function updateReviews() {  // The changes made to this were completely useless, the function works WAY weirder than before. Also these changes will be reverted soon~
-    setRefreshProp(movieId)
+  function updateReviews() {
+    setGetReview(selectedGroupId)
   }
 
-  function groupNames(value){
-    console.log('value: ', value)
-    setSelectedGroupId(value)
-    console.log('New: ',selectedGroupId)
-    groups.map(getGroupNameById)
-
-    function getGroupNameById(test){  // This doesnt work properly atm, for some reason it is lagging behind. test.name = 1 while groupName = 2 after setting it to 1
-      if(test.id === value){
-        console.log('Test.name: ', test.name)
-        setGroupName(test.name)
-        console.log(groupName)
-        console.log('worked')
+  function groupNames(val){
+    for(let i = 0; i < groups.length; i++){
+      if(groups[i].id === val){
+        setSelectedGroupId(val)
+        setGroupName(groups[i].name)
+        updateReviews()
       }
     }
   }
@@ -42,7 +36,7 @@ export default function GroupView() {
         setGroups(response.data.groups)
         setSelectedGroupId(response.data.groups[0].id)
         setGroupName(response.data.groups[0].name)
-        console.log(response.data.groups[0])
+        setGetReview(response.data.groups[0].id)
       } catch (error) {
         console.error('Failed to load review groups:', error)
         setGroupsError('Ryhmiä ei voitu hakea. Kirjaudu sisään ja yritä uudelleen.')
@@ -83,22 +77,21 @@ export default function GroupView() {
           </div>
 
           <div className='group-chat-section'>
-            <h1>Ryhmänäkymä</h1>
+            <h1>{groupName}</h1>
             <div className='group-chat'>
               <div className='items'>
-                <ReviewList movieId={refreshProp} />
+                {selectedGroupId === '' ? <p>Odotetaan</p> : <ReviewList groupId={getReview} />}
               </div>
 
               <div className='search-bar'>
-                <input id='review' type='value' size="40" placeholder="Hae elokuva arvosteluja..." onChange={event => setMovieId(event.target.value)}/>
-                <button style={{ margin: '10px'}} onClick={updateReviews}>Päivitä</button>
+                {/*<button style={{ margin: '10px'}} onClick={updateReviews}>Päivitä</button>*/}
               </div>
             </div>
           </div>
 
           <div className='group-chat-participants'>
             <h1>Jäsenet</h1>
-            <GroupMembers groupName={selectedGroupId} />
+            {selectedGroupId === '' ? <p>Odotetaan</p> : <GroupMembers groupId={selectedGroupId} />}
           </div>
         </div>
       </div>
