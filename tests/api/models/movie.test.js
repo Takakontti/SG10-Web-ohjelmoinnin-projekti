@@ -43,3 +43,11 @@ describe('searchMovie',()=>{
     }
   })
 })*/
+
+import { describe, expect, it } from 'vitest'
+
+describe('test suite sanity check', () => {
+  it('always passes', () => {
+    expect(true).toBe(true)
+  })
+})

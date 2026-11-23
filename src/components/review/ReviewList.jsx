@@ -3,27 +3,33 @@ import axios from 'axios'
 import { getStarIcon, STARS } from './reviewUtils'
 import './ReviewList.css'
 
-function ReviewList({ movieId, refreshProp }) {
+function ReviewList({ movieId, groupId, refreshProp }) {
   const [reviews, setReviews] = useState([])
 
+  const getReviewsRoute = () => {
+    if (groupId) return `/api/reviews/get/group/${groupId}`
+    return `/api/reviews/get/${movieId}`
+  }
+
   useEffect(() => {
-    if (!movieId) {
+    const reviewTargetId = groupId || movieId
+    if (!reviewTargetId) {
       setReviews([])
       return
     }
 
     const loadReviews = async () => {
       try {
-        const response = await axios.get(`/api/reviews/get/${movieId}`)
+        const response = await axios.get(getReviewsRoute())
         setReviews(response.data.review)
       } catch (error) {
         setReviews([])
-        console.error(`Failed to load reviews for movie ${movieId}:`, error)
+        console.error(`Failed to load reviews:`, error)
       }
     }
 
     loadReviews()
-  }, [movieId, refreshProp])
+  }, [movieId, groupId, refreshProp])
 
   return (
     <ul className='reviewList'>

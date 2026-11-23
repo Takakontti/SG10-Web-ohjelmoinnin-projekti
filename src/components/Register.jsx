@@ -49,8 +49,8 @@ function Register() {
       function redirect(){
         navigate('/Authentication/Login', { state: { RegisterSuccess: true }, replace: true })
       }
-      setSuccess({form: 'Rekisteröinti onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
-      setTimeout(redirect,5000)
+      setSuccess({form: 'Rekisteröinti onnistui! Sinut uudelleenohjataan 3 sekunnin päästä'})
+      setTimeout(redirect,3000)
     } catch(error) {
       const errmesg = error.response.data.message
 

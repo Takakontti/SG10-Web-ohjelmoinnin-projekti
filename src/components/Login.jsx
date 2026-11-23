@@ -1,6 +1,6 @@
 import { Form, Button, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import './Login.css'
 
@@ -17,8 +17,14 @@ function Login() {
   const [errors, setErrors] = useState({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [success, setSuccess] = useState ({})
+  const redirectTimer = useRef(null)
 
   const navigate = useNavigate()
+
+  // Black magic to remove redircet when page is unmounted.
+  useEffect(() => {
+    return () => clearTimeout(redirectTimer.current) 
+  }, [])
 
   const mainPage = () => {
     navigate('/')
@@ -30,7 +36,7 @@ function Login() {
 
   const validateForm = () => {
     const newErrors = {}
-    if (!username.trim()) newErrors.username = 'Käyttäjätunnus vaaditaan.'
+    if (!username.trim()) newErrors.username = 'Käyttäjätunnus tai sähköposti vaaditaan.'
     if (!password.trim()) newErrors.password = 'Salasana vaaditaan.'
     return newErrors
   }
@@ -47,13 +53,11 @@ function Login() {
     setIsSubmitting(true)
     try {
       await LoginPost(username, password)
-      
-      function redirect(){
-        navigate('/', { state: { loginSuccess: true }, replace: true })
-      }
 
-      setSuccess({form: 'Kirjautuminen onnistui! Sinut uudelleenohjataan 5 sekunnin päästä'})
-      setTimeout(redirect,5000)
+      setSuccess({form: 'Kirjautuminen onnistui! Sinut uudelleenohjataan 3 sekunnin päästä'})
+      redirectTimer.current = setTimeout(() => {
+        navigate('/', { state: { loginSuccess: true }, replace: true })
+      }, 3000)
     } catch {
       setErrors({ form: 'Kirjautuminen epäonnistui. Tarkista käyttäjätunnus ja salasana.' })
     } finally {
@@ -69,9 +73,9 @@ function Login() {
           {errors.form && <Alert className='login-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='login-success' variant="success" role="alert">{success.form}</Alert>}
           <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Käyttäjätunnus:</Form.Label>
+            <Form.Label>Käyttäjätunnus tai sähköposti:</Form.Label>
             <Form.Control
-              type="username"
+              type="text"
               placeholder="Käyttäjätunnus"
               value={username}
               onChange={(e) => {

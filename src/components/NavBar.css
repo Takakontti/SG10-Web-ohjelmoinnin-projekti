@@ -1,6 +1,6 @@
 nav {
-  display: flex;
-  flex-direction: column;
+  position: absolute;
+  left: 0.4rem;
   color: var(--small-text-color);
   margin-top: 12.5rem;
 }
@@ -15,10 +15,22 @@ nav {
   margin-bottom: 0.5rem;
   display: flex;
   place-content: center center;
+  transition: ease 0.25s;
 }
 
 .nav-btn .bi {
   font-size: 1.25rem;
   line-height: 1;
   color: var(--nav-button-icon-color);
+}
+
+.nav-btn:hover {  
+  transform: translateX(-12px); /* -12px to the left on hover */
+}
+
+@media (min-width: 850px) {
+  nav {
+    position: relative;
+    left: 15px;
+  }
 }

@@ -1,18 +1,44 @@
-import { getGroupUsernames } from '../models/group.js'
+import { getGroupUsernames, getUserGroups, createGroupMovieList } from '../models/group.js'
+import * as uuid from 'uuid'
 
 const getGroupUsers = async (req, res, next) => {
-  const { groupName } = req.params
+    const { groupId } = req.params
+  
+    /*if (!uuid.validate(groupId)) {
+    return res.status(400).json({ message: 'A valid group ID is required' })
+  }*/
+  
+    try {
+      const usernames = await getGroupUsernames(groupId)
+      return res.status(200).json({ usernames })
+    } catch (error) {
+      return next(error)
+    }
+  },
+  getAvailableGroups = async (req, res, next) => {
+    try {
+      const groups = await getUserGroups(req.user.id)
+      return res.status(200).json({ groups })
+    } catch (error) {
+      return next(error)
+    }
+  }
 
-  if (typeof groupName !== 'string' || groupName.trim() === '') {
-    return res.status(400).json({ message: 'A valid group name is required' })
+const createMovieList = async (req, res, next) => {
+  const { groupId } = req.params
+  const listName = req.body.listName
+
+  if (listName.length === 0 || listName.length > 30) {
+    return res.status(400).json({ message: 'List name must be between 1 and 30 characters' })
   }
 
   try {
-    const usernames = await getGroupUsernames(groupName)
-    return res.status(200).json({ usernames })
+    const list = await createGroupMovieList(groupId, listName)
+
+    return res.status(201).json({ message: 'Movie list created successfully', list })
   } catch (error) {
     return next(error)
   }
 }
 
-export { getGroupUsers }
+export { getGroupUsers, getAvailableGroups, createMovieList }

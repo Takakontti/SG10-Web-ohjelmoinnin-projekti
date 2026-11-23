@@ -1,23 +1,28 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export default function GroupMembers({ groupName }) {
+export default function GroupMembers({ groupId }) {
   const [usernames, setUsernames] = useState([])
   const [error, setError] = useState('')
 
   useEffect(() => {
 
+    let isCurrentReq = true
+
     const fetchGroupUsers = async () => {
       try {
-        const response = await axios.get(`/api/groups/${groupName}/users`)
-        setUsernames(response.data.usernames)
+        const response = await axios.get(`/api/groups/${encodeURIComponent(groupId)}/users`)
+        if(isCurrentReq) setUsernames(response.data.usernames)
       } catch {
-        setError('Ryhmän jäsenien lataaminen epäonnistui.')
+        if(isCurrentReq) setError('Ryhmän jäsenien lataaminen epäonnistui.')
       }
     }
 
     fetchGroupUsers()
-  }, [groupName])
+    return () => {
+      isCurrentReq = false
+    } 
+  }, [groupId])
 
   return (
     <ul className='group-participant-list'>

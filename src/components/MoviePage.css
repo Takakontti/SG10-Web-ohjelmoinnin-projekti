@@ -6,6 +6,7 @@
 }
 
 .movie-container {
+  position: relative;
   padding: 1.88rem;
   background-color: var(--main-bg-color);
   width: 80rem;
@@ -45,8 +46,9 @@
 
 @media only screen and (max-width: 414px) {
   .movie-container{
-    width: 100%;
+    width: 80%;
     zoom: 0.9;
+    position: initial;
   }
 
   .movie-info-container {
