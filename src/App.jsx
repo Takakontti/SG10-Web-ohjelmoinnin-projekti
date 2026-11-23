@@ -1,4 +1,7 @@
 import { Routes, Route } from 'react-router'
+// uncomment if you wanna use bootstrap properly
+// BREAKS EVERYTHING
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import FrontPage from './FrontPage'
 import AboutBar from './components/AboutBar'
@@ -13,7 +16,7 @@ import TopBar from './components/TopBar'
 function App() {
 
   return (
-    <div className='fix'>
+    <div className='app-parent'>
       <TopBar />
       <Routes>
         <Route path='/' element={<FrontPage />} />

@@ -10,7 +10,7 @@ export const search = async (req, res, next) => {
     }
   })
 
-  const searchResults = searchResultsEN.results.map(obj => {
+  const searchResultsRaw = searchResultsEN.results.map(obj => {
     const finnishMovieData = simplifiedFI.find(FIobj => FIobj.id === obj.id)
     
     if(finnishMovieData !== undefined){
@@ -20,32 +20,80 @@ export const search = async (req, res, next) => {
     }
   })
 
+  const searchResultsChoppedOverview = searchResultsRaw.map(obj => {
+    if(obj.overview.length >= 400){
+      return({
+        movieId: obj.id,
+        title: obj.title,
+        originalTitle: obj.original_title,
+        releaseDate: obj.release_date,
+        overview: `${obj.overview.slice(0,397)}...`,
+        posterPath: obj.poster_path
+      })
+    }else{
+      return({
+        movieId: obj.id,
+        title: obj.title,
+        originalTitle: obj.original_title,
+        releaseDate: obj.release_date,
+        overview: obj.overview,
+        posterPath: obj.poster_path
+      })
+    }
+  })
+
   const filteredSearchResults = {
     lastPage: searchResultsEN.total_pages,
     movieList: []
   }
 
-  filteredSearchResults.movieList.push(searchResults.map((obj,index) => {  
+  filteredSearchResults.movieList.push(searchResultsChoppedOverview.map((obj,index) => {  
     const runningCount = parseInt(req.query.index)+index+1
-    
-    if(obj.title !== obj.original_title){
-      return ({
-        id: runningCount,
-        movieId: obj.id,
-        title: obj.title,
-        original_title: obj.original_title,
-        overview: obj.overview
-      })
-    }else{
-      return ({
-        id: runningCount,
-        movieId: obj.id,
-        title: obj.title,
-        overview: obj.overview
-      })
-    }
-  }))
+    console.log(obj)
 
+    if(obj.releaseDate !== ''){ // There's probably a better way to do this, but this works.
+      if(obj.title !== obj.originalTitle){
+        return ({
+          id: runningCount,
+          movieId: obj.movieId,
+          title: obj.title,
+          originalTitle: obj.originalTitle,
+          releaseYear: ` (${obj.releaseDate.slice(0,4)})`,
+          overview: obj.overview,
+          posterPath: obj.posterPath
+        })
+      }else{
+        return ({
+          id: runningCount,
+          movieId: obj.movieId,
+          title: obj.title,
+          releaseYear: `(${obj.releaseDate.slice(0,4)})`,
+          overview: obj.overview,
+          posterPath: obj.posterPath
+        })
+      }
+    }else{
+      if(obj.title !== obj.originalTitle){
+        return ({
+          id: runningCount,
+          movieId: obj.movieId,
+          title: obj.title,
+          originalTitle: obj.originalTitle,
+          overview: obj.overview,
+          posterPath: obj.posterPath
+        })
+      }else{
+        return ({
+          id: runningCount,
+          movieId: obj.movieId,
+          title: obj.title,
+          overview: obj.overview,
+          posterPath: obj.posterPath
+        })
+      }
+    }  
+  }))
+  console.log(filteredSearchResults)
   res.status(200).json({ message: 'Search was successful', data: filteredSearchResults })
 }
 

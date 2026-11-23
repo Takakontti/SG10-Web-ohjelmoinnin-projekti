@@ -75,11 +75,16 @@ export default function SearchResults() {
               (movie) => {
                 return(
                   <li className='movie-card' key={movie.id}>
-                    <div className='movie-card-title-box' onClick={(event) => {moviePage(event,movie.movieId)}}>
-                      <h2>{movie.title}</h2>
-                      <h3>{movie.original_title}</h3>
+                    <div className='movie-card-content' tabIndex={0} onClick={(event) => {moviePage(event,movie.movieId)}}>
+                      <img src={`https://image.tmdb.org/t/p/w342${movie.posterPath}`} alt="" />
+                      <div className='movie-card-text-box'>
+                        <div className='movie-card-title-box'>
+                          <h2>{movie.title}</h2>
+                          <h3>{movie.originalTitle}{movie.releaseYear}</h3>
+                        </div>
+                        <p>{movie.overview}</p>
+                      </div>
                     </div>
-                    <p>{movie.overview}</p>
                   </li> 
                 )
               }

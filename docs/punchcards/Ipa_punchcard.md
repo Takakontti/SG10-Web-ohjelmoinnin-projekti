@@ -61,7 +61,7 @@ Yht 1h 50min
 
 # Viikko 47
 
-Yht 5h 45min
+Yht 6h 35min
 
 ## 16.11.2026
 
@@ -75,3 +75,14 @@ Yht 5h 45min
 * Rekisteröitymisen E2E-testin viimeistely 23:10-00:20
 
 Yht 5h 45min
+
+## 17.11.2026
+
+* Scrum-taulun päivitystä 16:10-17:00
+* Elokuvien haku -käyttöliittymän parantaminen 17:30-00:55
+
+Yht 8h 15min
+
+## 23.11.2026
+
+* Testidatan tekoa käsin 08:15-08:45
