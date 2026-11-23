@@ -1,4 +1,4 @@
-# Sprint 2
+# Sprint 3
 
 **Ajankohta:** 16-22.11.2026
 
