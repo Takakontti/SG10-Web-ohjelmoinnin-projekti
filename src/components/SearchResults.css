@@ -36,17 +36,45 @@
   border-radius: 8px;
   flex-basis: 44%;
   padding: 1.88rem;
-  display: inline-flex;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+}
+
+.movie-card-content {
+  display: flex;
+  flex-direction: rows;
+  background-color: var(--search-card-desc-bg-color);
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+}
+
+.movie-card-content:hover {
+  box-shadow: var(--box-shadow-1);
+}
+
+.movie-card img {
+  min-width: 50%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.movie-card-text-box {
+  min-width: 50%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  min-height: 100%;
 }
 
 .movie-card-title-box {
-  border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   margin: 0;
   background-color: var(--search-card-title-bg-color);
   padding: 0.63rem;
-  cursor: pointer;
 }
 
 .movie-card-title-box h2,h3{
@@ -56,9 +84,6 @@
 .movie-card p {
   padding: 0.63rem;
   margin: 0;
-  background-color: var(--search-card-desc-bg-color);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
 }
 
 .load-more-movie-cards {
