@@ -72,6 +72,6 @@
 
 .create-movie-list-message.error {
   border: 1px solid var(--error-color);
-  color: #ff8585;
+  color: var(--error-color);
 }
 
