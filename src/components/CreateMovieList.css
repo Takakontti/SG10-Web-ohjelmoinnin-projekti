@@ -1,6 +1,6 @@
 
 .create-movie-list-page {
-  position: relative;
+  position: none;
   width: 80rem;
   min-height: 40rem;
   padding: 3rem;
@@ -75,3 +75,8 @@
   color: var(--error-color);
 }
 
+@media (min-width: 850px) {
+  .create-movie-list-page{
+    position: relative;
+  }
+}

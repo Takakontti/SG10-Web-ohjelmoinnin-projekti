@@ -7,7 +7,7 @@ import NavBar from './NavBar'
 export default function CreateMovieList() {
   const navigate = useNavigate()
   const location = useLocation()
-  // tätä ? merkkejä pitää käyttää jotta sivu ei kaadu jos state ei ole annettu.
+  // tätä ? merkkiä pitää käyttää jotta sivu ei kaadu jos state ei ole annettu.
   const requestedGroupId = location.state?.selectedGroupId || ''
   const [groups, setGroups] = useState([])
   const [selectedGroupId, setSelectedGroupId] = useState(requestedGroupId)
