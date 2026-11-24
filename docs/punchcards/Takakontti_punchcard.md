@@ -86,3 +86,27 @@ Yht 5h 15m
 
 - 04:45-09:00 ryhmä listojen lisäys tietokantaan.
 - 09:00-13:00 ryhmä listojen API route koodaus.
+
+Yht 8h 15m
+
+## 22.11.2026
+
+- 07:00-11:30 ryhmä listojen käyttöliittymä koodaus.
+- 13:00-15:00 ryhmä listojen käyttöliittymä koodaus.
+- 15:30-16:20 sprint review + push to main.
+
+Yht 7h 20m
+
+## 23.11.2026
+
+- 09:40-10:00 sprint meeting
+- 12:30-16:30 ryhmä listojen käyttöliittymä koodaus
+
+Yht 4h 20m
+
+## 24.11.2026
+
+- 08:00-10:30 ryhmä listojen käyttöliittymä koodaus.
+- 11:45-13:00 ryhmä listojen käyttöliittymä viimeistely.
+
+Yht 3h 45m

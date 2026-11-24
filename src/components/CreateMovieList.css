@@ -1,0 +1,82 @@
+
+.create-movie-list-page {
+  position: none;
+  width: 80rem;
+  min-height: 40rem;
+  padding: 3rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 0 10px;
+  background-color: var(--main-bg-color);
+}
+
+.back-to-group-btn {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+.create-movie-list-card {
+  width: min(30rem, 100%);
+  margin: 3rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  border: var(--border-2);
+  border-radius: 8px;
+  background-color: var(--search-card-bg-color);
+  text-align: left;
+}
+
+.create-movie-list-description {
+  margin: 0 0 1.75rem;
+  color: var(--small-text-color);
+}
+
+.create-movie-list-form {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.create-movie-list-form label {
+  color: var(--small-text-color);
+  font-weight: 600;
+}
+
+.create-movie-list-form select,
+.create-movie-list-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: var(--border-3);
+  border-radius: 6px;
+  background-color: var(--button-color);
+}
+
+.create-movie-list-form button {
+  grid-column: 2;
+  justify-self: start;
+  color: var(--small-text-color);
+}
+
+.create-movie-list-message {
+  margin: 1.25rem 0 0;
+  padding: 0.75rem;
+  border-radius: 6px;
+}
+
+.create-movie-list-message.success {
+  border: 1px solid var(--success-color);
+  color: var(--success-color);
+}
+
+.create-movie-list-message.error {
+  border: 1px solid var(--error-color);
+  color: var(--error-color);
+}
+
+@media (min-width: 850px) {
+  .create-movie-list-page{
+    position: relative;
+  }
+}
