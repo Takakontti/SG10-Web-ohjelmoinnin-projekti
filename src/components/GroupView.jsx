@@ -97,7 +97,7 @@ export default function GroupView() {
             <h1>{groupName}</h1>
             <div className='group-chat'>
               <div className='items'>
-                {selectedGroupId === '' ? <p>Odotetaan</p> : <ReviewList key={selectedGroupId} groupId={selectedGroupId} />}
+                {selectedGroupId === '' ? <p>Odotetaan</p> : <ReviewList groupId={selectedGroupId} />}
               </div>
 
               <div className='search-bar'>
