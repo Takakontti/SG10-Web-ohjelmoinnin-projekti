@@ -54,4 +54,20 @@ const createGroupMovieList = async (groupId, listName) => {
   return result.rows[0]
 }
 
-export { getGroupUsernames, getUserGroups, isGroupAdmin, createGroupMovieList }
+const createNewGroup = async (groupName, userId) => {
+  const result = await pool.query(
+    `WITH new_group AS (
+      INSERT INTO movie_groups (group_name)
+      VALUES ($1)
+      RETURNING id
+    )
+    INSERT INTO group_members (user_id, group_id, is_admin)
+    SELECT $2, new_group.id, 't'
+    FROM new_group`
+    [groupName, userId]
+  )
+
+  return result.rows[0]
+}
+
+export { getGroupUsernames, getUserGroups, isGroupAdmin, createGroupMovieList, createNewGroup }

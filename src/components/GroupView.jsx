@@ -26,6 +26,18 @@ export default function GroupView() {
     }
   }
 
+  function newGroupPost(value) {
+    try {
+      const response = axios.post('/api/groups/new-group', {
+        groupName: 'newTestGroup2'
+      })
+
+      console.log(response.data)
+    } catch (error) {
+      console.error('Failed: ', error)
+    }
+  }
+
   useEffect(() => {
     const loadGroups = async () => {
       try {
@@ -62,7 +74,7 @@ export default function GroupView() {
 
         <div className='main-group-container'>
           <div className='group-chat-button-container'>
-            <button className="group-settings-btn">
+            <button className="group-settings-btn" onClick={newGroupPost}>
               <i className="bi bi-gear-fill" aria-hidden="true" />
             </button>
 
