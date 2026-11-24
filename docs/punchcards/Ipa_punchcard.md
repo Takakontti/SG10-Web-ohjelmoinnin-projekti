@@ -92,3 +92,4 @@ Yht 8h 15min
 * Testien korjausta 09:05-09:15
 * Scrum-taulun päicvitystä 09:15-09:30
 * Testidatan-korjausta 09:30-10:00
+* Elokuvien haun parannusta 13:35-19:20
