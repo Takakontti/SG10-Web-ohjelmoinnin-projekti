@@ -1,5 +1,6 @@
 import { Form } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router'
 import axios from 'axios'
 import './GroupView.css'
 import NavBar from './NavBar'
@@ -7,25 +8,21 @@ import ReviewList from './review/ReviewList'
 import GroupMembers from './GroupMembers'
 
 export default function GroupView() {
-  const [movieId, setMovieId] = useState('')
-  const [getReview, setGetReview] = useState('')
+  const navigate = useNavigate()
+  const location = useLocation()
+  const requestedGroupId = location.state?.selectedGroupId || ''
   const [groups, setGroups] = useState([])
-  const [selectedGroupId, setSelectedGroupId] = useState('')
+  const [selectedGroupId, setSelectedGroupId] = useState(requestedGroupId)
   const [groupsLoading, setGroupsLoading] = useState(true)
   const [groupsError, setGroupsError] = useState('')
   const [groupName, setGroupName] = useState('')
 
-  function updateReviews() {
-    setGetReview(selectedGroupId)
-  }
+  function groupNames(value) {
+    const selectedGroup = groups.find((group) => group.id === value)
 
-  function groupNames(val){
-    for(let i = 0; i < groups.length; i++){
-      if(groups[i].id === val){
-        setSelectedGroupId(val)
-        setGroupName(groups[i].name)
-        updateReviews()
-      }
+    if (selectedGroup) {
+      setSelectedGroupId(selectedGroup.id)
+      setGroupName(selectedGroup.name)
     }
   }
 
@@ -33,10 +30,19 @@ export default function GroupView() {
     const loadGroups = async () => {
       try {
         const response = await axios.get('/api/groups/user-groups')
-        setGroups(response.data.groups)
-        setSelectedGroupId(response.data.groups[0].id)
-        setGroupName(response.data.groups[0].name)
-        setGetReview(response.data.groups[0].id)
+        const availableGroups = response.data.groups || []
+        setGroups(availableGroups)
+
+        const requestedGroup = availableGroups.find((group) => group.id === requestedGroupId)
+        const groupToSelect = requestedGroup || availableGroups[0]
+
+        if (groupToSelect) {
+          setSelectedGroupId(groupToSelect.id)
+          setGroupName(groupToSelect.name)
+        } else {
+          setSelectedGroupId('')
+          setGroupName('')
+        }
       } catch (error) {
         console.error('Failed to load review groups:', error)
         setGroupsError('Ryhmiä ei voitu hakea. Kirjaudu sisään ja yritä uudelleen.')
@@ -46,7 +52,7 @@ export default function GroupView() {
     }
 
     loadGroups()
-  }, [])
+  }, [requestedGroupId])
 
   return(
     <>
@@ -73,14 +79,25 @@ export default function GroupView() {
               </Form.Select>
             </Form.Group>
 
-            <button className="new-group-btn">Uusi ryhmä</button>
+            <button
+              className="new-list-btn"
+              type="button"
+              title="Luo lista"
+              disabled={groupsLoading || !selectedGroupId}
+              onClick={() => navigate('/CreateMovieList', {
+                state: { selectedGroupId, selectedGroupName: groupName }
+              })}
+            >
+              {/* Tähän ehkä löytyy sopivampi ikoni mutta tää on sopivin mitä löysin. */}
+              <i className="bi bi-list-ul" aria-hidden="true" />
+            </button>
           </div>
 
           <div className='group-chat-section'>
             <h1>{groupName}</h1>
             <div className='group-chat'>
               <div className='items'>
-                {selectedGroupId === '' ? <p>Odotetaan</p> : <ReviewList groupId={getReview} />}
+                {selectedGroupId === '' ? <p>Odotetaan</p> : <ReviewList key={selectedGroupId} groupId={selectedGroupId} />}
               </div>
 
               <div className='search-bar'>

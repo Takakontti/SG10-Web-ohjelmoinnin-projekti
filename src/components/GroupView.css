@@ -74,16 +74,18 @@
   font-size: large;
 }
 
-.new-group-btn {
+.new-list-btn {
   display: flex;
   place-content: center center;
-  width: 85px;
-  height: 50px;
-  color: var(--small-text-color);
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: var(--nav-button-icon-color);
   border: var(--border-3);
   background-color: var(--button-color);
   cursor: pointer;
   margin-bottom: 8px;
+  font-size: large;
 }
 
 .group-chat-participants {
