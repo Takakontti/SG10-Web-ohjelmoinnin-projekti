@@ -86,3 +86,9 @@ Yht 8h 15min
 ## 23.11.2026
 
 * Testidatan tekoa käsin 08:15-08:45
+
+## 24.11.2026
+
+* Testien korjausta 09:05-09:15
+* Scrum-taulun päicvitystä 09:15-09:30
+* Testidatan-korjausta 09:30-10:00
