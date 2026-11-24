@@ -1,4 +1,4 @@
-/*import { describe,it,expect,vi,beforeEach,afterEach } from 'vitest'
+import { describe,it,expect,vi,beforeEach,afterEach } from 'vitest'
 
 vi.mock('../../../api/models/db.js', () => ({
   pool: {
@@ -122,7 +122,7 @@ describe('verifyUser', () => {
   const password = 'Test123!'
   const userId = 'user-123'
 
-  it('should return the user ID when the username and password match', async () => {
+  it('should return the user ID when the username/email and password match', async () => {
     const passwordHash = await bcrypt.hash(password, 10)
     pool.query.mockResolvedValue({
       rows: [{ id: userId, password_hash: passwordHash }]
@@ -130,7 +130,7 @@ describe('verifyUser', () => {
 
     await expect(verifyUser('testuser', password)).resolves.toEqual({ id: userId })
     expect(pool.query).toHaveBeenCalledWith(
-      'SELECT id, password_hash FROM users WHERE username = $1',
+      'SELECT id, password_hash FROM users WHERE username = $1 OR email = $1',
       ['testuser']
     )
   })
@@ -154,13 +154,5 @@ describe('verifyUser', () => {
     pool.query.mockRejectedValue(new Error('databaseError'))
 
     await expect(verifyUser('testuser', password)).rejects.toThrow('databaseError')
-  })
-})*/
-
-import { describe, expect, it } from 'vitest'
-
-describe('test suite sanity check', () => {
-  it('always passes', () => {
-    expect(true).toBe(true)
   })
 })

@@ -17,6 +17,7 @@ Elokuva-harrastajaryhmillä on keskitetty alusta, jossa he voivat jakaa suosituk
 - [Sprint 1:n tavoite ja muistiot](docs/sprints/sprint-1.md)
 - [Sprint 2:n tavoite ja muistiot](docs/sprints/sprint-2.md)
 - [Sprint 3:n tavoite ja muistiot](docs/sprints/sprint-3.md)
+- [Sprint 4:n tavoite ja muistiot](docs/sprints/sprint-4.md)
 
 ## Työn seuranta
 - [Web-ohjelmoinnin-projekti – Scrum](https://github.com/users/Takakontti/projects/1/views/1)

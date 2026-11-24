@@ -1,4 +1,4 @@
-/*import { beforeEach,afterEach,describe,expect,it,vi } from 'vitest'
+import { beforeEach,afterEach,describe,expect,it,vi } from 'vitest'
 
 vi.mock('../../../api/models/user.js', () => ({
   registerUser: vi.fn(),
@@ -382,7 +382,7 @@ describe('login', () => {
 
     expect(loginSpy).toHaveBeenCalledOnce()
     expect(res.status).toHaveBeenCalledWith(400)
-    expect(res.json).toHaveBeenCalledWith({ message: 'Username and password are required' })
+    expect(res.json).toHaveBeenCalledWith({ message: 'Username/email and password are required' })
     expect(verifyUser).not.toHaveBeenCalled()
     expect(res.cookie).not.toHaveBeenCalled()
   })
@@ -400,13 +400,5 @@ describe('login', () => {
     expect(res.status).not.toHaveBeenCalled()
     expect(res.json).not.toHaveBeenCalled()
     expect(res.cookie).not.toHaveBeenCalled()
-  })
-})*/
-
-import { describe, expect, it } from 'vitest'
-
-describe('test suite sanity check', () => {
-  it('always passes', () => {
-    expect(true).toBe(true)
   })
 })
