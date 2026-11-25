@@ -1,0 +1,27 @@
+.group-creation-foundation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+}
+
+.group-creation-form {
+    width: 320px;
+    max-width: 400px;
+    padding: 30px;
+    zoom: 1.2;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+    background-color: var(--main-bg-color);
+}
+
+.group-create-buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-create-buttons {
+    width: 49%;
+}

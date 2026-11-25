@@ -63,7 +63,7 @@ const createNewGroup = async (groupName, userId) => {
     )
     INSERT INTO group_members (user_id, group_id, is_admin)
     SELECT $2, new_group.id, 't'
-    FROM new_group`
+    FROM new_group`,
     [groupName, userId]
   )
 

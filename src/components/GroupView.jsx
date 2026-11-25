@@ -17,24 +17,16 @@ export default function GroupView() {
   const [groupsError, setGroupsError] = useState('')
   const [groupName, setGroupName] = useState('')
 
+  const groupCreation = () => {
+    navigate('/GroupCreation')
+  }
+
   function groupNames(value) {
     const selectedGroup = groups.find((group) => group.id === value)
 
     if (selectedGroup) {
       setSelectedGroupId(selectedGroup.id)
       setGroupName(selectedGroup.name)
-    }
-  }
-
-  function newGroupPost(value) {
-    try {
-      const response = axios.post('/api/groups/new-group', {
-        groupName: 'newTestGroup2'
-      })
-
-      console.log(response.data)
-    } catch (error) {
-      console.error('Failed: ', error)
     }
   }
 
@@ -74,7 +66,7 @@ export default function GroupView() {
 
         <div className='main-group-container'>
           <div className='group-chat-button-container'>
-            <button className="group-settings-btn" onClick={newGroupPost}>
+            <button className="group-settings-btn" onClick={groupCreation}>
               <i className="bi bi-gear-fill" aria-hidden="true" />
             </button>
 

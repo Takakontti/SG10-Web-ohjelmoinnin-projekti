@@ -1,7 +1,7 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  position: none;
+  position: unset;
   width: 80%;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
@@ -25,6 +25,5 @@
   .main-container{
     width: 80rem;
     position: relative;
-    transform: none;
   }
 }
