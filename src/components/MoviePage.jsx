@@ -3,48 +3,67 @@ import axios from 'axios'
 import { useSearchParams } from 'react-router'
 import './MoviePage.css'
 import ReviewForm from './review/ReviewForm.jsx'
+import ReviewList from './review/ReviewList.jsx'
 import NavBar from './NavBar.jsx'
 
 export default function MoviePage() {
   const [searchParams] = useSearchParams()
-  const [movieData,setMovieData] = useState([])
-  const [loading,setLoading] = useState(true)
-  
+  const [movieData,setMovieData] = useState({
+    genres: [] 
+  }) // Interesting syntax
+  const searchPhrase = searchParams.get('id') //64690
+
   useEffect(() =>{
     async function loadMovies() {
       try{
-        const searchPhrase = searchParams.get('id') //64690
         const response = await axios.get(`/api/movie/id`,{ params: {
           query: searchPhrase
         }})
+        console.log(response)
         const data = response.data
         setMovieData(data.movieDetails)
-      }finally{
-        setLoading(false)
+      }catch(err){
+        return <p>ERROR: {err}</p>
       }
     }
     loadMovies()
   },[])
-  if(loading===true){
-    return(<p>Haetaan elokuvan tietoja...</p>)
-  }
+
   return(
     <>
-      <section className='movie-foundation'>
+      <div className='movie-foundation'>
         <NavBar />
-        <section className='movie-container'>
-          <section className='movie-info-container'>
-            <section className="movie-image-container">
-              <img src={`https://image.tmdb.org/t/p/w342${movieData.poster_path}`} alt="" className='movie-page-poster' />
-            </section>
-            <section className="movie-text-container">
+        <div className='movie-container'>
+          <div className='movie-info-container'>
+            <div className="movie-image-container">
+              <img src={movieData.posterPath} alt="movie poster" className='movie-page-poster' />
+            </div>
+            <div className="movie-text-container">
               <h1>{movieData.title}</h1>
+              <h2>{movieData.originalTitle}{movieData.releaseYear}</h2>
+              <p id='movie-studios'>{movieData.studios}</p>
+              <ul className='movie-genres'>
+                {movieData.genres.map(
+                  (genre,index) => {
+                    return(
+                      <li key={index} className='movie-genre-item'>
+                        <p>{genre}</p>
+                      </li>
+                    )
+                  }
+                )}
+              </ul>
               <p>{movieData.overview}</p>
-            </section>
-          </section>
-          <ReviewForm movieId={movieData.id} onSubmitted={()=>{1}} />
-        </section>
-      </section>
+            </div>
+          </div>
+          <div className='movie-review-container'>
+            <div className='movie-review-form-box'>
+              <ReviewForm movieId={searchPhrase} onSubmitted={()=>{1}} />
+            </div>
+            <ReviewList movieId={searchPhrase}/>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
