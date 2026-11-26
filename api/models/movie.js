@@ -23,5 +23,5 @@ export const getMovie = async (param,lang) => {
     }
   }
   const result = await axios(HTTPOptions)
-  return result.data
+  return result
 }

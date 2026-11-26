@@ -3,13 +3,14 @@
   display: inline-flex;
   justify-content: center;
   flex: 1;
+  min-height: 100vh;
 }
 
 .movie-container {
-  position: relative;
+  position: unset;
   padding: 1.88rem;
   background-color: var(--main-bg-color);
-  width: 80rem;
+  width: 80%;
   display: flex;
   border-radius: 5px;
   flex-direction: column;
@@ -20,38 +21,117 @@
 
 .movie-info-container {
   display: inline-flex;
-  flex-direction: row;
-  padding-bottom: 1.88rem;
-  justify-content: space-between;
+  flex-direction: column;
+  padding: 1.88rem;
+  margin-bottom: 1.88rem;
   gap: 1.88rem;
-}
-
-.movie-image-container{
-  position: relative;
+  background-color: var(--search-card-bg-color);
+  border-radius: 8px;
+  min-width: fit-content;
 }
 
 .movie-page-poster {
   height: max-content;
   border-radius: 8px;
+  zoom: 0.8;
 }
 
 .movie-text-container {
-  background-color: var(--search-card-bg-color);
-  border-radius: 8px;
-  padding: 1.88rem;
+  padding: 0;
   display: inline-flex;
   flex-direction: column;
   height: max-content;
+  width: 100%;
 }
 
-@media only screen and (max-width: 414px) {
-  .movie-container{
-    width: 80%;
-    position: none;
-  }
+.movie-text-container h1{
+  background-color: var(--search-card-title-bg-color);
+  margin: 0;
+  padding-top: 1.88rem;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.movie-text-container h2{
+  background-color: var(--search-card-title-bg-color);
+  margin: 0;
+  padding-top: 0.94rem;
+}
+
+.movie-text-container p{
+  background-color: var(--search-card-desc-bg-color);
+  margin: 0;
+  padding: 1.88rem;
+  padding-top: 0.94rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+#movie-studios{
+  background-color: var(--search-card-title-bg-color);
+  padding: 0.94rem;
+  border-radius: 0;
+}
+
+.movie-review-container{
+  display: flex;
+  flex-direction: column;
+  gap: 1.88rem;
+}
+
+.movie-review-form-box{
+  padding: 1.88rem;
+  background-color: var(--search-card-bg-color);
+  height: min-content;
+  border-radius: 8px;
+  zoom: 0.8;
+}
+
+.movie-genres{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0.94rem;
+  padding-bottom: 0;
+  margin: 0;
+  background-color: var(--search-card-desc-bg-color);
+  gap: 0.94rem;
+}
+
+.movie-genre-item p{
+  padding: 0.94rem;
+  border-radius: 8px;
+  background-color: var(--search-card-title-bg-color);
+}
+
+.reviewList{ /* This will change after we add "friend" reviews to this page */
+  width: 100%;
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 450px) {
 
   .movie-info-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+  }
+
+  .movie-page-poster{
+    zoom: 1;
+  }
+
+  .movie-review-container{
+    flex-direction: row;
+  }
+
+  .movie-review-form-box{
+    zoom: 1;
+  }
+}
+
+@media (min-width: 850px){
+  .movie-container{
+    width: 80rem;
+    position: relative;
   }
 }
