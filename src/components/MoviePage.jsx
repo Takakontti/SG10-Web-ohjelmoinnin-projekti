@@ -11,6 +11,7 @@ export default function MoviePage() {
   const [movieData,setMovieData] = useState({
     genres: [] 
   }) // Interesting syntax
+  const [refreshProp,setRefreshProp] = useState(0)
   const searchPhrase = searchParams.get('id') //64690
 
   useEffect(() =>{
@@ -35,9 +36,7 @@ export default function MoviePage() {
         <NavBar />
         <div className='movie-container'>
           <div className='movie-info-container'>
-            <div className="movie-image-container">
               <img src={movieData.posterPath} alt="movie poster" className='movie-page-poster' />
-            </div>
             <div className="movie-text-container">
               <h1>{movieData.title}</h1>
               <h2>{movieData.originalTitle}{movieData.releaseYear}</h2>
@@ -58,9 +57,9 @@ export default function MoviePage() {
           </div>
           <div className='movie-review-container'>
             <div className='movie-review-form-box'>
-              <ReviewForm movieId={searchPhrase} onSubmitted={()=>{1}} />
+              <ReviewForm movieId={searchPhrase} onSubmitted={()=>{setRefreshProp(value => value+1)}} />
             </div>
-            <ReviewList movieId={searchPhrase}/>
+            <ReviewList movieId={searchPhrase} refreshProp={refreshProp}/>
           </div>
         </div>
       </div>

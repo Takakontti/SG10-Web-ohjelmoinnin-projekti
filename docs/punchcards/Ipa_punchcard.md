@@ -91,7 +91,7 @@ Yht 8h 15min
 ## 24.11.2026
 
 * Testien korjausta 09:05-09:15
-* Scrum-taulun päicvitystä 09:15-09:30
+* Scrum-taulun päivitystä 09:15-09:30
 * Testidatan-korjausta 09:30-10:00
 * Elokuvien haun viimeistely 13:35-19:20
 * Elokuvien tiedot -sivun parannusta 19:20-20:20
@@ -103,3 +103,6 @@ Yht 8h 15min
 ## 26.11.2026
 
 * Elokuvien tiedot -sivun mobiilinäkymän tekoa 09:05-09:35
+* Luento 10:00-11:00
+* Elokuvien tiedot -sivun parannusta 11:50-12:50
+* Logon tekoa 15:15-17:25
