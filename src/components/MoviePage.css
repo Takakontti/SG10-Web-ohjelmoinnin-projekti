@@ -42,6 +42,7 @@
   flex-direction: column;
   height: max-content;
   width: 100%;
+  zoom: 0.7;
 }
 
 .movie-text-container h1{
@@ -77,12 +78,14 @@
   display: flex;
   flex-direction: column;
   gap: 1.88rem;
+  align-items: center;
 }
 
 .movie-review-form-box{
   padding: 1.88rem;
   background-color: var(--search-card-bg-color);
   height: min-content;
+  width: min-content;
   border-radius: 8px;
   zoom: 0.8;
 }
@@ -110,28 +113,32 @@
   flex-direction: column-reverse;
 }
 
-@media (min-width: 450px) {
-
+@media (min-width: 450px){
   .movie-info-container {
     flex-direction: row;
+  }
+
+  .movie-review-container{
+    flex-direction: row;
+    align-items: start;
+  }
+}
+
+@media (min-width: 1300px){
+  .movie-container{
+    width: 80rem;
+    position: relative;
+  }
+
+  .movie-text-container{
+    zoom: 1;
   }
 
   .movie-page-poster{
     zoom: 1;
   }
 
-  .movie-review-container{
-    flex-direction: row;
-  }
-
   .movie-review-form-box{
     zoom: 1;
-  }
-}
-
-@media (min-width: 850px){
-  .movie-container{
-    width: 80rem;
-    position: relative;
   }
 }
