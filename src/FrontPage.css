@@ -23,7 +23,7 @@
 
 .search-bar-fp {
   position: relative;
-  width: 30rem;
+  width: 20rem;
   margin: 1rem auto;
 
 }
@@ -67,5 +67,9 @@
     width: 80rem;
     position: relative;
     transform: none;
+  }
+
+  .search-bar-fp {
+    width: 30rem;
   }
 }
