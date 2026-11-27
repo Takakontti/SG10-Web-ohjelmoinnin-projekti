@@ -45,6 +45,10 @@ const NewGroup = async (req, res, next) => {
   const groupName = req.body.groupName
   const userId = req.user.id
 
+  if (/[@#$€%&*^¨~=¿;|§½+\\,/£{}()<>`´¸\[\]":]/.test(groupName)) {
+    return res.status(422).json({ message: 'Sallitut erikoismerkit on = ! ? \' _ -' })
+  }
+
   try {
     const result = await createNewGroup(groupName, userId)
 
