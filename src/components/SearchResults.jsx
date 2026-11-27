@@ -71,9 +71,9 @@ export default function SearchResults() {
 
   return (
     <>
-      <section className='search-foundation'>
+      <div className='search-foundation'>
         <NavBar />
-        <section className='search-container'>
+        <div className='search-container'>
           <h1>Hakutulokset:</h1>
           <h2 className='error-card'>{error}</h2>
           <ul className='movie-card-container'>
@@ -81,7 +81,11 @@ export default function SearchResults() {
               (movie) => {
                 return(
                   <li className='movie-card' key={movie.id}>
-                    <div className='movie-card-content' role='button' tabIndex={0} onClick={(event) => {moviePage(event,movie.movieId)}}>
+                    <div className='movie-card-content'
+                      role='button' tabIndex={0}
+                      onKeyDown={(event) => {if(event.key === 'Enter'){moviePage(event,movie.movieId)}}}
+                      onClick={(event) => {moviePage(event,movie.movieId)}}>
+                        
                       <img src={movie.posterPath} alt="Movie poster" />
                       <div className='movie-card-text-box'>
                         <div className='movie-card-title-box'>
@@ -97,8 +101,8 @@ export default function SearchResults() {
             )}
           </ul>
           {nextPage()}
-        </section>
-      </section>
+        </div>
+      </div>
     </>
   )
 }

@@ -21,9 +21,11 @@ export default function FrontPage() {
       <div className='main-container'>
         <h1>MovCha</h1>
 
-        <Form role='search' onSubmit={event => searchPage(event)}>
+        <Form className='search-bar-fp' role='search' onSubmit={event => searchPage(event)}>
           <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />
-          <button style={{ margin: '10px'}} type="submit">Hae</button>
+          <button style={{ margin: '10px'}} type="submit">
+            <i className="bi bi-search" aria-hidden='true' />
+          </button>
         </Form>     
       </div>
     </div>
