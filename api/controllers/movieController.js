@@ -31,45 +31,17 @@ export const search = async (req, res, next) => {
 
     const searchResultsResolvedPosterPath = searchResultsRaw.map(obj => {
       if(obj.poster_path === null){
-        return({
-          movieId: obj.id,
-          title: obj.title,
-          originalTitle: obj.original_title,
-          releaseDate: obj.release_date,
-          overview: obj.overview,
-          posterPath: 'src/assets/posterNotFound.png'
-        })
+        return 'src/assets/posterNotFound.png'
       }else{
-        return({
-          movieId: obj.id,
-          title: obj.title,
-          originalTitle: obj.original_title,
-          releaseDate: obj.release_date,
-          overview: obj.overview,
-          posterPath: `https://image.tmdb.org/t/p/w342${obj.poster_path}`
-        })
+        return `https://image.tmdb.org/t/p/w342${obj.poster_path}`
       }
     })
-    
-    const searchResultsChoppedOverview = searchResultsResolvedPosterPath.map(obj => {
+
+    const searchResultsChoppedOverview = searchResultsRaw.map(obj => {
       if(obj.overview.length >= 400){
-        return({
-          movieId: obj.movieId,
-          title: obj.title,
-          originalTitle: obj.originalTitle,
-          releaseDate: obj.releaseDate,
-          overview: `${obj.overview.slice(0,397)}...`,
-          posterPath: obj.posterPath
-        })
+        return `${obj.overview.slice(0,397)}...`
       }else{
-        return({
-          movieId: obj.movieId,
-          title: obj.title,
-          originalTitle: obj.originalTitle,
-          releaseDate: obj.releaseDate,
-          overview: obj.overview,
-          posterPath: obj.posterPath
-        })
+        return obj.overview
       }
     })
 
@@ -78,47 +50,47 @@ export const search = async (req, res, next) => {
       movieList: []
     }
 
-    filteredSearchResults.movieList.push(searchResultsChoppedOverview.map((obj,index) => {  
+    filteredSearchResults.movieList.push(searchResultsRaw.map((obj,index) => {  
       const runningCount = parseInt(req.query.index)+index+1
 
-      if(obj.releaseDate !== ''){ // There's probably a better way to do this, but this works.
-        if(obj.title !== obj.originalTitle){
+      if(obj.release_date !== ''){ // There's probably a better way to do this, but this works.
+        if(obj.title !== obj.original_title){
           return ({
             id: runningCount,
-            movieId: obj.movieId,
+            movieId: obj.id,
             title: obj.title,
-            originalTitle: obj.originalTitle,
-            releaseYear: ` (${obj.releaseDate.slice(0,4)})`,
-            overview: obj.overview,
-            posterPath: obj.posterPath
+            originalTitle: obj.original_title,
+            releaseYear: ` (${obj.release_date.slice(0,4)})`,
+            overview: searchResultsChoppedOverview[index],
+            posterPath: searchResultsResolvedPosterPath[index]
           })
         }else{
           return ({
             id: runningCount,
-            movieId: obj.movieId,
+            movieId: obj.id,
             title: obj.title,
-            releaseYear: `(${obj.releaseDate.slice(0,4)})`,
-            overview: obj.overview,
-            posterPath: obj.posterPath
+            releaseYear: `(${obj.release_date.slice(0,4)})`,
+            overview: searchResultsChoppedOverview[index],
+            posterPath: searchResultsResolvedPosterPath[index]
           })
         }
       }else{
-        if(obj.title !== obj.originalTitle){
+        if(obj.title !== obj.original_title){
           return ({
             id: runningCount,
-            movieId: obj.movieId,
+            movieId: obj.id,
             title: obj.title,
-            originalTitle: obj.originalTitle,
-            overview: obj.overview,
-            posterPath: obj.posterPath
+            originalTitle: obj.original_title,
+            overview: searchResultsChoppedOverview[index],
+            posterPath: searchResultsResolvedPosterPath[index]
           })
         }else{
           return ({
             id: runningCount,
-            movieId: obj.movieId,
+            movieId: obj.id,
             title: obj.title,
-            overview: obj.overview,
-            posterPath: obj.posterPath
+            overview: searchResultsChoppedOverview[index],
+            posterPath: searchResultsResolvedPosterPath[index]
           })
         }
       }  
@@ -155,17 +127,14 @@ export const getMovieById = async (req,res,next) => {
     const genreNames = getGenreNames()
 
     function getProdCompanies() {
-      const prodCompanyNameArray = []
       if(resultsFI.data.production_companies.length === 0){
-        prodCompanyNameArray.push(resultsRaw.data.production_companies.map(company => company.name))
+        return resultsRaw.data.production_companies.map(company => company.name)
       }else{
-        prodCompanyNameArray.push(resultsRaw.data.production_companies.map(company => company.name))
+        return resultsRaw.data.production_companies.map(company => company.name)
       }
-      const prodCompanyNameString = prodCompanyNameArray.flat().join(", ")
-      return 'Tuotantoyhtiö(t): ' + prodCompanyNameString
     }
 
-    const prodCompanies = getProdCompanies()
+    const prodCompanies = 'Tuotantoyhtiö(t): ' + getProdCompanies().join(", ")
 
     if(resultsRaw.status!==200){
       return res.status(resultsRaw.status).json({ message: resultsRaw.statusText})
@@ -173,63 +142,51 @@ export const getMovieById = async (req,res,next) => {
 
     function resolvePosterPath(){
       if(resultsRaw.data.poster_path === null){
-        return({
-          title: resultsRaw.data.title,
-          originalTitle: resultsRaw.data.original_title,
-          releaseDate: resultsRaw.data.release_date,
-          overview: resultsRaw.data.overview,
-          posterPath: 'src/assets/posterNotFound.png'
-        })
+        return 'src/assets/posterNotFound.png'
       }else{
-        return({
-          title: resultsRaw.data.title,
-          originalTitle: resultsRaw.data.original_title,
-          releaseDate: resultsRaw.data.release_date,
-          overview: resultsRaw.data.overview,
-          posterPath: `https://image.tmdb.org/t/p/w342${resultsRaw.data.poster_path}`
-        })
+        return `https://image.tmdb.org/t/p/w342${resultsRaw.data.poster_path}`
       }
     }
 
-    const resultsResolvedPosterPath = resolvePosterPath()
+    const resolvedPosterPath = resolvePosterPath()
 
     function filterResults(){
-      if(resultsResolvedPosterPath.releaseDate !== ''){ // There's probably a better way to do this, but this works.
-        if(resultsResolvedPosterPath.title !== resultsResolvedPosterPath.originalTitle){
+      if(resultsRaw.data.release_date !== ''){ // There's probably a better way to do this, but this works.
+        if(resultsRaw.data.title !== resultsRaw.data.original_title){
           return ({
-            title: resultsResolvedPosterPath.title,
-            originalTitle: resultsResolvedPosterPath.originalTitle,
-            releaseYear: ` (${resultsResolvedPosterPath.releaseDate.slice(0,4)})`,
-            overview: resultsResolvedPosterPath.overview,
-            posterPath: resultsResolvedPosterPath.posterPath,
+            title: resultsRaw.data.title,
+            originalTitle: resultsRaw.data.original_title,
+            releaseYear: ` (${resultsRaw.data.release_date.slice(0,4)})`,
+            overview: resultsRaw.data.overview,
+            posterPath: resolvedPosterPath,
             genres: genreNames,
             studios: prodCompanies
           })
         }else{
           return ({
-            title: resultsResolvedPosterPath.title,
-            releaseYear: `(${resultsResolvedPosterPath.releaseDate.slice(0,4)})`,
-            overview: resultsResolvedPosterPath.overview,
-            posterPath: resultsResolvedPosterPath.posterPath,
+            title: resultsRaw.data.title,
+            releaseYear: `(${resultsRaw.data.release_date.slice(0,4)})`,
+            overview: resultsRaw.data.overview,
+            posterPath: resolvedPosterPath,
             genres: genreNames,
             studios: prodCompanies
           })
         }
       }else{
-        if(resultsResolvedPosterPath.title !== resultsResolvedPosterPath.originalTitle){
+        if(resultsRaw.data.title !== resultsRaw.data.original_title){
           return ({
-            title: resultsResolvedPosterPath.title,
-            originalTitle: resultsResolvedPosterPath.originalTitle,
-            overview: resultsResolvedPosterPath.overview,
-            posterPath: resultsResolvedPosterPath.posterPath,
+            title: resultsRaw.data.title,
+            originalTitle: resultsRaw.data.original_title,
+            overview: resultsRaw.data.overview,
+            posterPath: resolvedPosterPath,
             genres: genreNames,
             studios: prodCompanies
           })
         }else{
           return ({
-            title: resultsResolvedPosterPath.title,
-            overview: resultsResolvedPosterPath.overview,
-            posterPath: resultsResolvedPosterPath.posterPath,
+            title: resultsRaw.data.title,
+            overview: resultsRaw.data.overview,
+            posterPath: resolvedPosterPath,
             genres: genreNames,
             studios: prodCompanies
           })

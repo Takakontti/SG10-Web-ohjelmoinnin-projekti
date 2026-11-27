@@ -105,4 +105,10 @@ Yht 8h 15min
 * Elokuvien tiedot -sivun mobiilinäkymän tekoa 09:05-09:35
 * Luento 10:00-11:00
 * Elokuvien tiedot -sivun parannusta 11:50-12:50
-* Logon tekoa 15:15-17:25
+* Logon tekoa 15:15-18:25
+
+## 27.11.2026
+
+* Elokuva-backendin suorituskyvyn parantamista 14:40-16:30
+* Frontendin mobiilinäkymän parannusta 16:45-18:45
+* Frontendin mobiilinäkymän parannusta 20:00-22:00
