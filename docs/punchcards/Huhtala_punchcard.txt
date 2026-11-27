@@ -105,6 +105,8 @@ Trying to make group changing possible 07:00 - 14:00
 
 Fixing group things 10:30 - 14:00
 
+~3.5h
+
 -----------------------------------------------------------------------------------------------------------------
 
 22/11
@@ -113,6 +115,8 @@ Trying to fix the same bugs as yesterday 11:00 - 13:30 (Nothing was achieved)
 
 Finally "Fixed" the groupview bugs 15:00 - 16:00
 
+~3.5h
+
 -----------------------------------------------------------------------------------------------------------------
 
 23/11
@@ -120,6 +124,8 @@ Finally "Fixed" the groupview bugs 15:00 - 16:00
 School commute 8:30 - 11:00
 
 sprint thing ?? - ?? took like 30 mins
+
+~4h
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -137,11 +143,15 @@ Trying to fix the group creation route 17:00 - 19:00
 
 Continuing group creation 19:00 - 22:00
 
+~5h
+
 -----------------------------------------------------------------------------------------------------------------
 
 26/11
 
 Adding error handling into groupCreation 09:00 - 12:40 (GroupCreation should be done)
+
+~3.5h
 
 -----------------------------------------------------------------------------------------------------------------
 
@@ -153,4 +163,11 @@ Picking colours for the site 12:45 - 15:00
 
 Thinking about colour positions and starting groupView mobile compatability 15:00 - 17:30
 
-Continuing colour stuff 20:00 -
+Continuing colour stuff 20:00 - 22:30
+
+~8h
+
+-----------------------------------------------------------------------------------------------------------------
+
+28/11
+
