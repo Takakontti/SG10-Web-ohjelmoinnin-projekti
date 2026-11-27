@@ -9,8 +9,8 @@ nav {
   border-radius: 10%;
   width: 2.5rem;
   height: 2.5rem;
-  border: var(--border-3);
-  background-color: var(--nav-button-color);
+  border: var(--border-5);
+  background-color: var(--main-bg-color-2);
   cursor: pointer;
   margin-bottom: 0.5rem;
   display: flex;

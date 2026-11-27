@@ -17,7 +17,7 @@ function groupCreation() {
 
   const validateForm = () => {
     const newErrors = {}
-    if (!groupName.trim()) newErrors.form = 'Ryhmä nimi vaaditaan.'
+    if (!groupName.trim()) newErrors.form = 'Ryhmän nimi vaaditaan.'
 
     // This excludes all unwanted special charactes
     if (/[@#$€%&*^¨~=¿;|§½+\\,/£{}()<>`´¸\[\]":]/.test(groupName)) newErrors.form = 'Sallitut erikoismerkit on = ! ? \' _ -'
@@ -57,9 +57,10 @@ function groupCreation() {
                         {errors.form && <Alert className='group-creation-error' variant="danger" role="alert">{errors.form}</Alert>}
                         {success.form && <Alert className='group-creation-success' variant="success" role="alert">{success.form}</Alert>}
                     </div>
-                    <Form.Group className="mb-3">
+                    <Form.Group className="group-creation-form-group">
                         <Form.Label>Ryhmän nimi:</Form.Label>
                         <Form.Control
+                        className='group-input'
                         type="text"
                         placeholder="Nimi tähän..."
                         value={groupName}
