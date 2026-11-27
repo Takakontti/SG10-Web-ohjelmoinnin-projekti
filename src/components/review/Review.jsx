@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useSearchParams } from 'react-router'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import ReviewForm from './ReviewForm'
-import ReviewList from './ReviewList'
+import MovieReviewList from './MovieReviewList'
 import './Review.css'
 
 // Tämä sivu ei varmaan säily kovin kauan mutta on olemassa, jotta arvostelu komponentteja voi testata.
@@ -18,7 +18,7 @@ function Review() {
         movieId={movieId}
         onSubmitted={() => setRefreshProp((value) => value + 1)}
       />
-      <ReviewList movieId={movieId} refreshProp={refreshProp} />
+      <MovieReviewList movieId={movieId} refreshProp={refreshProp} />
     </div>
   )
 }
