@@ -5,7 +5,7 @@ const getGroupUsers = async (req, res, next) => {
     const { groupId } = req.params
   
     if (!uuid.validate(groupId)) {
-      //return res.status(400).json({ message: 'A valid group ID is required' })
+      return res.status(400).json({ message: 'A valid group ID is required' })
     }
   
     try {

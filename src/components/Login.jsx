@@ -1,5 +1,5 @@
 import { Form, Button, Alert } from 'react-bootstrap'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import './Login.css'
@@ -28,10 +28,6 @@ function Login() {
 
   const mainPage = () => {
     navigate('/')
-  }
-
-  const authPage = () => {
-    navigate('/Authentication/Register')
   }
 
   const validateForm = () => {
@@ -64,19 +60,21 @@ function Login() {
       setIsSubmitting(false)
     }
   }
-
+  
   return (
     <div className="login-wrapper">
       <div className="login-form-container">
+      <Button className='back-button' onClick={mainPage}>
+        <i className='bi bi-arrow-left-square' aria-hidden='true' />
+      </Button>
         <h2 className="login-title">Kirjaudu sisään</h2>
         <Form onSubmit={handleSubmit}>
           {errors.form && <Alert className='login-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='login-success' variant="success" role="alert">{success.form}</Alert>}
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Käyttäjätunnus tai sähköposti:</Form.Label>
+          <Form.Group className="mb-3 login-field-group" controlId="formBasicUsername">
             <Form.Control
               type="text"
-              placeholder="Käyttäjätunnus"
+              placeholder="Käyttäjätunnus / Sähköposti"
               value={username}
               onChange={(e) => {
                 setUsername(e.target.value)
@@ -85,11 +83,14 @@ function Login() {
               }}
               isInvalid={Boolean(errors.username)}
             />
-            <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
+            {errors.username && (
+              <Form.Control.Feedback type="invalid" role="alert">
+                {errors.username}
+              </Form.Control.Feedback>
+            )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Salasana:</Form.Label>
+          <Form.Group className="mb-3 login-field-group" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Salasana"
@@ -101,15 +102,18 @@ function Login() {
               }}
               isInvalid={Boolean(errors.password)}
             />
-            <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+            {errors.password && (
+              <Form.Control.Feedback type="invalid" role="alert">
+                {errors.password}
+              </Form.Control.Feedback>
+            )}
           </Form.Group>
           <Button variant="primary" type="submit" className="login-button" disabled={isSubmitting}>
             {isSubmitting ? 'Kirjaudutaan...' : 'Kirjaudu sisään'}
           </Button>
-          <div className='buttons'>
-            <Button className='login-buttons' onClick={mainPage}>Takaisin</Button>
-            <Button className='login-buttons' onClick={authPage}>Rekisteröidy</Button>
-          </div>
+          <p className="register-prompt">
+            Ei tiliä? <Link to="/Authentication/Register">Rekisteröidy</Link>
+          </p>
         </Form>
       </div>
     </div>

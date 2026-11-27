@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #825B13; /*A97719*/
-  background-color: #242424;
+  color: #94601c; /*A97719*/ /*Old colour: #825B13*/
+  background-color: #202527; /*Modified gray, blue ish gray*/
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -43,14 +43,14 @@ button {
   padding: 0.6em 1.2em;
   font-family: inherit;
   background-color: #3b3837;
-  border: 1px solid rgb(169, 146, 75);
+  border: 1px solid #6d4a5b;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #e77e3c;
-  box-shadow: 0 0 10px #e77e3c;
+  border-color: #6d4a5b;
+  box-shadow: 0 0 10px #6d4a5b;
 }
 
 .no-hover:not(.hover):hover {
