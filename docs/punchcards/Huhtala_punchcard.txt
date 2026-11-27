@@ -136,3 +136,15 @@ Starting on group creation 09:00 - 16:30
 Trying to fix the group creation route 17:00 - 19:00
 
 Continuing group creation 19:00 - 22:00
+
+-----------------------------------------------------------------------------------------------------------------
+
+26/11
+
+Adding error handling into groupCreation 09:00 - 12:40 (GroupCreation should be done)
+
+-----------------------------------------------------------------------------------------------------------------
+
+27/11
+
+Figuring out what to do next 11:30 - 

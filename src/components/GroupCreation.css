@@ -25,3 +25,20 @@
 .group-create-buttons {
     width: 49%;
 }
+
+.group-creation-alert-field {
+  min-height: 28px;
+}
+
+.group-creation-error {
+  margin-bottom: 15px;
+  color: var(--error-color);
+}
+
+.group-creation-success {
+  margin-bottom: 15px;
+  color: var(--success-color);
+}
+.title {
+  margin-bottom: 0;
+}

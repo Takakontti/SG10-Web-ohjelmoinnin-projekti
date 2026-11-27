@@ -42,21 +42,19 @@ const createMovieList = async (req, res, next) => {
 }
 
 const NewGroup = async (req, res, next) => {
-  console.log('before in backend')
   const groupName = req.body.groupName
   const userId = req.user.id
 
-  if(groupName.trim() === ''){
-    return res.status(400).json({ message: 'Group name is required' })
-  }
-
   try {
-    console.log('before post')
     const result = await createNewGroup(groupName, userId)
-    console.log('after')
+
     return res.status(201).json({ message: 'Group created successfully', result })
   } catch (error) {
-    return next(error)
+    // ? detailissa katsoo että onko se undefined vaikko ei
+    if(error.detail?.includes('already exists')){
+      return res.status(409).json({ message: 'Ryhmän nimi on jo käytössä' })
+    }
+    next(error)
   }
 }
 
