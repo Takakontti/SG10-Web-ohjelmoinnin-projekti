@@ -10,7 +10,9 @@ export default function TopBar(){
 
   return(
     <header>
-      <img src="" alt="Profiili" className="profile_button" onClick={authPage} />
+      <button className="profile_button" onClick={authPage}>
+        <i className='bi bi-person-fill' alt="Profiili"  />
+      </button>
     </header>
   )
 }

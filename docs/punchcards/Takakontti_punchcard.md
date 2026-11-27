@@ -130,5 +130,6 @@ Yht 7h
 ## 27.11.2026
 
 - 11:30-16:30 arvostelu frontend koodaus
+- 19:00-20:30 login frontend koodaus
 
-Yht 5h
+Yht 6h 30m
