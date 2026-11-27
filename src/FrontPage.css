@@ -5,8 +5,9 @@
   width: 80%;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
   padding: 30px;
+  border: var(--test-border);
   border-radius: 5px;
-  box-shadow: 0 0 10px;
+  box-shadow: 0 0 10px var(--test-colour-p-red); /* Not sure about the colour yet*/
   background-color: var(--main-bg-color);
 }
 
@@ -32,11 +33,17 @@
   background-color: var(--search-card-bg-color);
   height: 3rem;
   width: 100%;
-  border: var(--border-2);
+  border: var(--test-border);
+  color: var(--input-text-color);
   border-radius: 8rem;
   box-sizing: border-box;
   padding: 8px 40px 8px 16px;
   font-size: medium;
+}
+
+.search-bar-fp input:focus {
+  outline: var(--test-border);
+  outline-offset: -1px;
 }
 
 .search-bar-fp button {
@@ -53,13 +60,64 @@
   width: 3rem;
   height: 3rem;
   transition: all 0.1s linear;
-  color: var(--nav-button-icon-color);
+  color: var(--test-colour-p-red);
   font-size: large;
 }
 
 .search-bar-fp button:hover {
   box-shadow: none;
   transform: scale(1.2);
+}
+
+.colour-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.main-colour-1 {
+  color: var(--test-colour-teal);
+}
+
+.main-colour-2 {
+  color: var(--test-colour-rusty-red);
+}
+
+.main-colour-3 {
+  color: var(--test-colour-warm-white);
+}
+
+.main-colour-4 {
+  color: var(--test-colour-p-red);
+}
+
+.main-colour-5 {
+  color: var(--test-colour-b-blue);
+}
+
+.logo-colour-1 {
+  color: var(--Lid);
+}
+
+.logo-colour-2 {
+  color: var(--Cup);
+}
+
+.logo-colour-3 {
+  color: var(--Sleeve);
+}
+
+.logo-colour-4 {
+  color: var(--Ribbon);
+}
+
+.logo-colour-5 {
+  color: var(--Ribbon-gaps);
 }
 
 @media (min-width: 850px) {

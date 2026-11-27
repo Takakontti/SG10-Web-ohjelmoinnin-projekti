@@ -147,4 +147,8 @@ Adding error handling into groupCreation 09:00 - 12:40 (GroupCreation should be 
 
 27/11
 
-Figuring out what to do next 11:30 - 
+Figuring out what to do next 11:30 - 12:30
+
+Picking colours for the site 12:45 - 15:00
+
+Thinking about colour positions and starting groupView mobile compatability 15:00 - 17:30
