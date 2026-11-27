@@ -19,7 +19,7 @@ export default function FrontPage() {
       <NavBar />
   
       <div className='main-container'>
-        <h1 className='logo-colour-3' >MovCha</h1>
+        <h1 className='logo-colour-2' >MovCha</h1>
 
         <Form className='search-bar-fp' role='search' onSubmit={event => searchPage(event)}>
           <input size="40" type="text" placeholder="Hae elokuvia..." onChange={event => setQuery(event.target.value)} />

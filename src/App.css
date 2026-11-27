@@ -16,14 +16,20 @@
   --success-color: #009600;
   --small-text-color: #e5e5e5;
   --input-text-color: #EDE2C7;
-  --nav-button-icon-color: #875e13;
-  --group-member-list-bg: #141111;
+  --nav-button-icon-color: #e4c89f;
+  --group-member-list-bg: #0b2434ca;
 
-  --test-border: 2px solid #6d4a5b7e;
+  --main-bg-color-2: #010b13; 
+  --colour-p-red: #6d4a5b;
+  --main-h1-color: #e4c89f;
+  --border-5: 2px solid #6d4a5b9e;
+  --border-6: 2px solid #0b2434;
+  --box-shadow-2: #6d4a5b;
+  --box-shadow-3: #0b2434;
+
   --test-colour-teal: #2e6f5e;
   --test-colour-rusty-red: #9c4a36;
   --test-colour-warm-white: #EDE2C7;
-  --test-colour-p-red: #6d4a5b;
   --test-colour-b-blue: #22303c;
 
   --Lid: #44362f;
