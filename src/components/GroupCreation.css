@@ -16,6 +16,16 @@
     background-color: var(--main-bg-color);
 }
 
+.group-creation-form-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    zoom: 1.1;
+    width: 100%;
+}
+
 .group-create-buttons-container {
     display: flex;
     align-items: center;
@@ -41,4 +51,19 @@
 }
 .title {
   margin-bottom: 0;
+}
+
+.group-input {
+    width: 50%;
+}
+
+@media (min-width: 850px) {
+
+    .group-creation-form-group {
+        zoom: 0;
+    }
+
+    .group-input {
+        width: 100%;
+    }
 }
