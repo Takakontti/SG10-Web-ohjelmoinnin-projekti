@@ -12,7 +12,9 @@
   padding: 30px;
   zoom: 1.2;
   border-radius: 5px;
-  box-shadow: 0 0 10px;
+  border: var(--border-5);
+  box-shadow: 0 0 10px var(--box-shadow-2);
+  color: var(--small-text-color); /* This is "Temporary" */
   background-color: var(--main-bg-color);
 }
 
@@ -54,9 +56,14 @@
   flex: 1;
   min-width: 0;
   box-sizing: border-box;
-  border: var(--border-2);
+  border: var(--border-5);
   border-radius: 8px;
-  background-color: var(--main-bg-color);
+  background-color: var(--main-bg-color-2);
+}
+
+.register-form-container .mb-3 .form-control:focus {
+  outline: var(--border-5);
+  outline-offset: -2px;
 }
 
 .register-form-container .mb-3 .invalid-feedback {

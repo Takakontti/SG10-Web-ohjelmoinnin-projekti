@@ -14,7 +14,9 @@
     box-sizing: border-box;
     zoom: 1.3;
     border-radius: 5px;
-    box-shadow: 0 0 10px;
+    border: var(--border-5);
+    box-shadow: 0 0 10px var(--box-shadow-2);
+    color: var(--small-text-color);
     background-color: var(--main-bg-color);
 }
 
@@ -35,12 +37,16 @@
     font-size: 28px;
     left: 0;
     top: 0;
-    color: var(--nav-button-icon-color);
+    color: var(--test-colour-rusty-red);
     padding: 0;
     line-height: 26px;
     border-radius: 2px;
     margin-left: 10px;
     margin-top: 10px;
+}
+
+.back-button:hover {
+    box-shadow: 0 0 10px var(--box-shadow-4);
 }
 
 .login-button {
@@ -49,10 +55,14 @@
     margin-top: 14px;
     border-radius: 20px;
     height: 2.5rem;
-    background-color: #771f0d;
+    background-color: var(--login-button-colour);
     border: none;
     font-size: 15px;
     color: var(--small-text-color);
+}
+
+.login-button:hover {
+    box-shadow: 0 0 10px var(--box-shadow-3);
 }
 
 .register-prompt {
@@ -75,12 +85,17 @@
     flex: 1;
     min-width: 0;
     box-sizing: border-box;
-    border: var(--border-2);
+    border: var(--border-5);
     border-radius: 20px;
-    background-color: var(--main-bg-color);
+    background-color: var(--main-bg-color-2);
     height: 2.5rem;
     padding: 0 0 0 14px;
     margin-bottom: 0;
+}
+
+.login-form-container .login-field-group .form-control:focus {
+  outline: var(--border-5);
+  outline-offset: -2px;
 }
 
 .login-form-container .login-field-group .invalid-feedback {
