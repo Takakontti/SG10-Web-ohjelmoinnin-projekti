@@ -9,7 +9,7 @@ router.get('/:groupId/users', getGroupUsers)
 
 router.get('/user-groups', requireAuth, getAvailableGroups)
 
-router.post('/:groupId/lists', requireAuth, requireGroupAdmin, createMovieList)
+router.post('/:groupId/lists/create', requireAuth, requireGroupAdmin, createMovieList)
 
 router.post('/new-group', requireAuth, NewGroup)
 

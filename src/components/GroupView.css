@@ -30,12 +30,16 @@
 
 .group-chat .items {
   display: flex;
-  flex-direction: column-reverse;
-  place-items: center center;
+  flex-direction: column;
+  align-items: stretch;
   width: 100%;
   height: 55rem;
   padding: 0;
-  overflow-y: scroll; /* Magic */
+  overflow: hidden; /* No more magic */
+}
+
+.group-chat .items [data-item-index] {
+  padding-bottom: 1rem;
 }
 
 .group-chat-section h1 {
