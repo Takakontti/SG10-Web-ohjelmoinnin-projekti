@@ -7,9 +7,9 @@ import NavBar from './NavBar'
 export default function SearchResults() {
   const [searchParams] = useSearchParams()
   const [searchData,setSearchData] = useState([])
-  const [loading,setLoading] = useState(true)
   const [lastPage,setLastPage] = useState(0)
   const [getPage,setGetPage] = useState(1)
+  const [error,setError] = useState('')
   const navigate = useNavigate()
 
   const moviePage = (event,id) => {
@@ -27,7 +27,7 @@ export default function SearchResults() {
           page: getPage,
           index: searchData.length || 0
         }})
-        
+
         const data = await response.data.data
         const movieListFlat = await data.movieList.flat()
         setLastPage(data.lastPage)
@@ -39,20 +39,28 @@ export default function SearchResults() {
             setSearchData((prevSearchData) => [...prevSearchData,...movieListFlat])
           }
         }
-      }finally{
-        setLoading(false)
+      }catch(err){
+        if(err.status === 404){
+          setError('Elokuvia ei löytynyt')
+        }
+        else setError('Jotain meni pieleen, yritä uudestaan myöhemmin')
+        setLastPage(1)
       }
     }
     loadMovies()
+    return
   },[getPage])
 
   const nextPage = () => {
     if(lastPage===getPage){
-      return
+      if(error === ''){
+        return(<p className='page-end'>Olet käynyt läpi kaikki hakutulokset.</p>)
+      }else{
+        return(<></>)
+      }
     }else{
       return(
         <button className='load-more-movie-cards' onClick={()=>{
-          setLoading(true)
           setGetPage(getPage + 1)
         }}>
           Hae lisää elokuvia
@@ -61,22 +69,24 @@ export default function SearchResults() {
     }
   }
 
-  if(loading===true){
-    return(<p>Haetaan elokuvia...</p>)
-  }
   return (
     <>
-      <section className='search-foundation'>
+      <div className='search-foundation'>
         <NavBar />
-        <section className='search-container'>
+        <div className='search-container'>
           <h1>Hakutulokset:</h1>
+          <h2 className='error-card'>{error}</h2>
           <ul className='movie-card-container'>
             {searchData.map(
               (movie) => {
                 return(
                   <li className='movie-card' key={movie.id}>
-                    <div className='movie-card-content' tabIndex={0} onClick={(event) => {moviePage(event,movie.movieId)}}>
-                      <img src={`https://image.tmdb.org/t/p/w342${movie.posterPath}`} alt="" />
+                    <div className='movie-card-content'
+                      role='button' tabIndex={0}
+                      onKeyDown={(event) => {if(event.key === 'Enter'){moviePage(event,movie.movieId)}}}
+                      onClick={(event) => {moviePage(event,movie.movieId)}}>
+                        
+                      <img src={movie.posterPath} alt="Movie poster" />
                       <div className='movie-card-text-box'>
                         <div className='movie-card-title-box'>
                           <h2>{movie.title}</h2>
@@ -91,8 +101,8 @@ export default function SearchResults() {
             )}
           </ul>
           {nextPage()}
-        </section>
-      </section>
+        </div>
+      </div>
     </>
   )
 }

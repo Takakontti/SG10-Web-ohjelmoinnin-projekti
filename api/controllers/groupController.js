@@ -1,4 +1,4 @@
-import { getGroupUsernames, getUserGroups, createGroupMovieList } from '../models/group.js'
+import { getGroupUsernames, getUserGroups, createGroupMovieList, createNewGroup } from '../models/group.js'
 import * as uuid from 'uuid'
 
 const getGroupUsers = async (req, res, next) => {
@@ -41,4 +41,25 @@ const createMovieList = async (req, res, next) => {
   }
 }
 
-export { getGroupUsers, getAvailableGroups, createMovieList }
+const NewGroup = async (req, res, next) => {
+  const groupName = req.body.groupName
+  const userId = req.user.id
+
+  if (/[@#$€%&*^¨~=¿;|§½+\\,/£{}()<>`´¸\[\]":]/.test(groupName)) {
+    return res.status(422).json({ message: 'Sallitut erikoismerkit on = ! ? \' _ -' })
+  }
+
+  try {
+    const result = await createNewGroup(groupName, userId)
+
+    return res.status(201).json({ message: 'Group created successfully', result })
+  } catch (error) {
+    // ? detailissa katsoo että onko se undefined vaikko ei
+    if(error.detail?.includes('already exists')){
+      return res.status(409).json({ message: 'Ryhmän nimi on jo käytössä' })
+    }
+    next(error)
+  }
+}
+
+export { getGroupUsers, getAvailableGroups, createMovieList, NewGroup }
