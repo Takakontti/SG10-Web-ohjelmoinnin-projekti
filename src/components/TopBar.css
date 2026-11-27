@@ -17,3 +17,9 @@ header {
   align-items: center;
   justify-content: center;
 }
+
+.profile_button i {
+  font-size: 60px;
+  color: var(--nav-button-icon-color);
+  padding-bottom: 10%;
+}
