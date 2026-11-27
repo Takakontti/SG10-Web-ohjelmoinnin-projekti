@@ -21,15 +21,16 @@ const createReview = async (user, stars, review, movie, groupID = '10000000-0000
     )
     return result.rows
   },
-  showGroupReviews = async (groupID) => {
+  showGroupReviews = async (groupID, limit, offset) => {
     const result = await pool.query(
-      `SELECT reviews.user_id, users.username, reviews.stars, reviews.review, reviews.movie_id, reviews.group_id, reviews.posted_date
+      `SELECT reviews.id, reviews.user_id, users.username, reviews.stars, reviews.review, reviews.movie_id, reviews.group_id, reviews.posted_date
       FROM reviews
       LEFT JOIN users
       ON reviews.user_id = users.id
       WHERE reviews.group_id = $1
-      ORDER BY reviews.posted_date ASC`,
-      [groupID]
+      ORDER BY reviews.posted_date DESC, reviews.id DESC
+      LIMIT $2 OFFSET $3`,
+      [groupID, limit, offset]
     )
     return result.rows
   }

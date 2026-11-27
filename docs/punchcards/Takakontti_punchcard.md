@@ -108,5 +108,27 @@ Yht 4h 20m
 
 - 08:00-10:30 ryhmä listojen käyttöliittymä koodaus.
 - 11:45-13:00 ryhmä listojen käyttöliittymä viimeistely.
+- 13:30-16:30 arvostelu backend koodaus
 
-Yht 3h 45m
+Yht 6h 45m
+
+## 25.11.2026
+
+- 10:00-12:00 arvostelu backend koodaus
+- 14:30-19:00 arvostelu frontend koodaus
+
+Yht 6h 30m
+
+## 26.11.2026
+
+- 10:00-11:00 englannin tunti
+- 12:00-14:00 etusivun hakupalkin parantaminen
+- 14:00-18:00 arvostelu frontend koodaus
+
+Yht 7h
+
+## 27.11.2026
+
+- 11:30-16:30 arvostelu frontend koodaus
+
+Yht 5h

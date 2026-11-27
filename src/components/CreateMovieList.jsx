@@ -62,7 +62,7 @@ export default function CreateMovieList() {
 
     setIsSubmitting(true)
     try {
-      await axios.post(`/api/groups/${selectedGroupId}/lists`, {
+      await axios.post(`/api/groups/${selectedGroupId}/lists/create`, {
         listName: trimmedName
       })
       setMessage('Elokuvalista luotu onnistuneesti.')

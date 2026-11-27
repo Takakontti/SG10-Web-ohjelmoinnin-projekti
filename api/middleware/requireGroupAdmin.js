@@ -3,7 +3,7 @@ import * as uuid from 'uuid'
 
 const requireGroupAdmin = async (req, res, next) => {
   if (!req.user.id) {
-    //return res.status(401).json({ message: 'Authentication is required' })
+    return res.status(401).json({ message: 'Authentication is required' })
   }
 
   const { groupId } = req.params
