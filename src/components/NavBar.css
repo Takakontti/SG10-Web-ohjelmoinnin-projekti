@@ -6,7 +6,7 @@ nav {
 }
 
 .nav-btn {
-  border-radius: 10%;
+  border-radius: 8px;
   width: 2.5rem;
   height: 2.5rem;
   border: var(--border-3);
@@ -14,8 +14,9 @@ nav {
   cursor: pointer;
   margin-bottom: 0.5rem;
   display: flex;
-  place-content: center center;
+  place-content: center left;
   transition: ease 0.25s;
+  padding-left: 0.5rem;
 }
 
 .nav-btn .bi {
@@ -24,13 +25,24 @@ nav {
   color: var(--nav-button-icon-color);
 }
 
-.nav-btn:hover {  
-  transform: translateX(-12px); /* -12px to the left on hover */
+.nav-btn:hover {
+  border-color: none;
+  box-shadow: none;
 }
 
-@media (min-width: 850px) {
+@media (min-width: 1300px) {
   nav {
     position: relative;
-    left: 15px;
+    left: 3.5rem;
+  }
+
+  .nav-btn {
+    width: 5rem;
+  }
+
+  .nav-btn:hover {  
+    transform: translateX(-12px); /* -12px to the left on hover */
+    box-shadow: var(--box-shadow-1);
+    border-color: #e77e3c; /* THIS NEEDS TO GO ASAP */
   }
 }

@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   position: unset;
-  width: 80%;
+  width: 80rem;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
   height: 40rem; /* Temp hardcoded height for the base of the front page */
-  padding: 30px;
+  padding: 1.875rem;
   border-radius: 5px;
   box-shadow: 0 0 10px;
   background-color: var(--main-bg-color);
@@ -23,9 +25,8 @@
 
 .search-bar-fp {
   position: relative;
-  width: 20rem;
+  max-width: 30rem;
   margin: 1rem auto;
-
 }
 
 .search-bar-fp input {
@@ -62,13 +63,8 @@
   transform: scale(1.2);
 }
 
-@media (min-width: 850px) {
+@media (min-width: 1300px) {
   .main-container{
-    width: 80rem;
     position: relative;
-  }
-
-  .search-bar-fp {
-    width: 30rem;
   }
 }
