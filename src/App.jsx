@@ -13,6 +13,7 @@ import CreateMovieList from './components/CreateMovieList'
 import Review from './components/review/Review'
 import MoviePage from './components/MoviePage'
 import TopBar from './components/TopBar'
+import GroupCreation from './components/GroupCreation'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/Authentication/Login' element={<Login />} />
         <Route path='/search' element={<SearchResults />} />
         <Route path='/GroupView' element={<GroupView />} />
+        <Route path='/GroupCreation' element={<GroupCreation />} />
         <Route path='/CreateMovieList' element={<CreateMovieList />} />
         <Route path='/MovieReviews' element={<Review />} />
         <Route path='/movie' element={<MoviePage />} />

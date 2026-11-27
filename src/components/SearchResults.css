@@ -3,47 +3,47 @@
   display: inline-flex;
   justify-content: center;
   flex: 1;
+  min-height: 100vh;
 }
 
 .search-container {
-  position: relative;
+  position: unset;
   margin-bottom: 6.25rem;
   border-radius: 5px;
   flex-direction: column;
   display: flex;
-  width: 84rem; /*I have no clue why but this is the same size as 80rem on other pages*/
+  width: 95%;
   box-shadow: 0 0 10px;
   background-color: var(--main-bg-color);
 }
 
 .search-container h1 {
   margin-bottom: 0;
+  padding-bottom: 1.88rem;
 }
 
 .movie-card-container {
   margin: 0;
   padding: 1.88rem;
+  padding-top: 0;
   list-style: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
   row-gap: 1.88rem;
 }
 
 .movie-card {
   background-color: var(--search-card-bg-color);
   border-radius: 8px;
-  flex-basis: 44%;
   padding: 1.88rem;
-  display: flex;
-  flex-direction: row;
   height: fit-content;
 }
 
 .movie-card-content {
   display: flex;
-  flex-direction: rows;
+  flex-direction: column;
+  zoom: 0.8;
   background-color: var(--search-card-desc-bg-color);
   width: 100%;
   border-top-left-radius: 8px;
@@ -60,7 +60,7 @@
 .movie-card img {
   min-width: 50%;
   border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .movie-card-text-box {
@@ -71,7 +71,6 @@
 }
 
 .movie-card-title-box {
-  border-top-right-radius: 8px;
   margin: 0;
   background-color: var(--search-card-title-bg-color);
   padding: 0.63rem;
@@ -93,19 +92,50 @@
   margin-bottom: 2rem;
 }
 
-@media only screen and (max-width: 414px) {
+.error-card{
+  height: fit-content;
+  margin: 0;
+  color: var(--error-color);
+}
+
+.page-end{
+  margin-top: 0;
+  margin-bottom: 1.88rem;
+}
+
+@media (min-width: 450px) {
   .search-container{
-    width: 100%;
+    width: 88%;
+  }
+
+  .movie-card-content{
+    flex-direction: row;
+    zoom: 1;
+  }
+
+  .movie-card-title-box {
+    border-top-right-radius: 8px;
+  }
+
+  .movie-card img{
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0px;
+  }
+}
+
+
+@media (min-width: 1300px) {
+  .search-container{
+    width: 84rem; /*I have no clue why but this is the same size as 80rem on other pages*/
+    position: relative;
   }
 
   .movie-card{
-    flex-basis: 100%;
+    flex-basis: 44%;
   }
 
-  .search-tmdb-logo {
-    padding: 0;
-    left: 1rem;
-    top: 1rem;
-    zoom: 0.6;
+  .movie-card-container{
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
