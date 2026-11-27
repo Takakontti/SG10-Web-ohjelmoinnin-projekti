@@ -7,10 +7,12 @@
 }
 
 .login-form-container {
+    position: relative;
     width: 320px;
     max-width: 400px;
     padding: 30px;
-    zoom: 1.2;
+    box-sizing: border-box;
+    zoom: 1.3;
     border-radius: 5px;
     box-shadow: 0 0 10px;
     background-color: var(--main-bg-color);
@@ -18,64 +20,104 @@
 
 .login-title {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 0;
 }
 
 .login-form {
     margin-bottom: 15px;
 }
 
+.back-button {
+    position: absolute;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    left: 0;
+    top: 0;
+    color: var(--nav-button-icon-color);
+    padding: 0;
+    line-height: 26px;
+    border-radius: 2px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 .login-button {
     width: 100%;
     margin-bottom: 5px;
+    margin-top: 14px;
+    border-radius: 20px;
+    height: 2.5rem;
+    background-color: #771f0d;
+    border: none;
+    font-size: 15px;
+    color: var(--small-text-color);
 }
 
-.login-buttons {
-    width: 49%;
+.register-prompt {
+    color: var(--small-text-color);
 }
 
-.buttons {
+
+.login-form-container .login-field-group {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.mb-3 {
-    display: flex;
-    flex-wrap: wrap;
+    position: relative;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    padding-top: 0.9rem;
+    margin-bottom: 0px;
     zoom: 1.1;
 }
 
-.login-form-container .mb-3 .form-label {
-    flex: 0 0 8rem;
-    margin-bottom: 0;
-    text-align: left;
-}
-
-.login-form-container .mb-3 .form-control {
+.login-form-container .login-field-group .form-control {
     flex: 1;
     min-width: 0;
     box-sizing: border-box;
     border: var(--border-2);
-    border-radius: 8px;
+    border-radius: 20px;
+    background-color: var(--main-bg-color);
+    height: 2.5rem;
+    padding: 0 0 0 14px;
+    margin-bottom: 0;
+}
+
+.login-form-container .login-field-group .invalid-feedback {
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 0.8rem;
+    width: max-content;
+    padding: 10px 5px;
+    border-radius: 4px;
+    color: var(--error-color);
+    font-size: 0.65rem;
+    line-height: 0.2;
     background-color: var(--main-bg-color);
 }
 
-.login-form-container .mb-3 .invalid-feedback {
-    flex: 0 0 calc(100% - 8rem);
-    margin-left: 8rem;
-    color: var(--error-color);
-}
-
 .login-error {
-  margin-bottom: 15px;
-  color: var(--error-color);
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    width: 90%;
+    box-sizing: border-box;
+    background-color: color-mix(in srgb, var(--error-color) 15%, var(--main-bg-color) 85%);
+    border-radius: 8px;
+    color: var(--error-color);
+    font-size: small;
+    transform: translateX(-50%);
 }
 
 .login-success {
-  margin-bottom: 15px;
-  color: var(--success-color);
+    margin-bottom: 15px;
+    color: var(--success-color);
+}
+
+@media (max-width: 480px) {
+    .login-form-container {
+        width: 100%;
+        zoom: 1;
+    }
 }
