@@ -16,7 +16,7 @@
     border-radius: 5px;
     border: var(--border-5);
     box-shadow: 0 0 10px var(--box-shadow-2);
-    color: var(--small-text-color);
+    color: var(--small-text-color); 
     background-color: var(--main-bg-color);
 }
 
@@ -45,7 +45,7 @@
     margin-top: 10px;
 }
 
-.register-buttons {
+.register-button {
     width: 100%;
     margin-bottom: 5px;
     margin-top: 14px;

@@ -89,14 +89,14 @@ function Register() {
   return (
     <div className="register-wrapper">
       <div className="register-form-container">
-        <Button className='back-button' onClick={mainPage} aria-label="Takaisin kirjautumiseen">
+        <Button className='back-button' onClick={mainPage}>
           <i className='bi bi-arrow-left-square' aria-hidden='true' />
         </Button>
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
           {errors.form && <Alert className='register-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='register-success' variant="success" role="alert">{success.form}</Alert>}
-          <Form.Group className="mb-3 register-field-group" controlId="formBasicEmail">
+          <Form.Group className="register-field-group" controlId="formBasicEmail">
             <Form.Control
               type="email"
               placeholder="Sähköpostiosoite"
@@ -112,9 +112,9 @@ function Register() {
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3 register-field-group" controlId="formBasicUsername">
+          <Form.Group className="register-field-group" controlId="formBasicUsername">
             <Form.Control
-              type="text"
+              type="username"
               placeholder="Käyttäjätunnus"
               value={username}
               onChange={(e) => {
@@ -128,7 +128,7 @@ function Register() {
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3 register-field-group" controlId="formBasicPassword">
+          <Form.Group className="register-field-group" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Salasana"
@@ -144,7 +144,7 @@ function Register() {
             )}
           </Form.Group>
 
-          <Button variant="primary" type="submit" className="register-buttons" disabled={isSubmitting}>
+          <Button variant="primary" type="submit" className="register-button" disabled={isSubmitting}>
             {isSubmitting ? 'Rekisteröidytään...' : 'Rekisteröidy'}
           </Button>
         </Form>
