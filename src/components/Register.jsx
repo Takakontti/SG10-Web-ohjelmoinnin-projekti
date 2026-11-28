@@ -29,8 +29,12 @@ function Register() {
     const newErrors = {}
     if (!email.trim()) newErrors.email = 'Sähköpostiosoite vaaditaan.'
     if (!username.trim()) newErrors.username = 'Käyttäjätunnus vaaditaan.'
-    if (password.length < 8) newErrors.password = 'Salasanan pitää olla vähintään 8 merkkiä pitkä.'
     if (!password.trim()) newErrors.password = 'Salasana vaaditaan.'
+    // Jos löytyy tyhjiä kenttiä, palautetaan virheet ja ei tarkisteta muita sääntöjä.
+    if (newErrors.email || newErrors.username || newErrors.password) return newErrors
+    if (!/[!@#$€£%&*,.?":+-]/.test(password)) newErrors.form = 'Salasanan täytyy sisältää vähintään yksi erikoismerkki'
+    if (password.length < 8 && password.length !== 0) newErrors.form = 'Salasanan pitää olla vähintään 8 merkkiä pitkä.'
+    if (/[\^¨~¿;|§½\\/{}()<>`´¸\[\]]/.test(password)) newErrors.form = 'Sallitut erikoismerkit ovat: !@#$€£%&*,.?":+-'
     return newErrors
   }
 
@@ -68,6 +72,8 @@ function Register() {
             return ('Sähköpostiosoite on jo käytössä')
           case 'The username is already in use':
             return ('Käyttäjänimi on jo käytössä')
+          case 'Password contains invalid special characters valid characters are: !@#$€£%&*,.?":+-':
+            return ('Sallitut erikoismerkit ovat: !@#$€£%&*,.?":+-')
           default:
             return errmesg
         }
@@ -83,12 +89,14 @@ function Register() {
   return (
     <div className="register-wrapper">
       <div className="register-form-container">
+        <Button className='back-button' onClick={mainPage} aria-label="Takaisin kirjautumiseen">
+          <i className='bi bi-arrow-left-square' aria-hidden='true' />
+        </Button>
         <h2 className="register-title">Rekisteröidy</h2>
         <Form onSubmit={handleSubmit}>
           {errors.form && <Alert className='register-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='register-success' variant="success" role="alert">{success.form}</Alert>}
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Sähköpostiosoite:</Form.Label>
+          <Form.Group className="mb-3 register-field-group" controlId="formBasicEmail">
             <Form.Control
               type="email"
               placeholder="Sähköpostiosoite"
@@ -99,13 +107,14 @@ function Register() {
               }}
               isInvalid={Boolean(errors.email)}
             />
-            <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+            {errors.email && (
+              <Form.Control.Feedback type="invalid" role="alert">{errors.email}</Form.Control.Feedback>
+            )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicUsername">
-            <Form.Label>Käyttäjätunnus:</Form.Label>
+          <Form.Group className="mb-3 register-field-group" controlId="formBasicUsername">
             <Form.Control
-              type="username"
+              type="text"
               placeholder="Käyttäjätunnus"
               value={username}
               onChange={(e) => {
@@ -114,11 +123,12 @@ function Register() {
               }}
               isInvalid={Boolean(errors.username)}
             />
-            <Form.Control.Feedback type="invalid">{errors.username}</Form.Control.Feedback>
+            {errors.username && (
+              <Form.Control.Feedback type="invalid" role="alert">{errors.username}</Form.Control.Feedback>
+            )}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Salasana:</Form.Label>
+          <Form.Group className="mb-3 register-field-group" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Salasana"
@@ -129,16 +139,14 @@ function Register() {
               }}
               isInvalid={Boolean(errors.password)}
             />
-            <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+            {errors.password && (
+              <Form.Control.Feedback type="invalid" role="alert">{errors.password}</Form.Control.Feedback>
+            )}
           </Form.Group>
 
-          <div className='button-box'>
-            <Button className='register-buttons' onClick={mainPage}>Takaisin</Button>
-            <Button variant="primary" type="submit" className="register-buttons" disabled={isSubmitting}>
-              {isSubmitting ? 'Rekisteröidytään...' : 'Rekisteröidy'}
-            </Button>
-          </div>
-
+          <Button variant="primary" type="submit" className="register-buttons" disabled={isSubmitting}>
+            {isSubmitting ? 'Rekisteröidytään...' : 'Rekisteröidy'}
+          </Button>
         </Form>
       </div>
     </div>
