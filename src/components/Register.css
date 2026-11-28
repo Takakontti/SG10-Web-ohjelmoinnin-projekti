@@ -125,6 +125,10 @@
     transform: translateX(-50%);
 }
 
+.back-button:hover {
+    box-shadow: 0 0 10px var(--box-shadow-4);
+}
+
 @media (max-width: 480px) {
     .register-form-container {
         width: 100%;
