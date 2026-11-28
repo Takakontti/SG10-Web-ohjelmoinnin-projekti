@@ -131,5 +131,12 @@ Yht 7h
 
 - 11:30-16:30 arvostelu frontend koodaus
 - 19:00-20:30 login frontend koodaus
+- 20:30-21:00 register frontend suunnittelu
 
-Yht 6h 30m
+Yht 7h
+
+## 28.11.2026
+
+- 10:30-12:30 register frontend koodaus
+
+Yht 2h

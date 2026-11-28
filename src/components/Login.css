@@ -61,10 +61,6 @@
     color: var(--small-text-color);
 }
 
-.login-button:hover {
-    box-shadow: 0 0 10px var(--box-shadow-3);
-}
-
 .register-prompt {
     color: var(--small-text-color);
 }

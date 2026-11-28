@@ -62,8 +62,11 @@ const login = async (req, res, next) => {
     if (!/[0-9]/.test(password)) {
       return res.status(422).json({ message: 'Password must contain at least one number' })
     }
-    if (!/[!@#$%&*,.?":]/.test(password)) {
+    if (!/[!@#$€£%&*,.?":+-]/.test(password)) {
       return res.status(422).json({ message: 'Password must contain at least one special character' })
+    }
+    if (/[\^¨~¿;|§½\\/{}()<>`´¸\[\]]/.test(password)) {
+      return res.status(422).json({ message: 'Password contains invalid special characters valid characters are: !@#$€£%&*,.?":+-' })
     }
 
     if (!validator.isEmail(email)) {

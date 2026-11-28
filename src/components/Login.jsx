@@ -71,7 +71,7 @@ function Login() {
         <Form onSubmit={handleSubmit}>
           {errors.form && <Alert className='login-error' variant="danger" role="alert">{errors.form}</Alert>}
           {success.form && <Alert className='login-success' variant="success" role="alert">{success.form}</Alert>}
-          <Form.Group className="mb-3 login-field-group" controlId="formBasicUsername">
+          <Form.Group className="login-field-group" controlId="formBasicUsername">
             <Form.Control
               type="text"
               placeholder="Käyttäjätunnus / Sähköposti"
@@ -90,7 +90,7 @@ function Login() {
             )}
           </Form.Group>
 
-          <Form.Group className="mb-3 login-field-group" controlId="formBasicPassword">
+          <Form.Group className="login-field-group" controlId="formBasicPassword">
             <Form.Control
               type="password"
               placeholder="Salasana"
