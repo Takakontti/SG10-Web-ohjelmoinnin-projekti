@@ -21,10 +21,6 @@ function Register() {
 
   const navigate = useNavigate()
 
-  const mainPage = () => {
-    navigate('/Authentication/Login')
-  }
-
   const validateForm = () => {
     const newErrors = {}
     if (!email.trim()) newErrors.email = 'Sähköpostiosoite vaaditaan.'
@@ -89,7 +85,7 @@ function Register() {
   return (
     <div className="register-wrapper">
       <div className="register-form-container">
-        <Button className='back-button' onClick={mainPage}>
+        <Button className='back-button' onClick={() => navigate('/authentication/login')}>
           <i className='bi bi-arrow-left-square' aria-hidden='true' />
         </Button>
         <h2 className="register-title">Rekisteröidy</h2>
